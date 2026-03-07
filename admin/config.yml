@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: YOUR-GITHUB-USERNAME/YOUR-REPO-NAME
+  repo: mitchelltransue/pokemon-firered-leafgreen-team-builder
   branch: main
 
 media_folder: "images/uploads"
