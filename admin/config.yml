@@ -29,8 +29,3 @@ collections:
       - label: Body
         name: body
         widget: markdown
-```
-
-7. Commit with the message:
-```
-Fix config.yml formatting
