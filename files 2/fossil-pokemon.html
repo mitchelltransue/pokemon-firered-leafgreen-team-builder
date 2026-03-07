@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="google-site-verification" content="9FIv9kf_N8yO2BEWcwrzuch4oOpBZ9iaJ0WvpiqGvy4" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fossil Pokemon Guide | Omanyte, Kabuto & Aerodactyl in FireRed LeafGreen</title>
+<meta name="description" content="How to get Omanyte, Kabuto and Aerodactyl in Pokemon FireRed and LeafGreen. Where to find fossils in Mt. Moon, and how to revive them at Cinnabar Island.">
+<link rel="canonical" href="https://pokemonfrlgteambuilder.netlify.app/fossil-pokemon.html">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Fossil Pokémon Guide — Fire Red & Leaf Green">
+<meta property="og:type" content="article">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Where do you get the Dome Fossil and Helix Fossil in Fire Red?","acceptedAnswer":{"@type":"Answer","text":"Both fossils are found in Mt. Moon, the cave between Pewter City and Cerulean City. A Super Nerd near the end of the cave guards them — you must defeat him. You can only pick ONE: the Dome Fossil (revives into Kabuto) or the Helix Fossil (revives into Omanyte). The other fossil is permanently lost."}},
+    {"@type":"Question","name":"Where do you revive fossils in Fire Red and Leaf Green?","acceptedAnswer":{"@type":"Answer","text":"Take your fossil to the lab on the 1st floor of the Cinnabar Island Pokémon Lab. A scientist there will revive any fossil into a living Pokémon. You'll need to be able to reach Cinnabar Island (requires Surf)."}},
+    {"@type":"Question","name":"Where do you get the Old Amber in Fire Red?","acceptedAnswer":{"@type":"Answer","text":"Talk to a scientist in the back room of the Pewter City Museum (enter through the back door from Route 3 side). He gives you the Old Amber for free, which revives into Aerodactyl at the Cinnabar Island lab."}},
+    {"@type":"Question","name":"Which fossil is better in Fire Red — Dome or Helix?","acceptedAnswer":{"@type":"Answer","text":"Dome Fossil (Kabuto/Kabutops) is generally considered better for in-game use thanks to higher Attack and Speed. Helix Fossil (Omanyte/Omastar) has better Special Defense stats. Both are Water/Rock types available around the same time."}}
+  ]
+}
+</script>
+<style>
+  :root {
+    --bg:#0e0e12; --surface:#1a1a24; --surface2:#22222e; --surface3:#2a2a38;
+    --border:rgba(255,255,255,0.07); --border-hi:rgba(255,255,255,0.14);
+    --red:#e8354a; --red-soft:rgba(232,53,74,0.15);
+    --green:#2ec97a; --green-soft:rgba(46,201,122,0.13);
+    --gold:#f5c842; --gold-soft:rgba(245,200,66,0.12);
+    --blue:#4b9eff; --blue-soft:rgba(75,158,255,0.12);
+    --amber:#f59e0b; --amber-soft:rgba(245,158,11,0.12);
+    --text:#f0eff4; --text-2:#9896a8; --text-3:#5a5870;
+    --r-sm:8px; --r-md:14px; --r-lg:20px; --r-xl:28px;
+    --font-ui:'Nunito',sans-serif; --font-pixel:'Press Start 2P',monospace;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:var(--font-ui);font-size:15px;min-height:100vh;
+    background-image:radial-gradient(ellipse 80% 50% at 10% 0%,rgba(245,158,11,0.07) 0%,transparent 60%),
+    radial-gradient(ellipse 80% 50% at 90% 0%,rgba(104,144,240,0.06) 0%,transparent 60%);}
+  ::-webkit-scrollbar{width:5px;} ::-webkit-scrollbar-track{background:transparent;}
+  ::-webkit-scrollbar-thumb{background:var(--surface3);border-radius:99px;}
+  header{background:var(--surface);border-bottom:1px solid var(--border);padding:40px 24px 32px;position:relative;overflow:hidden;}
+  header::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(245,158,11,0.06) 0%,transparent 50%,rgba(104,144,240,0.04) 100%);pointer-events:none;}
+  .header-inner{max-width:860px;margin:0 auto;position:relative;}
+  .breadcrumb{font-size:12px;color:var(--text-3);margin-bottom:12px;}
+  .breadcrumb a{color:var(--text-3);text-decoration:none;}
+  header h1{font-family:var(--font-pixel);font-size:clamp(11px,2vw,16px);line-height:1.7;color:var(--text);margin-bottom:10px;}
+  header h1 .accent{color:var(--amber);}
+  .header-desc{color:var(--text-2);font-size:15px;max-width:620px;line-height:1.6;}
+  .header-tags{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap;}
+  .htag{background:var(--surface2);border:1px solid var(--border);padding:4px 12px;border-radius:99px;font-size:12px;font-weight:700;color:var(--text-2);}
+  .page-body{max-width:860px;margin:0 auto;padding:32px 24px 80px;}
+  .poke-section{margin-bottom:52px;}
+  .section-label{font-family:var(--font-pixel);font-size:9px;color:var(--text-3);letter-spacing:.1em;margin-bottom:16px;display:flex;align-items:center;gap:12px;}
+  .section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+  .fossil-choice{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:32px;}
+  .fossil-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-xl);padding:24px;text-align:center;position:relative;overflow:hidden;transition:border-color .2s,transform .2s;}
+  .fossil-card:hover{border-color:var(--border-hi);transform:translateY(-2px);}
+  .fossil-card.dome::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(104,144,240,0.1),transparent 70%);pointer-events:none;}
+  .fossil-card.helix::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(46,201,122,0.1),transparent 70%);pointer-events:none;}
+  .fossil-card img{width:72px;height:72px;image-rendering:pixelated;filter:drop-shadow(0 4px 10px rgba(0,0,0,0.5));margin-bottom:12px;}
+  .fossil-card h3{font-family:var(--font-pixel);font-size:9px;color:var(--text);margin-bottom:6px;}
+  .fossil-card .fossil-name{font-size:12px;color:var(--text-3);margin-bottom:10px;}
+  .fossil-badge{display:inline-block;padding:4px 14px;border-radius:99px;font-size:11px;font-weight:800;}
+  .fossil-badge.dome{background:var(--blue-soft);color:var(--blue);border:1px solid rgba(75,158,255,0.25);}
+  .fossil-badge.helix{background:var(--green-soft);color:var(--green);border:1px solid rgba(46,201,122,0.25);}
+  .fossil-stat-row{display:flex;gap:6px;justify-content:center;margin-top:10px;flex-wrap:wrap;}
+  .fstat{background:var(--surface2);border-radius:var(--r-sm);padding:4px 10px;font-size:11px;color:var(--text-2);}
+  .fstat strong{color:var(--text);}
+  .steps{display:flex;flex-direction:column;gap:14px;margin-bottom:24px;}
+  .step{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:20px 22px;display:flex;gap:18px;align-items:flex-start;transition:border-color .2s;}
+  .step:hover{border-color:var(--border-hi);}
+  .step-num{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-pixel);font-size:9px;flex-shrink:0;margin-top:2px;}
+  .step-num.amber{background:var(--amber-soft);color:var(--amber);border:1px solid rgba(245,158,11,0.3);}
+  .step-content h3{font-size:15px;font-weight:800;color:var(--text);margin-bottom:5px;}
+  .step-content p{color:var(--text-2);font-size:14px;line-height:1.6;}
+  .step-content .tip{background:var(--surface2);border-left:3px solid var(--amber);border-radius:0 var(--r-sm) var(--r-sm) 0;padding:10px 14px;margin-top:10px;font-size:13px;color:var(--text-2);line-height:1.5;}
+  .step-content .tip.blue{border-left-color:var(--blue);}
+  .step-content .tip strong{color:var(--text);}
+  .alert{border-radius:var(--r-md);padding:16px 20px;margin:16px 0;font-size:14px;line-height:1.6;display:flex;gap:12px;align-items:flex-start;}
+  .alert-icon{font-size:18px;flex-shrink:0;margin-top:1px;}
+  .alert.warning{background:rgba(245,200,66,0.08);border:1px solid rgba(245,200,66,0.2);}
+  .alert.warning p{color:var(--text-2);} .alert.warning strong{color:var(--gold);}
+  .alert.amber{background:var(--amber-soft);border:1px solid rgba(245,158,11,0.25);}
+  .alert.amber p{color:var(--text-2);} .alert.amber strong{color:var(--amber);}
+  .aero-header{display:flex;align-items:center;gap:20px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-xl);padding:24px 28px;margin-bottom:28px;position:relative;overflow:hidden;}
+  .aero-header::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(245,158,11,0.07),transparent);pointer-events:none;border-radius:var(--r-xl);}
+  .aero-header img{width:80px;height:80px;image-rendering:pixelated;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.5));flex-shrink:0;}
+  .type-badge{padding:3px 12px;border-radius:99px;font-size:11px;font-weight:800;}
+  .t-rock{background:rgba(184,160,56,0.2);color:#b8a038;}
+  .t-flying{background:rgba(168,144,240,0.2);color:#a890f0;}
+  .info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:20px;}
+  .info-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:18px 20px;}
+  .info-card h4{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--text-3);margin-bottom:10px;}
+  .info-card ul{list-style:none;display:flex;flex-direction:column;gap:6px;}
+  .info-card li{font-size:14px;color:var(--text-2);padding-left:14px;position:relative;line-height:1.4;}
+  .info-card li::before{content:'›';position:absolute;left:0;color:var(--amber);}
+  .page-divider{border:none;border-top:1px solid var(--border);margin:48px 0;}
+  .cta-bar{background:var(--surface);border:1px solid var(--border-hi);border-radius:var(--r-xl);padding:28px 32px;text-align:center;margin-top:48px;}
+  .cta-bar h3{font-family:var(--font-pixel);font-size:11px;color:var(--text);margin-bottom:10px;}
+  .cta-bar p{color:var(--text-2);font-size:14px;margin-bottom:18px;}
+  .btn-primary{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--red),#c0293c);color:#fff;text-decoration:none;padding:12px 28px;border-radius:var(--r-md);font-weight:800;font-size:14px;transition:all .2s;box-shadow:0 4px 14px rgba(232,53,74,0.25);}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(232,53,74,0.35);}
+  @media(max-width:600px){.fossil-choice{grid-template-columns:1fr;}
+}
+  /* NAV */
+  .site-nav-wrap{background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;overflow:hidden;}
+  .site-nav{display:flex;align-items:center;padding:0 20px;height:52px;min-width:0;}
+  .nav-brand{font-family:var(--font-pixel);font-size:9px;color:var(--red);padding-right:18px;border-right:1px solid var(--border);margin-right:4px;flex-shrink:0;white-space:nowrap;}
+  .nav-links{display:flex;align-items:center;flex:1;min-width:0;overflow:hidden;flex-wrap:nowrap;}
+  .nav-links a{display:inline-flex;align-items:center;gap:5px;padding:0 11px;height:52px;color:var(--text-2);text-decoration:none;font-size:12px;font-weight:700;border-bottom:2px solid transparent;transition:all .2s;white-space:nowrap;flex-shrink:0;}
+  .nav-links a:hover{color:var(--text);background:rgba(255,255,255,0.04);}
+  .nav-links a.active{color:var(--gold);border-bottom-color:var(--gold);}
+  .nav-burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;padding:8px;margin-left:auto;background:none;border:none;cursor:pointer;border-radius:var(--r-sm);transition:background .2s;flex-shrink:0;}
+  .nav-burger:hover{background:rgba(255,255,255,0.06);}
+  .nav-burger span{display:block;height:2px;width:100%;background:var(--text-2);border-radius:2px;transition:all .3s;}
+  .nav-burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .nav-burger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+  .nav-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .nav-drawer{display:none;flex-direction:column;background:var(--surface);border-top:1px solid var(--border);padding:8px 0 12px;}
+  .nav-drawer.open{display:flex;}
+  .nav-drawer a{display:flex;align-items:center;gap:10px;padding:13px 24px;color:var(--text-2);text-decoration:none;font-size:14px;font-weight:700;transition:all .2s;border-left:3px solid transparent;}
+  .nav-drawer a:hover{color:var(--text);background:rgba(255,255,255,0.04);}
+  .nav-drawer a.active{color:var(--gold);border-left-color:var(--gold);background:rgba(245,200,66,0.08);}
+  @media(max-width:860px){
+    .nav-links{display:none;}
+    .nav-burger{display:flex;}
+  }
+</style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SWWLLSCX6W"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){{dataLayer.push(arguments);}}
+    gtag('js', new Date());
+    gtag('config', 'G-SWWLLSCX6W');
+  </script>
+</head>
+<body>
+<div class="site-nav-wrap">
+  <nav class="site-nav">
+    <span class="nav-brand">FR/LG</span>
+    <div class="nav-links">
+      <a href="index.html">&#x1F3E0; Team Builder</a>
+      <a href="rare-pokemon.html">&#x2B50; Rare Pok&eacute;mon</a>
+      <a href="fossil-pokemon.html" class="active">&#x1F995; Fossils</a>
+      <a href="legendary-birds.html">&#x1F985; Legendary Birds</a>
+      <a href="legendary-dogs.html">&#x1F43E; Legendary Dogs</a>
+      <a href="ho-oh-lugia.html">&#x1F31F; Ho-Oh &amp; Lugia</a>
+      <a href="mew-mewtwo.html">&#x1F9EC; Mew &amp; Mewtwo</a>
+    </div>
+    <button class="nav-burger" id="navBurger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-drawer" id="navDrawer">
+    <a href="index.html">&#x1F3E0; Team Builder</a>
+    <a href="rare-pokemon.html">&#x2B50; Rare Pok&eacute;mon</a>
+    <a href="fossil-pokemon.html" class="active">&#x1F995; Fossils</a>
+    <a href="legendary-birds.html">&#x1F985; Legendary Birds</a>
+    <a href="legendary-dogs.html">&#x1F43E; Legendary Dogs</a>
+    <a href="ho-oh-lugia.html">&#x1F31F; Ho-Oh &amp; Lugia</a>
+    <a href="mew-mewtwo.html">&#x1F9EC; Mew &amp; Mewtwo</a>
+  </div>
+</div>
+<script>
+  (function(){
+    var burger = document.getElementById('navBurger');
+    var drawer = document.getElementById('navDrawer');
+    if(burger && drawer){
+      burger.addEventListener('click', function(){
+        burger.classList.toggle('open');
+        drawer.classList.toggle('open');
+      });
+      drawer.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', function(){
+          burger.classList.remove('open');
+          drawer.classList.remove('open');
+        });
+      });
+    }
+  })();
+</script>
+<header>
+  <div class="header-inner">
+    <div class="breadcrumb"><a href="index.html">FR/LG Team Builder</a> › Fossil Pokémon Guide</div>
+    <h1>HOW TO GET <span class="accent">FOSSIL POKÉMON</span></h1>
+    <p class="header-desc">Omanyte, Kabuto, and Aerodactyl — three ancient Pokémon revived from fossils. One critical choice in Mt. Moon, and one free gift hiding in Pewter City.</p>
+    <div class="header-tags">
+      <span class="htag">🔴 Fire Red</span><span class="htag">🟢 Leaf Green</span>
+      <span class="htag">Pick One in Mt. Moon</span><span class="htag">Revive at Cinnabar Island</span>
+    </div>
+  </div>
+</header>
+<div class="page-body">
+  <div class="poke-section">
+    <div class="section-label">The Mt. Moon Choice — Dome or Helix Fossil?</div>
+    <div class="alert warning">
+      <span class="alert-icon">⚠️</span>
+      <p><strong>You can only pick one!</strong> Near the end of Mt. Moon, a Super Nerd guards two fossils. After defeating him, you choose either the Dome Fossil or the Helix Fossil. The other fossil is gone forever.</p>
+    </div>
+    <div class="fossil-choice">
+      <div class="fossil-card dome">
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/140.png" alt="Kabuto">
+        <h3>DOME FOSSIL</h3>
+        <div class="fossil-name">Revives into Kabuto → Kabutops</div>
+        <span class="fossil-badge dome">Physical Attacker</span>
+        <div class="fossil-stat-row">
+          <div class="fstat">ATK <strong>115</strong></div>
+          <div class="fstat">SPD <strong>80</strong></div>
+          <div class="fstat">DEF <strong>105</strong></div>
+        </div>
+      </div>
+      <div class="fossil-card helix">
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/138.png" alt="Omanyte">
+        <h3>HELIX FOSSIL</h3>
+        <div class="fossil-name">Revives into Omanyte → Omastar</div>
+        <span class="fossil-badge helix">Special Attacker</span>
+        <div class="fossil-stat-row">
+          <div class="fstat">Sp.ATK <strong>115</strong></div>
+          <div class="fstat">DEF <strong>125</strong></div>
+          <div class="fstat">HP <strong>70</strong></div>
+        </div>
+      </div>
+    </div>
+    <div class="section-label">Step-by-step — Getting Your Fossil</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num amber">1</div>
+        <div class="step-content">
+          <h3>Enter Mt. Moon from Pewter City (Route 3)</h3>
+          <p>Mt. Moon is the cave between Pewter City and Cerulean City, accessible from the east end of Route 3. Navigate the floors until you find the fossil chamber on B2F — no HMs required to get through.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num amber">2</div>
+        <div class="step-content">
+          <h3>Find &amp; Defeat the Super Nerd on B2F</h3>
+          <p>Near the exit toward Cerulean, a Super Nerd stands between two glittering items on the ground. Defeat him — his team uses Magnemite and Voltorb. Ground-type moves are very effective.</p>
+          <div class="tip">💡 <strong>Prepare beforehand:</strong> Stock up on Potions in Pewter before entering the cave. The Super Nerd is the hardest trainer inside.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num amber">3</div>
+        <div class="step-content">
+          <h3>Choose Your Fossil — Left = Dome, Right = Helix</h3>
+          <p>After defeating the Super Nerd, pick up your chosen fossil. The other disappears immediately. Think about your team — both are Water/Rock types, but Kabuto leans physical while Omastar leans special.</p>
+          <div class="tip">🧠 <strong>Quick guide:</strong> Pick Dome if you want a fast physical sweeper with Slash. Pick Helix if you want a bulky special attacker with high Defense.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num amber">4</div>
+        <div class="step-content">
+          <h3>Reach Cinnabar Island (Requires Surf)</h3>
+          <p>Hold onto the fossil until you get the Surf HM from the Safari Zone. Then Surf south from Pallet Town to reach Cinnabar Island. This is also where Gym 7 (Blaine) is located.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num amber">5</div>
+        <div class="step-content">
+          <h3>Enter the Pokémon Lab &amp; Revive Your Fossil</h3>
+          <p>The Pokémon Lab is on the west side of Cinnabar Island. Find the scientist on the ground floor (room to the right), hand over your fossil, step outside, re-enter, and collect your revived Pokémon at <strong>level 30</strong>.</p>
+          <div class="tip blue">🎯 <strong>Timing:</strong> Reviving right when you arrive on Cinnabar gives you a fresh Water/Rock Pokémon for the Fire Gym, Seafoam Islands, and the Elite Four.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr class="page-divider">
+  <div class="poke-section" id="aerodactyl">
+    <div class="aero-header">
+      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/142.png" alt="Aerodactyl sprite">
+      <div>
+        <h3 style="font-family:var(--font-pixel);font-size:12px;color:var(--text);margin-bottom:8px;">#142 AERODACTYL — OLD AMBER</h3>
+        <p style="color:var(--text-2);font-size:14px;line-height:1.5;margin-bottom:10px;">One of the fastest Pokémon in Gen I — totally free from Pewter City. Most players miss this entirely because of where the gift is hidden.</p>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;"><span class="type-badge t-rock">Rock</span><span class="type-badge t-flying">Flying</span></div>
+      </div>
+    </div>
+    <div class="alert amber">
+      <span class="alert-icon">🪨</span>
+      <p><strong>Missable free gift!</strong> The Old Amber is in the Pewter City Museum back room — enter through the <strong>back door on the Route 3 side</strong>, not the main entrance. A scientist there gives it to you for free, no conditions.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num amber">1</div>
+        <div class="step-content">
+          <h3>Go to Pewter Museum — Use the Back Door</h3>
+          <p>The museum is in north Pewter City. Skip the main front entrance (costs ₽50). Instead, walk around to the back of the building and enter through the door on the Route 3 side — it's free and leads to a separate back room.</p>
+          <div class="tip">🚪 <strong>Easy to miss:</strong> Most players pay the front entrance fee and never know there's a free back entrance with a fossil inside.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num amber">2</div>
+        <div class="step-content">
+          <h3>Talk to the Scientist Inside</h3>
+          <p>A scientist in a white coat is in the back room. Talk to him and accept the Old Amber — it goes into your Key Items. He'll say it contains ancient Pokémon DNA.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num amber">3</div>
+        <div class="step-content">
+          <h3>Revive at Cinnabar Island Lab</h3>
+          <p>Same process as the Mt. Moon fossils. Hand the Old Amber to the scientist at the Cinnabar Island Pokémon Lab and collect <strong>Aerodactyl at level 30</strong>.</p>
+          <div class="tip">⚡ <strong>130 base Speed</strong> — Aerodactyl is one of the fastest Pokémon in the entire game and it's completely free. Don't skip it.</div>
+        </div>
+      </div>
+    </div>
+    <div class="info-grid">
+      <div class="info-card">
+        <h4>Why use Aerodactyl</h4>
+        <ul>
+          <li>130 base Speed — almost always first</li>
+          <li>Rock/Flying — solid offensive typing</li>
+          <li>Learns Fly (HM utility)</li>
+          <li>Devastates Ice, Bug, Fire types</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h4>Moves to teach it</h4>
+        <ul>
+          <li>Fly (HM02 — Route 16 gift)</li>
+          <li>Rock Slide (various TMs)</li>
+          <li>Earthquake (TM26 — Silph Co.)</li>
+          <li>Ancient Power (level up)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="cta-bar">
+    <h3>BUILD YOUR TEAM</h3>
+    <p>Add your fossil Pokémon to the team builder and check coverage against every gym leader.</p>
+    <a href="index.html" class="btn-primary">🏠 Open Team Builder</a>
+  </div>
+</div>
+</body>
+</html>

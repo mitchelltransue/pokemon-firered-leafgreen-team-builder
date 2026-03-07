@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="google-site-verification" content="9FIv9kf_N8yO2BEWcwrzuch4oOpBZ9iaJ0WvpiqGvy4" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Get Snorlax & Lapras — Pokémon Fire Red & Leaf Green Catching Guide</title>
+<meta name="description" content="Complete guide to catching Snorlax on Routes 12 and 16, and getting Lapras from Silph Co. or Icefall Cave in Pokémon Fire Red and Leaf Green.">
+<link rel="canonical" href="https://pokemonfrlgteambuilder.netlify.app/rare-pokemon.html">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="How to Get Snorlax & Lapras in Fire Red & Leaf Green">
+<meta property="og:description" content="Step-by-step guides to catching Snorlax (Routes 12 & 16) and getting Lapras (Silph Co. gift or Icefall Cave) in FRLG.">
+<meta property="og:type" content="article">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Where do you find Snorlax in Fire Red?","acceptedAnswer":{"@type":"Answer","text":"Snorlax appears twice in Fire Red and Leaf Green: once on Route 12 (south of Lavender Town) and once on Route 16 (west of Celadon City). You must use the Poké Flute to wake it up before you can battle it."}},
+    {"@type":"Question","name":"How do you get the Poké Flute in Fire Red?","acceptedAnswer":{"@type":"Answer","text":"Rescue Mr. Fuji from the top floor of Pokémon Tower in Lavender Town. After saving him, he gives you the Poké Flute as a reward. You need this to wake the sleeping Snorlax blocking Routes 12 and 16."}},
+    {"@type":"Question","name":"Where do you get Lapras in Fire Red?","acceptedAnswer":{"@type":"Answer","text":"In Fire Red, a Silph Co. employee gives you a free Lapras on the 7th floor after you defeat the Team Rocket boss Giovanni there. Post-game, you can also catch wild Lapras in Icefall Cave on Four Island (requires the National Pokédex)."}},
+    {"@type":"Question","name":"Can you get both Snorlax in Fire Red?","acceptedAnswer":{"@type":"Answer","text":"Yes! Both Snorlax on Route 12 and Route 16 can be caught. You only need one Poké Flute — use it on both. If you knock out the first Snorlax, the second one is still available."}}
+  ]
+}
+</script>
+<style>
+  :root {
+    --bg:#0e0e12; --surface:#1a1a24; --surface2:#22222e; --surface3:#2a2a38;
+    --border:rgba(255,255,255,0.07); --border-hi:rgba(255,255,255,0.14);
+    --red:#e8354a; --red-soft:rgba(232,53,74,0.15);
+    --green:#2ec97a; --green-soft:rgba(46,201,122,0.13);
+    --gold:#f5c842; --gold-soft:rgba(245,200,66,0.12);
+    --blue:#4b9eff; --blue-soft:rgba(75,158,255,0.12);
+    --purple:#a78bfa; --purple-soft:rgba(167,139,250,0.12);
+    --text:#f0eff4; --text-2:#9896a8; --text-3:#5a5870;
+    --r-sm:8px; --r-md:14px; --r-lg:20px; --r-xl:28px;
+    --font-ui:'Nunito',sans-serif; --font-pixel:'Press Start 2P',monospace;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:var(--font-ui);font-size:15px;min-height:100vh;
+    background-image:radial-gradient(ellipse 80% 50% at 10% 0%,rgba(232,53,74,0.08) 0%,transparent 60%),
+    radial-gradient(ellipse 80% 50% at 90% 0%,rgba(46,201,122,0.06) 0%,transparent 60%);}
+  ::-webkit-scrollbar{width:5px;} ::-webkit-scrollbar-track{background:transparent;}
+  ::-webkit-scrollbar-thumb{background:var(--surface3);border-radius:99px;}
+
+  
+  /* HEADER */
+  header{background:var(--surface);border-bottom:1px solid var(--border);padding:40px 24px 32px;position:relative;overflow:hidden;}
+  header::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(232,53,74,0.06) 0%,transparent 50%,rgba(245,200,66,0.04) 100%);pointer-events:none;}
+  .header-inner{max-width:860px;margin:0 auto;position:relative;}
+  .breadcrumb{font-size:12px;color:var(--text-3);margin-bottom:12px;}
+  .breadcrumb a{color:var(--text-3);text-decoration:none;} .breadcrumb a:hover{color:var(--text-2);}
+  header h1{font-family:var(--font-pixel);font-size:clamp(11px,2vw,16px);line-height:1.7;color:var(--text);margin-bottom:10px;}
+  header h1 .accent-gold{color:var(--gold);}
+  .header-desc{color:var(--text-2);font-size:15px;max-width:600px;line-height:1.6;}
+  .header-tags{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap;}
+  .htag{background:var(--surface2);border:1px solid var(--border);padding:4px 12px;border-radius:99px;font-size:12px;font-weight:700;color:var(--text-2);}
+
+  /* MAIN LAYOUT */
+  .page-body{max-width:860px;margin:0 auto;padding:32px 24px 80px;}
+
+  /* POKEMON SECTION */
+  .poke-section{margin-bottom:60px;}
+  .poke-header{display:flex;align-items:center;gap:20px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-xl);padding:24px 28px;margin-bottom:28px;position:relative;overflow:hidden;}
+  .poke-header::before{content:'';position:absolute;inset:0;border-radius:var(--r-xl);opacity:0.5;pointer-events:none;}
+  .poke-header.snorlax-header::before{background:linear-gradient(135deg,rgba(245,200,66,0.08),transparent);}
+  .poke-header.lapras-header::before{background:linear-gradient(135deg,rgba(75,158,255,0.08),transparent);}
+  .poke-sprite{width:80px;height:80px;image-rendering:pixelated;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.5));flex-shrink:0;}
+  .poke-title-block h2{font-family:var(--font-pixel);font-size:14px;color:var(--text);margin-bottom:8px;}
+  .poke-title-block p{color:var(--text-2);font-size:14px;line-height:1.5;}
+  .type-badges{display:flex;gap:6px;margin-top:10px;}
+  .type-badge{padding:3px 12px;border-radius:99px;font-size:11px;font-weight:800;letter-spacing:.04em;}
+  .t-normal{background:rgba(168,168,120,0.2);color:#a8a878;}
+  .t-water{background:rgba(104,144,240,0.2);color:#6890f0;}
+  .t-ice{background:rgba(152,216,216,0.2);color:#98d8d8;}
+
+  /* STEP CARDS */
+  .steps{display:flex;flex-direction:column;gap:14px;margin-bottom:28px;}
+  .step{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:20px 22px;display:flex;gap:18px;align-items:flex-start;transition:border-color .2s;}
+  .step:hover{border-color:var(--border-hi);}
+  .step-num{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-pixel);font-size:9px;flex-shrink:0;margin-top:2px;}
+  .step-num.gold{background:var(--gold-soft);color:var(--gold);border:1px solid rgba(245,200,66,0.3);}
+  .step-num.blue{background:var(--blue-soft);color:var(--blue);border:1px solid rgba(75,158,255,0.3);}
+  .step-content h3{font-size:15px;font-weight:800;color:var(--text);margin-bottom:5px;}
+  .step-content p{color:var(--text-2);font-size:14px;line-height:1.6;}
+  .step-content .tip{background:var(--surface2);border-left:3px solid var(--gold);border-radius:0 var(--r-sm) var(--r-sm) 0;padding:10px 14px;margin-top:10px;font-size:13px;color:var(--text-2);line-height:1.5;}
+  .step-content .tip.blue{border-left-color:var(--blue);}
+  .step-content .tip strong{color:var(--text);}
+
+  /* INFO CARDS */
+  .info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-bottom:28px;}
+  .info-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:18px 20px;}
+  .info-card h4{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--text-3);margin-bottom:10px;}
+  .info-card ul{list-style:none;display:flex;flex-direction:column;gap:6px;}
+  .info-card li{font-size:14px;color:var(--text-2);padding-left:14px;position:relative;line-height:1.4;}
+  .info-card li::before{content:'›';position:absolute;left:0;color:var(--gold);}
+  .info-card li.blue-dot::before{color:var(--blue);}
+
+  /* ALERT BOXES */
+  .alert{border-radius:var(--r-md);padding:16px 20px;margin:16px 0;font-size:14px;line-height:1.6;display:flex;gap:12px;align-items:flex-start;}
+  .alert-icon{font-size:18px;flex-shrink:0;margin-top:1px;}
+  .alert.warning{background:rgba(245,200,66,0.08);border:1px solid rgba(245,200,66,0.2);}
+  .alert.warning p{color:var(--text-2);} .alert.warning strong{color:var(--gold);}
+  .alert.info{background:var(--blue-soft);border:1px solid rgba(75,158,255,0.2);}
+  .alert.info p{color:var(--text-2);} .alert.info strong{color:var(--blue);}
+  .alert.success{background:var(--green-soft);border:1px solid rgba(46,201,122,0.2);}
+  .alert.success p{color:var(--text-2);} .alert.success strong{color:var(--green);}
+
+  /* SECTION LABEL */
+  .section-label{font-family:var(--font-pixel);font-size:9px;color:var(--text-3);letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:12px;}
+  .section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+
+  /* LOCATION TABLE */
+  .loc-table{width:100%;border-collapse:collapse;margin-bottom:20px;}
+  .loc-table th{background:var(--surface2);color:var(--text-3);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;padding:10px 14px;text-align:left;}
+  .loc-table td{padding:12px 14px;border-bottom:1px solid var(--border);font-size:14px;color:var(--text-2);}
+  .loc-table td strong{color:var(--text);}
+  .loc-table tr:last-child td{border-bottom:none;}
+  .loc-table-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;margin-bottom:24px;}
+
+  /* CTA */
+  .cta-bar{background:var(--surface);border:1px solid var(--border-hi);border-radius:var(--r-xl);padding:28px 32px;text-align:center;margin-top:48px;}
+  .cta-bar h3{font-family:var(--font-pixel);font-size:11px;color:var(--text);margin-bottom:10px;}
+  .cta-bar p{color:var(--text-2);font-size:14px;margin-bottom:18px;}
+  .btn-primary{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--red),#c0293c);color:#fff;text-decoration:none;padding:12px 28px;border-radius:var(--r-md);font-weight:800;font-size:14px;transition:all .2s;box-shadow:0 4px 14px rgba(232,53,74,0.25);}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(232,53,74,0.35);}
+
+  /* DIVIDER */
+  .page-divider{border:none;border-top:1px solid var(--border);margin:48px 0;}
+
+  /* RESPONSIVE */
+  @media(max-width:600px){
+    .poke-header{flex-direction:column;align-items:flex-start;}
+  }
+  /* NAV */
+  .site-nav-wrap{background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;overflow:hidden;}
+  .site-nav{display:flex;align-items:center;padding:0 20px;height:52px;min-width:0;}
+  .nav-brand{font-family:var(--font-pixel);font-size:9px;color:var(--red);padding-right:18px;border-right:1px solid var(--border);margin-right:4px;flex-shrink:0;white-space:nowrap;}
+  .nav-links{display:flex;align-items:center;flex:1;min-width:0;overflow:hidden;flex-wrap:nowrap;}
+  .nav-links a{display:inline-flex;align-items:center;gap:5px;padding:0 11px;height:52px;color:var(--text-2);text-decoration:none;font-size:12px;font-weight:700;border-bottom:2px solid transparent;transition:all .2s;white-space:nowrap;flex-shrink:0;}
+  .nav-links a:hover{color:var(--text);background:rgba(255,255,255,0.04);}
+  .nav-links a.active{color:var(--gold);border-bottom-color:var(--gold);}
+  .nav-burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;padding:8px;margin-left:auto;background:none;border:none;cursor:pointer;border-radius:var(--r-sm);transition:background .2s;flex-shrink:0;}
+  .nav-burger:hover{background:rgba(255,255,255,0.06);}
+  .nav-burger span{display:block;height:2px;width:100%;background:var(--text-2);border-radius:2px;transition:all .3s;}
+  .nav-burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .nav-burger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+  .nav-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .nav-drawer{display:none;flex-direction:column;background:var(--surface);border-top:1px solid var(--border);padding:8px 0 12px;}
+  .nav-drawer.open{display:flex;}
+  .nav-drawer a{display:flex;align-items:center;gap:10px;padding:13px 24px;color:var(--text-2);text-decoration:none;font-size:14px;font-weight:700;transition:all .2s;border-left:3px solid transparent;}
+  .nav-drawer a:hover{color:var(--text);background:rgba(255,255,255,0.04);}
+  .nav-drawer a.active{color:var(--gold);border-left-color:var(--gold);background:rgba(245,200,66,0.08);}
+  @media(max-width:860px){
+    .nav-links{display:none;}
+    .nav-burger{display:flex;}
+  }
+</style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SWWLLSCX6W"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){{dataLayer.push(arguments);}}
+    gtag('js', new Date());
+    gtag('config', 'G-SWWLLSCX6W');
+  </script>
+</head>
+<body>
+
+<!-- NAV -->
+<div class="site-nav-wrap">
+  <nav class="site-nav">
+    <span class="nav-brand">FR/LG</span>
+    <div class="nav-links">
+      <a href="index.html">&#x1F3E0; Team Builder</a>
+      <a href="rare-pokemon.html" class="active">&#x2B50; Rare Pok&eacute;mon</a>
+      <a href="fossil-pokemon.html">&#x1F995; Fossils</a>
+      <a href="legendary-birds.html">&#x1F985; Legendary Birds</a>
+      <a href="legendary-dogs.html">&#x1F43E; Legendary Dogs</a>
+      <a href="ho-oh-lugia.html">&#x1F31F; Ho-Oh &amp; Lugia</a>
+      <a href="mew-mewtwo.html">&#x1F9EC; Mew &amp; Mewtwo</a>
+    </div>
+    <button class="nav-burger" id="navBurger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-drawer" id="navDrawer">
+    <a href="index.html">&#x1F3E0; Team Builder</a>
+    <a href="rare-pokemon.html" class="active">&#x2B50; Rare Pok&eacute;mon</a>
+    <a href="fossil-pokemon.html">&#x1F995; Fossils</a>
+    <a href="legendary-birds.html">&#x1F985; Legendary Birds</a>
+    <a href="legendary-dogs.html">&#x1F43E; Legendary Dogs</a>
+    <a href="ho-oh-lugia.html">&#x1F31F; Ho-Oh &amp; Lugia</a>
+    <a href="mew-mewtwo.html">&#x1F9EC; Mew &amp; Mewtwo</a>
+  </div>
+</div>
+<script>
+  (function(){
+    var burger = document.getElementById('navBurger');
+    var drawer = document.getElementById('navDrawer');
+    if(burger && drawer){
+      burger.addEventListener('click', function(){
+        burger.classList.toggle('open');
+        drawer.classList.toggle('open');
+      });
+      drawer.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', function(){
+          burger.classList.remove('open');
+          drawer.classList.remove('open');
+        });
+      });
+    }
+  })();
+</script>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="breadcrumb"><a href="index.html">FR/LG Team Builder</a> › Rare Pokémon Guide</div>
+    <h1>HOW TO GET <span class="accent-gold">SNORLAX</span> &amp; LAPRAS</h1>
+    <p class="header-desc">Two of the most powerful Pokémon in the game — and both are totally free if you know where to look. Complete step-by-step catching walkthroughs for Fire Red and Leaf Green.</p>
+    <div class="header-tags">
+      <span class="htag">🔴 Fire Red</span>
+      <span class="htag">🟢 Leaf Green</span>
+      <span class="htag">No Trading Required</span>
+      <span class="htag">Story Progression</span>
+    </div>
+  </div>
+</header>
+
+<div class="page-body">
+
+  <!-- ═══════════════════════════════════════════════ SNORLAX -->
+  <div class="poke-section" id="snorlax">
+    <div class="poke-header snorlax-header">
+      <img class="poke-sprite" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/143.png" alt="Snorlax sprite">
+      <div class="poke-title-block">
+        <h2>#143 SNORLAX</h2>
+        <p>The Sleeping Pokémon — blocks two major routes and packs 160 base HP. One of the best team members in the game, available completely free.</p>
+        <div class="type-badges"><span class="type-badge t-normal">Normal</span></div>
+      </div>
+    </div>
+
+    <div class="section-label">How to catch Snorlax</div>
+
+    <div class="alert warning">
+      <span class="alert-icon">⚠️</span>
+      <p><strong>Don't miss it!</strong> Snorlax must be woken with the Poké Flute before you can interact with it. Once you enter the battle, if you knock it out and don't have a second chance — the other Snorlax is still available on the other route.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num gold">1</div>
+        <div class="step-content">
+          <h3>Reach Lavender Town &amp; Clear Pokémon Tower</h3>
+          <p>Head to Lavender Town (east of Celadon City via Route 8). Fight your way up all 7 floors of Pokémon Tower, defeating Team Rocket grunts along the way. At the top, you'll find Mr. Fuji being held captive.</p>
+          <div class="tip">💡 <strong>Tip:</strong> Bring a Pokémon that knows Strength or has good Special moves. The ghost-type enemies in the tower are tricky without a Silph Scope. Get the Silph Scope from the Rocket Hideout under the Celadon Game Corner first.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num gold">2</div>
+        <div class="step-content">
+          <h3>Rescue Mr. Fuji — Receive the Poké Flute</h3>
+          <p>After defeating the final enemy at the top of Pokémon Tower, Mr. Fuji is freed. Return to his house in Lavender Town (south side of town). He'll thank you and hand over the <strong>Poké Flute</strong> — a key item that wakes sleeping Pokémon.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num gold">3</div>
+        <div class="step-content">
+          <h3>Go to Route 12 or Route 16</h3>
+          <p>Two Snorlax block two different routes. Pick whichever is most convenient for your current progress:</p>
+          <div class="tip">📍 <strong>Route 12:</strong> South of Lavender Town. Head south from Lavender, cross the water via the dock. Snorlax is blocking the path just south of the fishing guru's house.</div>
+          <div class="tip">📍 <strong>Route 16:</strong> West of Celadon City. Use Cut to access the gatehouse, go through the small building, and Snorlax is blocking the entrance to the cycling road.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num gold">4</div>
+        <div class="step-content">
+          <h3>Save Your Game Before the Battle!</h3>
+          <p>This is critical. Snorlax is a one-time encounter per route. Save before using the Poké Flute so you can reset if things go wrong.</p>
+          <div class="tip">⚡ <strong>Pro tip:</strong> Snorlax is level 30 on Route 12 and level 30 on Route 16. Bring Pokéballs and a Pokémon that can inflict sleep or paralysis to make catching easier.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num gold">5</div>
+        <div class="step-content">
+          <h3>Use the Poké Flute &amp; Catch It</h3>
+          <p>Open your bag, go to Key Items, and use the Poké Flute while standing next to Snorlax. It wakes up and immediately attacks — the battle starts. Weaken it to low HP (red zone), apply Sleep with a move like Spore or Sing, then throw Ultra Balls.</p>
+          <div class="tip">🎯 <strong>Best strategy:</strong> Use a Pokémon with False Swipe to bring Snorlax to exactly 1 HP, then use a sleep move. Ultra Balls have the best catch rate. If you're short on money, Farm at the game corner for coins to buy more.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-label">Snorlax locations at a glance</div>
+    <div class="loc-table-wrap">
+      <table class="loc-table">
+        <thead><tr><th>Location</th><th>Level</th><th>How to Access</th><th>Version</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Route 12</strong></td><td>Lv. 30</td><td>South of Lavender Town, use Poké Flute</td><td>Both</td></tr>
+          <tr><td><strong>Route 16</strong></td><td>Lv. 30</td><td>West of Celadon, use Cut + Poké Flute</td><td>Both</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <h4>Why you want Snorlax</h4>
+        <ul>
+          <li>160 base HP — highest in Gen I</li>
+          <li>Learns Surf and Strength (HM slaves)</li>
+          <li>Body Slam + Rest + Amnesia = wall</li>
+          <li>Easily carries you through Elite Four</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h4>Moves to teach it</h4>
+        <ul>
+          <li>Body Slam (TM08 — Safari Zone gift)</li>
+          <li>Earthquake (TM26 — Silph Co.)</li>
+          <li>Surf (HM03 — Safari Zone)</li>
+          <li>Rest (TM44 — ships in Vermilion)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="alert success">
+      <span class="alert-icon">✅</span>
+      <p><strong>You can catch both!</strong> If you catch the Snorlax on Route 12, the one on Route 16 is still available. Catch both and trade or use one as an HM slave — it learns Strength, Surf, Rock Smash, and more.</p>
+    </div>
+  </div>
+
+  <hr class="page-divider">
+
+  <!-- ═══════════════════════════════════════════════ LAPRAS -->
+  <div class="poke-section" id="lapras">
+    <div class="poke-header lapras-header">
+      <img class="poke-sprite" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/131.png" alt="Lapras sprite">
+      <div class="poke-title-block">
+        <h2>#131 LAPRAS</h2>
+        <p>The Transport Pokémon — a rare Water/Ice type with massive bulk. You receive one for free from Silph Co. before the seventh gym, making it one of the best carries in the game.</p>
+        <div class="type-badges"><span class="type-badge t-water">Water</span><span class="type-badge t-ice">Ice</span></div>
+      </div>
+    </div>
+
+    <div class="section-label">How to get Lapras</div>
+
+    <div class="alert info">
+      <span class="alert-icon">ℹ️</span>
+      <p><strong>Two methods:</strong> You can get a <strong>guaranteed free Lapras</strong> during the main story at Silph Co., or catch a wild one at Icefall Cave post-game. The Silph Co. Lapras is far easier and comes at a great point in the story.</p>
+    </div>
+
+    <div class="section-label">Method 1 — Free Gift at Silph Co. (Recommended)</div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num blue">1</div>
+        <div class="step-content">
+          <h3>Reach Saffron City</h3>
+          <p>Saffron City is in the center of Kanto, accessible from Celadon (east), Lavender (west), Cerulean (south via underground path), or Vermilion (north). To get in, give the guards <strong>Fresh Water, Soda Pop, or Lemonade</strong> — buy them from the vending machines on the roof of the Celadon Department Store.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num blue">2</div>
+        <div class="step-content">
+          <h3>Enter Silph Co. &amp; Fight Through Team Rocket</h3>
+          <p>Silph Co. is the large building in the center of Saffron. Team Rocket has taken over all 11 floors. You need to find the Card Key on 5F to unlock doors on other floors. The teleporter pads on each floor move you between levels — the layout is intentionally confusing.</p>
+          <div class="tip">🗺️ <strong>Route hint:</strong> From the entrance (1F), take the elevator to 5F, grab the Card Key from the item ball in the side room, then navigate to 7F where your Rival will battle you before you face Giovanni.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num blue">3</div>
+        <div class="step-content">
+          <h3>Defeat Giovanni on 11F</h3>
+          <p>Giovanni is on the 11th floor. His team includes Nidorino, Kangaskhan, Rhyhorn, and Nidoqueen — all ground and normal types. Water, Ice, and Grass moves work well. After defeating him, he leaves the building.</p>
+          <div class="tip">💡 <strong>Prepare:</strong> Heal up before 11F. Giovanni's Rhyhorn can be annoying. Bring Revives just in case.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num blue">4</div>
+        <div class="step-content">
+          <h3>Receive Your Free Lapras on 7F</h3>
+          <p>After defeating Giovanni, go back down to the 7th floor. An employee in the northwest room will thank you for saving the company and give you a <strong>Lapras at level 15</strong> as a gift. It has no Poké Ball cost and cannot be refused — just talk to him.</p>
+          <div class="tip">✨ <strong>Note:</strong> This Lapras is level 15 but you receive it after clearing most of the mid-game, so it will need some grinding to catch up. It levels up quickly with experience share or in the Safari Zone area.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-label">Method 2 — Wild Lapras at Icefall Cave (Post-Game)</div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num blue">1</div>
+        <div class="step-content">
+          <h3>Complete the Main Story &amp; Get the National Pokédex</h3>
+          <p>Icefall Cave is on Four Island, which is only accessible after beating the Elite Four and obtaining the National Pokédex (requires seeing 60+ Pokémon). You also need the Rainbow Pass to reach the Sevii Islands beyond Three Island.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num blue">2</div>
+        <div class="step-content">
+          <h3>Travel to Four Island via the Ferry</h3>
+          <p>From Vermilion City, take the S.S. Anne dock area and board the ferry to the Sevii Islands. Navigate to Four Island (also called Floe Island) — it's the snowy island home to Lorelei from the Elite Four.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num blue">3</div>
+        <div class="step-content">
+          <h3>Enter Icefall Cave &amp; Use Surf</h3>
+          <p>Icefall Cave is on the north side of Four Island. Surf is required to enter and navigate the cave. Wild Lapras appear in the water inside the cave at a <strong>low encounter rate (~10%)</strong> — bring plenty of Ultra Balls and be patient.</p>
+          <div class="tip blue">💡 <strong>Lapras in Icefall Cave appear around level 35–40.</strong> Bring Repels to avoid other wild Pokémon encounters while hunting, and save your Master Ball if you haven't used it yet.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="loc-table-wrap">
+      <table class="loc-table">
+        <thead><tr><th>Method</th><th>Level</th><th>When Available</th><th>Difficulty</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Silph Co. Gift</strong></td><td>Lv. 15</td><td>Mid-game (before Gym 7)</td><td>Easy — Free gift</td></tr>
+          <tr><td><strong>Icefall Cave</strong></td><td>Lv. 35–40</td><td>Post-game (National Dex required)</td><td>Medium — Low encounter rate</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <h4>Why you want Lapras</h4>
+        <ul class="">
+          <li class="blue-dot">130 base Sp. Atk with Ice Beam</li>
+          <li class="blue-dot">Mandatory Surf HM user</li>
+          <li class="blue-dot">Destroys Lorelei &amp; Lance (Elite 4)</li>
+          <li class="blue-dot">Only Water/Ice type in the game</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h4>Moves to teach it</h4>
+        <ul>
+          <li class="blue-dot">Surf (HM03 — Safari Zone)</li>
+          <li class="blue-dot">Ice Beam (TM13 — Celadon Dept.)</li>
+          <li class="blue-dot">Thunderbolt (TM24 — Game Corner)</li>
+          <li class="blue-dot">Psychic (TM29 — Saffron City)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-bar">
+    <h3>BUILD YOUR TEAM</h3>
+    <p>Now that you know how to get Snorlax and Lapras, plug them into the team builder and check your type coverage against every gym leader.</p>
+    <a href="index.html" class="btn-primary">🏠 Open Team Builder</a>
+  </div>
+
+</div>
+</body>
+</html>

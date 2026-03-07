@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="google-site-verification" content="9FIv9kf_N8yO2BEWcwrzuch4oOpBZ9iaJ0WvpiqGvy4" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Catch Raikou, Entei & Suicune in Pokemon FireRed LeafGreen</title>
+<meta name="description" content="How to catch the roaming legendary dogs in FireRed and LeafGreen. Which dog you get depends on your starter. Best strategy using Mean Look, sleep moves, and Ultra Balls.">
+<link rel="canonical" href="https://pokemonfrlgteambuilder.netlify.app/legendary-dogs.html">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Legendary Dogs Guide — Raikou, Entei & Suicune in Fire Red & Leaf Green">
+<meta property="og:type" content="article">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"How do you get the legendary dogs in Fire Red and Leaf Green?","acceptedAnswer":{"@type":"Answer","text":"Only one legendary dog is available in each game, and which one depends on your starter Pokémon. Bulbasaur starter → Entei roams. Charmander starter → Suicune roams. Squirtle starter → Raikou roams. The dog becomes available after you complete the main Sevii Islands questline and obtain the National Pokédex."}},
+    {"@type":"Question","name":"Which legendary dog do you get with Charmander in Fire Red?","acceptedAnswer":{"@type":"Answer","text":"If you chose Charmander as your starter in Fire Red or Leaf Green, the roaming legendary dog you can catch is Suicune."}},
+    {"@type":"Question","name":"How do you catch a roaming Pokémon in Fire Red?","acceptedAnswer":{"@type":"Answer","text":"Roaming Pokémon flee on the first turn. The best strategy is to use a Pokémon with Mean Look or Block to prevent escape, then put it to sleep with Spore or Sleep Powder. Alternatively, use a Master Ball for an instant guaranteed catch with no mechanics required."}},
+    {"@type":"Question","name":"Where does the legendary dog appear in Fire Red?","acceptedAnswer":{"@type":"Answer","text":"Roaming legendary dogs appear randomly in the tall grass anywhere in Kanto. They move to a new random route every time you change areas. Check the Pokédex after your first encounter to track their current location."}}
+  ]
+}
+</script>
+<style>
+  :root {
+    --bg:#0e0e12; --surface:#1a1a24; --surface2:#22222e; --surface3:#2a2a38;
+    --border:rgba(255,255,255,0.07); --border-hi:rgba(255,255,255,0.14);
+    --red:#e8354a; --red-soft:rgba(232,53,74,0.15);
+    --green:#2ec97a; --green-soft:rgba(46,201,122,0.13);
+    --gold:#f5c842; --gold-soft:rgba(245,200,66,0.12);
+    --blue:#4b9eff; --blue-soft:rgba(75,158,255,0.12);
+    --elec:#fde047; --elec-soft:rgba(253,224,71,0.1);
+    --fire:#fb923c; --fire-soft:rgba(251,146,60,0.1);
+    --water:#38bdf8; --water-soft:rgba(56,189,248,0.1);
+    --text:#f0eff4; --text-2:#9896a8; --text-3:#5a5870;
+    --r-sm:8px; --r-md:14px; --r-lg:20px; --r-xl:28px;
+    --font-ui:'Nunito',sans-serif; --font-pixel:'Press Start 2P',monospace;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:var(--font-ui);font-size:15px;min-height:100vh;
+    background-image:radial-gradient(ellipse 80% 50% at 10% 0%,rgba(253,224,71,0.05) 0%,transparent 55%),
+    radial-gradient(ellipse 60% 40% at 50% 0%,rgba(251,146,60,0.05) 0%,transparent 50%),
+    radial-gradient(ellipse 80% 50% at 90% 0%,rgba(56,189,248,0.05) 0%,transparent 55%);}
+  ::-webkit-scrollbar{width:5px;} ::-webkit-scrollbar-track{background:transparent;}
+  ::-webkit-scrollbar-thumb{background:var(--surface3);border-radius:99px;}
+  header{background:var(--surface);border-bottom:1px solid var(--border);padding:40px 24px 32px;position:relative;overflow:hidden;}
+  header::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(253,224,71,0.05),transparent 40%,rgba(56,189,248,0.05) 100%);pointer-events:none;}
+  .header-inner{max-width:860px;margin:0 auto;position:relative;}
+  .breadcrumb{font-size:12px;color:var(--text-3);margin-bottom:12px;}
+  .breadcrumb a{color:var(--text-3);text-decoration:none;}
+  header h1{font-family:var(--font-pixel);font-size:clamp(10px,2vw,14px);line-height:1.8;color:var(--text);margin-bottom:10px;}
+  .accent-elec{color:var(--elec);} .accent-fire{color:var(--fire);} .accent-water{color:var(--water);}
+  .header-desc{color:var(--text-2);font-size:15px;max-width:640px;line-height:1.6;}
+  .header-tags{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap;}
+  .htag{background:var(--surface2);border:1px solid var(--border);padding:4px 12px;border-radius:99px;font-size:12px;font-weight:700;color:var(--text-2);}
+  .page-body{max-width:860px;margin:0 auto;padding:32px 24px 80px;}
+  .section-label{font-family:var(--font-pixel);font-size:9px;color:var(--text-3);letter-spacing:.1em;margin-bottom:16px;display:flex;align-items:center;gap:12px;}
+  .section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+
+  /* STARTER SELECTOR */
+  .starter-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:32px;}
+  .starter-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-xl);padding:20px;text-align:center;position:relative;overflow:hidden;transition:border-color .2s,transform .2s;}
+  .starter-card:hover{border-color:var(--border-hi);transform:translateY(-2px);}
+  .starter-card.bulba::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(46,201,122,0.1),transparent 70%);pointer-events:none;}
+  .starter-card.charm::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(251,146,60,0.1),transparent 70%);pointer-events:none;}
+  .starter-card.squirt::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(56,189,248,0.1),transparent 70%);pointer-events:none;}
+  .starter-card img{width:60px;height:60px;image-rendering:pixelated;filter:drop-shadow(0 3px 8px rgba(0,0,0,0.5));margin-bottom:10px;}
+  .starter-card .starter-name{font-family:var(--font-pixel);font-size:8px;color:var(--text-3);margin-bottom:4px;}
+  .starter-card .arrow{font-size:18px;margin:6px 0;}
+  .starter-card .dog-img{width:56px;height:56px;image-rendering:pixelated;filter:drop-shadow(0 3px 8px rgba(0,0,0,0.5));margin-bottom:6px;}
+  .starter-card .dog-name{font-family:var(--font-pixel);font-size:8px;}
+  .starter-card.bulba .dog-name{color:var(--fire);}
+  .starter-card.charm .dog-name{color:var(--water);}
+  .starter-card.squirt .dog-name{color:var(--elec);}
+
+  /* MECHANICS */
+  .mechanic-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-xl);padding:24px 28px;margin-bottom:32px;}
+  .mechanic-box h3{font-size:16px;font-weight:800;color:var(--text);margin-bottom:16px;}
+  .mech-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;}
+  .mech-item{background:var(--surface2);border-radius:var(--r-lg);padding:14px 16px;}
+  .mech-item h4{font-size:12px;font-weight:800;color:var(--gold);margin-bottom:6px;}
+  .mech-item p{font-size:13px;color:var(--text-2);line-height:1.5;}
+
+  .steps{display:flex;flex-direction:column;gap:14px;margin-bottom:24px;}
+  .step{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:20px 22px;display:flex;gap:18px;align-items:flex-start;transition:border-color .2s;}
+  .step:hover{border-color:var(--border-hi);}
+  .step-num{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-pixel);font-size:9px;flex-shrink:0;margin-top:2px;background:var(--gold-soft);color:var(--gold);border:1px solid rgba(245,200,66,0.3);}
+  .step-content h3{font-size:15px;font-weight:800;color:var(--text);margin-bottom:5px;}
+  .step-content p{color:var(--text-2);font-size:14px;line-height:1.6;}
+  .step-content .tip{background:var(--surface2);border-left:3px solid var(--gold);border-radius:0 var(--r-sm) var(--r-sm) 0;padding:10px 14px;margin-top:10px;font-size:13px;color:var(--text-2);line-height:1.5;}
+  .step-content .tip strong{color:var(--text);}
+  .alert{border-radius:var(--r-md);padding:16px 20px;margin:16px 0;font-size:14px;line-height:1.6;display:flex;gap:12px;align-items:flex-start;}
+  .alert-icon{font-size:18px;flex-shrink:0;margin-top:1px;}
+  .alert.warning{background:rgba(245,200,66,0.08);border:1px solid rgba(245,200,66,0.2);}
+  .alert.warning p{color:var(--text-2);} .alert.warning strong{color:var(--gold);}
+  .alert.master{background:rgba(167,139,250,0.1);border:1px solid rgba(167,139,250,0.25);}
+  .alert.master p{color:var(--text-2);} .alert.master strong{color:#a78bfa;}
+  .alert.success{background:var(--green-soft);border:1px solid rgba(46,201,122,0.2);}
+  .alert.success p{color:var(--text-2);} .alert.success strong{color:var(--green);}
+  .cta-bar{background:var(--surface);border:1px solid var(--border-hi);border-radius:var(--r-xl);padding:28px 32px;text-align:center;margin-top:48px;}
+  .cta-bar h3{font-family:var(--font-pixel);font-size:11px;color:var(--text);margin-bottom:10px;}
+  .cta-bar p{color:var(--text-2);font-size:14px;margin-bottom:18px;}
+  .btn-primary{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--red),#c0293c);color:#fff;text-decoration:none;padding:12px 28px;border-radius:var(--r-md);font-weight:800;font-size:14px;transition:all .2s;box-shadow:0 4px 14px rgba(232,53,74,0.25);}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(232,53,74,0.35);}
+  @media(max-width:580px){.starter-grid{grid-template-columns:1fr;}
+}
+  /* NAV */
+  .site-nav-wrap{background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;overflow:hidden;}
+  .site-nav{display:flex;align-items:center;padding:0 20px;height:52px;min-width:0;}
+  .nav-brand{font-family:var(--font-pixel);font-size:9px;color:var(--red);padding-right:18px;border-right:1px solid var(--border);margin-right:4px;flex-shrink:0;white-space:nowrap;}
+  .nav-links{display:flex;align-items:center;flex:1;min-width:0;overflow:hidden;flex-wrap:nowrap;}
+  .nav-links a{display:inline-flex;align-items:center;gap:5px;padding:0 11px;height:52px;color:var(--text-2);text-decoration:none;font-size:12px;font-weight:700;border-bottom:2px solid transparent;transition:all .2s;white-space:nowrap;flex-shrink:0;}
+  .nav-links a:hover{color:var(--text);background:rgba(255,255,255,0.04);}
+  .nav-links a.active{color:var(--gold);border-bottom-color:var(--gold);}
+  .nav-burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;padding:8px;margin-left:auto;background:none;border:none;cursor:pointer;border-radius:var(--r-sm);transition:background .2s;flex-shrink:0;}
+  .nav-burger:hover{background:rgba(255,255,255,0.06);}
+  .nav-burger span{display:block;height:2px;width:100%;background:var(--text-2);border-radius:2px;transition:all .3s;}
+  .nav-burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .nav-burger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+  .nav-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .nav-drawer{display:none;flex-direction:column;background:var(--surface);border-top:1px solid var(--border);padding:8px 0 12px;}
+  .nav-drawer.open{display:flex;}
+  .nav-drawer a{display:flex;align-items:center;gap:10px;padding:13px 24px;color:var(--text-2);text-decoration:none;font-size:14px;font-weight:700;transition:all .2s;border-left:3px solid transparent;}
+  .nav-drawer a:hover{color:var(--text);background:rgba(255,255,255,0.04);}
+  .nav-drawer a.active{color:var(--gold);border-left-color:var(--gold);background:rgba(245,200,66,0.08);}
+  @media(max-width:860px){
+    .nav-links{display:none;}
+    .nav-burger{display:flex;}
+  }
+</style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SWWLLSCX6W"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){{dataLayer.push(arguments);}}
+    gtag('js', new Date());
+    gtag('config', 'G-SWWLLSCX6W');
+  </script>
+</head>
+<body>
+<div class="site-nav-wrap">
+  <nav class="site-nav">
+    <span class="nav-brand">FR/LG</span>
+    <div class="nav-links">
+      <a href="index.html">&#x1F3E0; Team Builder</a>
+      <a href="rare-pokemon.html">&#x2B50; Rare Pok&eacute;mon</a>
+      <a href="fossil-pokemon.html">&#x1F995; Fossils</a>
+      <a href="legendary-birds.html">&#x1F985; Legendary Birds</a>
+      <a href="legendary-dogs.html" class="active">&#x1F43E; Legendary Dogs</a>
+      <a href="ho-oh-lugia.html">&#x1F31F; Ho-Oh &amp; Lugia</a>
+      <a href="mew-mewtwo.html">&#x1F9EC; Mew &amp; Mewtwo</a>
+    </div>
+    <button class="nav-burger" id="navBurger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-drawer" id="navDrawer">
+    <a href="index.html">&#x1F3E0; Team Builder</a>
+    <a href="rare-pokemon.html">&#x2B50; Rare Pok&eacute;mon</a>
+    <a href="fossil-pokemon.html">&#x1F995; Fossils</a>
+    <a href="legendary-birds.html">&#x1F985; Legendary Birds</a>
+    <a href="legendary-dogs.html" class="active">&#x1F43E; Legendary Dogs</a>
+    <a href="ho-oh-lugia.html">&#x1F31F; Ho-Oh &amp; Lugia</a>
+    <a href="mew-mewtwo.html">&#x1F9EC; Mew &amp; Mewtwo</a>
+  </div>
+</div>
+<script>
+  (function(){
+    var burger = document.getElementById('navBurger');
+    var drawer = document.getElementById('navDrawer');
+    if(burger && drawer){
+      burger.addEventListener('click', function(){
+        burger.classList.toggle('open');
+        drawer.classList.toggle('open');
+      });
+      drawer.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', function(){
+          burger.classList.remove('open');
+          drawer.classList.remove('open');
+        });
+      });
+    }
+  })();
+</script>
+<header>
+  <div class="header-inner">
+    <div class="breadcrumb"><a href="index.html">FR/LG Team Builder</a> › Legendary Dogs Guide</div>
+    <h1><span class="accent-elec">RAIKOU</span> · <span class="accent-fire">ENTEI</span> · <span class="accent-water">SUICUNE</span><br>LEGENDARY DOGS GUIDE</h1>
+    <p class="header-desc">The legendary dogs are the hardest Pokémon to catch in FRLG. Which one you get is determined by your starter choice — and they flee on the first turn every time.</p>
+    <div class="header-tags">
+      <span class="htag">🔴 Fire Red</span><span class="htag">🟢 Leaf Green</span>
+      <span class="htag">Roaming — Starter Dependent</span><span class="htag">Post National Dex</span>
+    </div>
+  </div>
+</header>
+<div class="page-body">
+
+  <div class="section-label">Which dog do you get? — Depends on your starter</div>
+  <div class="starter-grid">
+    <div class="starter-card bulba">
+      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png" alt="Bulbasaur">
+      <div class="starter-name">BULBASAUR</div>
+      <div class="arrow">↓</div>
+      <img class="dog-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/244.png" alt="Entei">
+      <div class="dog-name">ENTEI</div>
+    </div>
+    <div class="starter-card charm">
+      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png" alt="Charmander">
+      <div class="starter-name">CHARMANDER</div>
+      <div class="arrow">↓</div>
+      <img class="dog-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/245.png" alt="Suicune">
+      <div class="dog-name">SUICUNE</div>
+    </div>
+    <div class="starter-card squirt">
+      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png" alt="Squirtle">
+      <div class="starter-name">SQUIRTLE</div>
+      <div class="arrow">↓</div>
+      <img class="dog-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/243.png" alt="Raikou">
+      <div class="dog-name">RAIKOU</div>
+    </div>
+  </div>
+
+  <div class="section-label">How roaming Pokémon work</div>
+  <div class="mechanic-box">
+    <h3>⚡ The Roaming Mechanic — Know This Before You Hunt</h3>
+    <div class="mech-grid">
+      <div class="mech-item">
+        <h4>They Flee Immediately</h4>
+        <p>Roaming Pokémon use Roar or simply flee on turn 1. You almost never get more than one action before they escape.</p>
+      </div>
+      <div class="mech-item">
+        <h4>Random Locations</h4>
+        <p>They appear randomly in any tall grass in Kanto. Every time you change routes, they move to a new random location.</p>
+      </div>
+      <div class="mech-item">
+        <h4>Track via Pokédex</h4>
+        <p>After your first encounter, open the Pokédex entry for the dog — the Area page shows its current location on the map.</p>
+      </div>
+      <div class="mech-item">
+        <h4>HP &amp; Status Persist</h4>
+        <p>Any damage or status condition (sleep, paralysis) you inflict carries over between encounters. This is key to catching them.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">Step-by-step catching strategy</div>
+
+  <div class="alert warning">
+    <span class="alert-icon">⚠️</span>
+    <p><strong>Unlock requirement:</strong> The legendary dog doesn't appear until you complete the main Sevii Islands storyline and receive the <strong>National Pokédex</strong> (requires seeing 60 Pokémon). Complete the game first.</p>
+  </div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h3>Get the National Pokédex First</h3>
+        <p>Beat the Elite Four, then complete the Sevii Islands main quest (deliver the Sapphire stone to Celio on One Island). Professor Oak upgrades your Pokédex to the National Dex. The roaming dog activates immediately after this.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h3>Get Your First Encounter to Register It</h3>
+        <p>Walk through tall grass in different areas of Kanto until you randomly encounter your legendary dog. It will immediately flee — that's fine. You just need this first sighting to register it in your Pokédex.</p>
+        <div class="tip">📍 <strong>After first encounter:</strong> Open your Pokédex, find the dog, press A to view its data, then go to the Area tab. It shows a map of Kanto with a dot indicating which route the dog is currently on.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h3>Prepare Your Catching Team</h3>
+        <p>This is the most important step. You need a Pokémon with <strong>Mean Look or Block</strong> (prevents fleeing) AND a Pokémon with a reliable sleep move. The two most effective catching Pokémon are:</p>
+        <div class="tip">🌙 <strong>Haunter/Gengar:</strong> Learns Mean Look naturally. Can use Hypnosis to sleep the dog. Being a Ghost type means it's immune to Normal and Fighting moves the dogs use. The best choice.</div>
+        <div class="tip">🌿 <strong>Smeargle (post-game):</strong> Can sketch both Spore (100% accurate sleep) and Mean Look. The most reliable but hardest to set up.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <h3>Use Repels to Force Encounters on the Right Route</h3>
+        <p>Check the Pokédex to find which route the dog is on. Travel there and use a Max Repel. With Repel active, only Pokémon higher level than your lead Pokémon will appear — but the legendary dog (Lv. 50) will still force-encounter if you're lower level. Walk back and forth in the grass until it appears.</p>
+        <div class="tip">💡 <strong>Lead Pokémon trick:</strong> Put a Pokémon at exactly Lv. 39 or lower as your lead. Max Repel will block all wild Pokémon at lower levels but the Lv. 50 dog will still appear. This dramatically reduces time spent in random encounters.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <h3>In Battle: Mean Look First, Then Sleep</h3>
+        <p>When the dog appears — act fast. On turn 1, use Mean Look or Block to prevent it from fleeing. The dog is now trapped. Then on subsequent turns, use Hypnosis or Spore to put it to sleep. Chip its HP down with weak moves, then start throwing Ultra Balls.</p>
+        <div class="tip">⚡ <strong>Important:</strong> Mean Look does NOT carry over if the dog flees before you use it. You must use Mean Look on the very first turn or the dog escapes.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">6</div>
+      <div class="step-content">
+        <h3>Chip Its HP Down Across Multiple Encounters</h3>
+        <p>If the dog wakes up and you can't sleep it again before it flees — don't panic. The HP damage carries over! Keep hunting it, use Mean Look again next encounter, re-apply sleep, and throw more balls. Eventually it will be at low enough HP for a reliable catch.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert master">
+    <span class="alert-icon">⚪</span>
+    <p><strong>Master Ball recommendation:</strong> The legendary dogs are the #1 best use of your Master Ball in FRLG. They are genuinely the hardest Pokémon in the game to catch due to the flee mechanic. If you don't want to spend hours hunting, use your Master Ball here — no shame in it.</p>
+  </div>
+
+  <div class="alert success">
+    <span class="alert-icon">✅</span>
+    <p><strong>Paralysis works too!</strong> You can't inflict paralysis AND sleep at the same time — but paralysis alone significantly increases catch rate and slows the dog. If you don't have a sleep move, a Pokémon with Thunder Wave + Mean Look will get the job done with enough Ultra Balls.</p>
+  </div>
+
+  <div class="cta-bar">
+    <h3>BUILD YOUR TEAM</h3>
+    <p>Your legendary dog is a powerful addition — check how it slots into your team's type coverage.</p>
+    <a href="index.html" class="btn-primary">🏠 Open Team Builder</a>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="google-site-verification" content="9FIv9kf_N8yO2BEWcwrzuch4oOpBZ9iaJ0WvpiqGvy4" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Catch Articuno, Zapdos & Moltres in Pokemon FireRed LeafGreen</title>
+<meta name="description" content="Step-by-step guide to catching all three legendary birds in FireRed and LeafGreen. Articuno in Seafoam Islands, Zapdos at the Power Plant, Moltres at Mt. Ember.">
+<link rel="canonical" href="https://pokemonfrlgteambuilder.netlify.app/legendary-birds.html">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Legendary Birds Guide — Articuno, Zapdos & Moltres in Fire Red & Leaf Green">
+<meta property="og:type" content="article">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Where do you catch Articuno in Fire Red?","acceptedAnswer":{"@type":"Answer","text":"Articuno is found deep in the Seafoam Islands, the cave accessible from Route 20 between Cinnabar Island and Fuchsia City. You need Surf to reach the islands and must solve a boulder puzzle inside to slow the current enough to reach Articuno on B4F."}},
+    {"@type":"Question","name":"Where is Zapdos in Fire Red and Leaf Green?","acceptedAnswer":{"@type":"Answer","text":"Zapdos is found at the Power Plant, located on Route 10 north of Lavender Town. Surf east from Rock Tunnel's entrance to reach the Power Plant building. Zapdos is inside at the dead end of the facility."}},
+    {"@type":"Question","name":"Where is Moltres in Fire Red and Leaf Green?","acceptedAnswer":{"@type":"Answer","text":"In Fire Red and Leaf Green, Moltres was moved from Victory Road (its Gen 1 location) to Mt. Ember on One Island in the Sevii Islands. You need to complete early Sevii Island quests and have the Ember Spa unlocked to reach it."}},
+    {"@type":"Question","name":"What level are the legendary birds in Fire Red?","acceptedAnswer":{"@type":"Answer","text":"All three legendary birds appear at level 50 in Fire Red and Leaf Green. Bring strong Pokémon and plenty of Ultra Balls or your Master Ball."}}
+  ]
+}
+</script>
+<style>
+  :root {
+    --bg:#0e0e12; --surface:#1a1a24; --surface2:#22222e; --surface3:#2a2a38;
+    --border:rgba(255,255,255,0.07); --border-hi:rgba(255,255,255,0.14);
+    --red:#e8354a; --red-soft:rgba(232,53,74,0.15);
+    --green:#2ec97a; --green-soft:rgba(46,201,122,0.13);
+    --gold:#f5c842; --gold-soft:rgba(245,200,66,0.12);
+    --blue:#4b9eff; --blue-soft:rgba(75,158,255,0.12);
+    --ice:#a5f3fc; --ice-soft:rgba(165,243,252,0.1);
+    --elec:#fde047; --elec-soft:rgba(253,224,71,0.1);
+    --fire:#fb923c; --fire-soft:rgba(251,146,60,0.1);
+    --text:#f0eff4; --text-2:#9896a8; --text-3:#5a5870;
+    --r-sm:8px; --r-md:14px; --r-lg:20px; --r-xl:28px;
+    --font-ui:'Nunito',sans-serif; --font-pixel:'Press Start 2P',monospace;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:var(--font-ui);font-size:15px;min-height:100vh;
+    background-image:radial-gradient(ellipse 80% 50% at 10% 0%,rgba(165,243,252,0.06) 0%,transparent 55%),
+    radial-gradient(ellipse 60% 40% at 50% 0%,rgba(253,224,71,0.05) 0%,transparent 50%),
+    radial-gradient(ellipse 80% 50% at 90% 0%,rgba(251,146,60,0.06) 0%,transparent 55%);}
+  ::-webkit-scrollbar{width:5px;} ::-webkit-scrollbar-track{background:transparent;}
+  ::-webkit-scrollbar-thumb{background:var(--surface3);border-radius:99px;}
+  header{background:var(--surface);border-bottom:1px solid var(--border);padding:40px 24px 32px;position:relative;overflow:hidden;}
+  header::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(165,243,252,0.05),transparent 40%,rgba(251,146,60,0.05) 100%);pointer-events:none;}
+  .header-inner{max-width:860px;margin:0 auto;position:relative;}
+  .breadcrumb{font-size:12px;color:var(--text-3);margin-bottom:12px;}
+  .breadcrumb a{color:var(--text-3);text-decoration:none;}
+  header h1{font-family:var(--font-pixel);font-size:clamp(11px,2vw,15px);line-height:1.8;color:var(--text);margin-bottom:10px;}
+  .accent-ice{color:var(--ice);} .accent-elec{color:var(--elec);} .accent-fire{color:var(--fire);}
+  .header-desc{color:var(--text-2);font-size:15px;max-width:620px;line-height:1.6;}
+  .header-tags{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap;}
+  .htag{background:var(--surface2);border:1px solid var(--border);padding:4px 12px;border-radius:99px;font-size:12px;font-weight:700;color:var(--text-2);}
+  .page-body{max-width:860px;margin:0 auto;padding:32px 24px 80px;}
+  .poke-section{margin-bottom:60px;}
+  .section-label{font-family:var(--font-pixel);font-size:9px;color:var(--text-3);letter-spacing:.1em;margin-bottom:16px;display:flex;align-items:center;gap:12px;}
+  .section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+  .bird-header{display:flex;align-items:center;gap:20px;border:1px solid var(--border);border-radius:var(--r-xl);padding:24px 28px;margin-bottom:28px;position:relative;overflow:hidden;}
+  .bird-header img{width:80px;height:80px;image-rendering:pixelated;filter:drop-shadow(0 4px 14px rgba(0,0,0,0.6));flex-shrink:0;}
+  .bird-header.articuno{background:linear-gradient(135deg,rgba(165,243,252,0.08) 0%,var(--surface) 60%);}
+  .bird-header.zapdos{background:linear-gradient(135deg,rgba(253,224,71,0.08) 0%,var(--surface) 60%);}
+  .bird-header.moltres{background:linear-gradient(135deg,rgba(251,146,60,0.08) 0%,var(--surface) 60%);}
+  .bird-title h2{font-family:var(--font-pixel);font-size:13px;color:var(--text);margin-bottom:8px;}
+  .bird-title p{color:var(--text-2);font-size:14px;line-height:1.5;margin-bottom:10px;}
+  .type-badges{display:flex;gap:6px;flex-wrap:wrap;}
+  .type-badge{padding:3px 12px;border-radius:99px;font-size:11px;font-weight:800;}
+  .t-ice{background:rgba(152,216,216,0.2);color:#98d8d8;}
+  .t-flying{background:rgba(168,144,240,0.2);color:#a890f0;}
+  .t-electric{background:rgba(248,208,48,0.2);color:#f8d030;}
+  .t-fire{background:rgba(240,128,48,0.2);color:#f08030;}
+  .stat-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;}
+  .stat{background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:var(--r-sm);padding:4px 12px;font-size:11px;color:var(--text-2);}
+  .stat strong{color:var(--text);}
+  .steps{display:flex;flex-direction:column;gap:14px;margin-bottom:24px;}
+  .step{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:20px 22px;display:flex;gap:18px;align-items:flex-start;transition:border-color .2s;}
+  .step:hover{border-color:var(--border-hi);}
+  .step-num{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-pixel);font-size:9px;flex-shrink:0;margin-top:2px;}
+  .step-num.ice{background:var(--ice-soft);color:var(--ice);border:1px solid rgba(165,243,252,0.25);}
+  .step-num.elec{background:var(--elec-soft);color:var(--elec);border:1px solid rgba(253,224,71,0.25);}
+  .step-num.fire{background:var(--fire-soft);color:var(--fire);border:1px solid rgba(251,146,60,0.25);}
+  .step-content h3{font-size:15px;font-weight:800;color:var(--text);margin-bottom:5px;}
+  .step-content p{color:var(--text-2);font-size:14px;line-height:1.6;}
+  .step-content .tip{background:var(--surface2);border-radius:0 var(--r-sm) var(--r-sm) 0;padding:10px 14px;margin-top:10px;font-size:13px;color:var(--text-2);line-height:1.5;}
+  .step-content .tip.ice{border-left:3px solid var(--ice);}
+  .step-content .tip.elec{border-left:3px solid var(--elec);}
+  .step-content .tip.fire{border-left:3px solid var(--fire);}
+  .step-content .tip strong{color:var(--text);}
+  .alert{border-radius:var(--r-md);padding:16px 20px;margin:16px 0;font-size:14px;line-height:1.6;display:flex;gap:12px;align-items:flex-start;}
+  .alert-icon{font-size:18px;flex-shrink:0;margin-top:1px;}
+  .alert.warning{background:rgba(245,200,66,0.08);border:1px solid rgba(245,200,66,0.2);}
+  .alert.warning p{color:var(--text-2);} .alert.warning strong{color:var(--gold);}
+  .alert.info-ice{background:var(--ice-soft);border:1px solid rgba(165,243,252,0.2);}
+  .alert.info-ice p{color:var(--text-2);} .alert.info-ice strong{color:var(--ice);}
+  .alert.info-fire{background:var(--fire-soft);border:1px solid rgba(251,146,60,0.2);}
+  .alert.info-fire p{color:var(--text-2);} .alert.info-fire strong{color:var(--fire);}
+  .page-divider{border:none;border-top:1px solid var(--border);margin:48px 0;}
+  .catch-kit{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:20px 24px;margin:20px 0;}
+  .catch-kit h4{font-size:13px;font-weight:800;color:var(--text);margin-bottom:12px;}
+  .kit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;}
+  .kit-item{background:var(--surface2);border-radius:var(--r-md);padding:10px 14px;font-size:13px;color:var(--text-2);}
+  .kit-item strong{display:block;color:var(--text);margin-bottom:2px;}
+  .cta-bar{background:var(--surface);border:1px solid var(--border-hi);border-radius:var(--r-xl);padding:28px 32px;text-align:center;margin-top:48px;}
+  .cta-bar h3{font-family:var(--font-pixel);font-size:11px;color:var(--text);margin-bottom:10px;}
+  .cta-bar p{color:var(--text-2);font-size:14px;margin-bottom:18px;}
+  .btn-primary{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--red),#c0293c);color:#fff;text-decoration:none;padding:12px 28px;border-radius:var(--r-md);font-weight:800;font-size:14px;transition:all .2s;box-shadow:0 4px 14px rgba(232,53,74,0.25);}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(232,53,74,0.35);}
+  @media(max-width:600px){.bird-header{flex-direction:column;align-items:flex-start;}
+}
+  /* NAV */
+  .site-nav-wrap{background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;overflow:hidden;}
+  .site-nav{display:flex;align-items:center;padding:0 20px;height:52px;min-width:0;}
+  .nav-brand{font-family:var(--font-pixel);font-size:9px;color:var(--red);padding-right:18px;border-right:1px solid var(--border);margin-right:4px;flex-shrink:0;white-space:nowrap;}
+  .nav-links{display:flex;align-items:center;flex:1;min-width:0;overflow:hidden;flex-wrap:nowrap;}
+  .nav-links a{display:inline-flex;align-items:center;gap:5px;padding:0 11px;height:52px;color:var(--text-2);text-decoration:none;font-size:12px;font-weight:700;border-bottom:2px solid transparent;transition:all .2s;white-space:nowrap;flex-shrink:0;}
+  .nav-links a:hover{color:var(--text);background:rgba(255,255,255,0.04);}
+  .nav-links a.active{color:var(--gold);border-bottom-color:var(--gold);}
+  .nav-burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;padding:8px;margin-left:auto;background:none;border:none;cursor:pointer;border-radius:var(--r-sm);transition:background .2s;flex-shrink:0;}
+  .nav-burger:hover{background:rgba(255,255,255,0.06);}
+  .nav-burger span{display:block;height:2px;width:100%;background:var(--text-2);border-radius:2px;transition:all .3s;}
+  .nav-burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .nav-burger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+  .nav-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .nav-drawer{display:none;flex-direction:column;background:var(--surface);border-top:1px solid var(--border);padding:8px 0 12px;}
+  .nav-drawer.open{display:flex;}
+  .nav-drawer a{display:flex;align-items:center;gap:10px;padding:13px 24px;color:var(--text-2);text-decoration:none;font-size:14px;font-weight:700;transition:all .2s;border-left:3px solid transparent;}
+  .nav-drawer a:hover{color:var(--text);background:rgba(255,255,255,0.04);}
+  .nav-drawer a.active{color:var(--gold);border-left-color:var(--gold);background:rgba(245,200,66,0.08);}
+  @media(max-width:860px){
+    .nav-links{display:none;}
+    .nav-burger{display:flex;}
+  }
+</style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SWWLLSCX6W"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){{dataLayer.push(arguments);}}
+    gtag('js', new Date());
+    gtag('config', 'G-SWWLLSCX6W');
+  </script>
+</head>
+<body>
+<div class="site-nav-wrap">
+  <nav class="site-nav">
+    <span class="nav-brand">FR/LG</span>
+    <div class="nav-links">
+      <a href="index.html">&#x1F3E0; Team Builder</a>
+      <a href="rare-pokemon.html">&#x2B50; Rare Pok&eacute;mon</a>
+      <a href="fossil-pokemon.html">&#x1F995; Fossils</a>
+      <a href="legendary-birds.html" class="active">&#x1F985; Legendary Birds</a>
+      <a href="legendary-dogs.html">&#x1F43E; Legendary Dogs</a>
+      <a href="ho-oh-lugia.html">&#x1F31F; Ho-Oh &amp; Lugia</a>
+      <a href="mew-mewtwo.html">&#x1F9EC; Mew &amp; Mewtwo</a>
+    </div>
+    <button class="nav-burger" id="navBurger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-drawer" id="navDrawer">
+    <a href="index.html">&#x1F3E0; Team Builder</a>
+    <a href="rare-pokemon.html">&#x2B50; Rare Pok&eacute;mon</a>
+    <a href="fossil-pokemon.html">&#x1F995; Fossils</a>
+    <a href="legendary-birds.html" class="active">&#x1F985; Legendary Birds</a>
+    <a href="legendary-dogs.html">&#x1F43E; Legendary Dogs</a>
+    <a href="ho-oh-lugia.html">&#x1F31F; Ho-Oh &amp; Lugia</a>
+    <a href="mew-mewtwo.html">&#x1F9EC; Mew &amp; Mewtwo</a>
+  </div>
+</div>
+<script>
+  (function(){
+    var burger = document.getElementById('navBurger');
+    var drawer = document.getElementById('navDrawer');
+    if(burger && drawer){
+      burger.addEventListener('click', function(){
+        burger.classList.toggle('open');
+        drawer.classList.toggle('open');
+      });
+      drawer.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', function(){
+          burger.classList.remove('open');
+          drawer.classList.remove('open');
+        });
+      });
+    }
+  })();
+</script>
+<header>
+  <div class="header-inner">
+    <div class="breadcrumb"><a href="index.html">FR/LG Team Builder</a> › Legendary Birds Guide</div>
+    <h1><span class="accent-ice">ARTICUNO</span> · <span class="accent-elec">ZAPDOS</span> · <span class="accent-fire">MOLTRES</span><br>LEGENDARY BIRDS GUIDE</h1>
+    <p class="header-desc">All three legendary birds are available in Fire Red and Leaf Green before or shortly after the Elite Four. Step-by-step locations and catching walkthroughs for each.</p>
+    <div class="header-tags">
+      <span class="htag">🔴 Fire Red</span><span class="htag">🟢 Leaf Green</span>
+      <span class="htag">All Lv. 50</span><span class="htag">One-Time Encounters</span>
+    </div>
+  </div>
+</header>
+<div class="page-body">
+
+  <!-- CATCHING KIT -->
+  <div class="catch-kit">
+    <h4>🎒 Recommended Catch Kit — Bring This for All Three Birds</h4>
+    <div class="kit-grid">
+      <div class="kit-item"><strong>20+ Ultra Balls</strong>Best Pokéball for these encounters</div>
+      <div class="kit-item"><strong>Sleep Move User</strong>Spore, Sleep Powder, or Hypnosis</div>
+      <div class="kit-item"><strong>False Swipe</strong>Brings HP to exactly 1 safely</div>
+      <div class="kit-item"><strong>Save Before Battle</strong>Reset if you knock it out</div>
+      <div class="kit-item"><strong>Repels</strong>Avoid random encounters while navigating</div>
+    </div>
+  </div>
+
+  <!-- ARTICUNO -->
+  <div class="poke-section" id="articuno">
+    <div class="bird-header articuno">
+      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/144.png" alt="Articuno">
+      <div class="bird-title">
+        <h2>#144 ARTICUNO</h2>
+        <p>The Freeze Pokémon — found deep in the Seafoam Islands. Requires solving a boulder puzzle to reach. Ice/Flying type with high Special Defense.</p>
+        <div class="type-badges"><span class="type-badge t-ice">Ice</span><span class="type-badge t-flying">Flying</span></div>
+        <div class="stat-row">
+          <div class="stat">Lv. <strong>50</strong></div>
+          <div class="stat">Sp.DEF <strong>100</strong></div>
+          <div class="stat">Sp.ATK <strong>95</strong></div>
+        </div>
+      </div>
+    </div>
+    <div class="section-label">How to catch Articuno — Seafoam Islands</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num ice">1</div>
+        <div class="step-content">
+          <h3>Get Surf &amp; Strength Before You Go</h3>
+          <p>Seafoam Islands require both <strong>Surf</strong> (HM03 — Safari Zone) and <strong>Strength</strong> (HM04 — Fuchsia City warden). Without both HMs, you can't reach Articuno. Make sure your party has Pokémon that can use both.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num ice">2</div>
+        <div class="step-content">
+          <h3>Reach the Seafoam Islands via Route 20</h3>
+          <p>Surf west from Cinnabar Island (or east from Fuchsia City) along Route 20. You'll reach two islands in the middle of the sea — this is the Seafoam Islands cave entrance. Enter from either island's entrance.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num ice">3</div>
+        <div class="step-content">
+          <h3>Solve the Boulder Puzzle (B3F &amp; B4F)</h3>
+          <p>The cave has a strong underwater current that prevents you from Surfing to Articuno. To slow the current, you need to push four boulders into holes using Strength:</p>
+          <div class="tip ice">🪨 <strong>Puzzle guide:</strong> On B3F, push the boulders you find into the holes in the floor. Two boulders on B3F, two on B4F. Each boulder dropped into a hole reduces the current. After all four are in place, the current stops and you can Surf to Articuno's chamber on B4F.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num ice">4</div>
+        <div class="step-content">
+          <h3>Save &amp; Battle Articuno on B4F</h3>
+          <p>Navigate to the lowest floor (B4F) and Surf north through the now-still water. Articuno is at the far end of the chamber. Save your game, then step up to trigger the battle. It's level 50 with Powder Snow, Mist, Ice Beam, and Agility.</p>
+          <div class="tip ice">💡 <strong>Weakness:</strong> Articuno is 4× weak to Rock-type moves, and weak to Fire, Electric, and Steel. Use a Rock-type to lower its HP quickly, then switch to False Swipe to land on 1 HP. Apply Sleep, then throw Ultra Balls.</div>
+        </div>
+      </div>
+    </div>
+    <div class="alert warning">
+      <span class="alert-icon">⚠️</span>
+      <p><strong>Don't use your Master Ball here!</strong> Articuno is challenging but very catchable with 20 Ultra Balls + sleep. Save your Master Ball for the roaming legendary dogs, which are far harder to catch.</p>
+    </div>
+  </div>
+
+  <hr class="page-divider">
+
+  <!-- ZAPDOS -->
+  <div class="poke-section" id="zapdos">
+    <div class="bird-header zapdos">
+      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/145.png" alt="Zapdos">
+      <div class="bird-title">
+        <h2>#145 ZAPDOS</h2>
+        <p>The Electric Pokémon — the easiest of the three birds to reach. No puzzle required, just Surf to the Power Plant on Route 10.</p>
+        <div class="type-badges"><span class="type-badge t-electric">Electric</span><span class="type-badge t-flying">Flying</span></div>
+        <div class="stat-row">
+          <div class="stat">Lv. <strong>50</strong></div>
+          <div class="stat">Sp.ATK <strong>125</strong></div>
+          <div class="stat">SPD <strong>100</strong></div>
+        </div>
+      </div>
+    </div>
+    <div class="section-label">How to catch Zapdos — Power Plant</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num elec">1</div>
+        <div class="step-content">
+          <h3>Get Surf First</h3>
+          <p>You need Surf (HM03 from the Safari Zone) to access the Power Plant. Without it, you can't cross the water to the building's entrance.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num elec">2</div>
+        <div class="step-content">
+          <h3>Head to Route 10 North of Lavender Town</h3>
+          <p>Route 10 runs south from the Rock Tunnel entrance. Use Surf on the river that flows through Route 10 — ride the current east toward the Power Plant building, a large industrial structure on the water's edge.</p>
+          <div class="tip elec">🗺️ <strong>Easy route:</strong> From Lavender Town, go north then west to find the Rock Tunnel entrance. The river that flows past it is where you Surf to reach the Power Plant.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num elec">3</div>
+        <div class="step-content">
+          <h3>Navigate Through the Power Plant</h3>
+          <p>The Power Plant is a single-floor building filled with wild Electric Pokémon (Magnemite, Voltorb, Electabuzz) and item balls — some of which are disguised Voltorbs. Navigate to the far end of the building where Zapdos waits.</p>
+          <div class="tip elec">⚡ <strong>Pokémon tip:</strong> Bring a Ground-type Pokémon to deal with all the wild Electric encounters here. Dugtrio or Nidoking work great.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num elec">4</div>
+        <div class="step-content">
+          <h3>Save &amp; Battle Zapdos</h3>
+          <p>Zapdos is at the dead end of the Power Plant. Save before approaching it. At level 50, it uses Thunder Wave, ThunderShock, DrillPeck, and Thunder. Its Electric moves can paralyze you, so bring Paralyz Heals.</p>
+          <div class="tip elec">💡 <strong>Weakness:</strong> Zapdos is weak to Ice and Rock. Use Rock Slide or Ancient Power to chip it down, then False Swipe to 1 HP. Sleep it and throw Ultra Balls. Zapdos has higher catch difficulty than Articuno, so bring 25+ Ultra Balls.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="page-divider">
+
+  <!-- MOLTRES -->
+  <div class="poke-section" id="moltres">
+    <div class="bird-header moltres">
+      <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/146.png" alt="Moltres">
+      <div class="bird-title">
+        <h2>#146 MOLTRES</h2>
+        <p>The Flame Pokémon — <strong>moved from Victory Road to Mt. Ember</strong> on One Island in FRLG. Requires progressing through the Sevii Islands questline to access.</p>
+        <div class="type-badges"><span class="type-badge t-fire">Fire</span><span class="type-badge t-flying">Flying</span></div>
+        <div class="stat-row">
+          <div class="stat">Lv. <strong>50</strong></div>
+          <div class="stat">Sp.ATK <strong>125</strong></div>
+          <div class="stat">SPD <strong>90</strong></div>
+        </div>
+      </div>
+    </div>
+    <div class="alert info-fire">
+      <span class="alert-icon">🔥</span>
+      <p><strong>FRLG Change:</strong> In the original Red/Blue, Moltres was in Victory Road. In Fire Red and Leaf Green, it was relocated to <strong>Mt. Ember on One Island</strong> in the Sevii Islands. Don't look for it at Victory Road — it's not there.</p>
+    </div>
+    <div class="section-label">How to catch Moltres — Mt. Ember, One Island</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num fire">1</div>
+        <div class="step-content">
+          <h3>Reach One Island via the Sevii Islands Ferry</h3>
+          <p>After obtaining the first two Badges and talking to Bill in Cerulean City, you'll be invited to the Sevii Islands. The ferry from Vermilion takes you to One Island (also called Knot Island). This is available early in the game.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num fire">2</div>
+        <div class="step-content">
+          <h3>Complete the One Island Questline (Boon Island)</h3>
+          <p>On your first visit to One Island, Bill's friend Celio asks you to find the Ruby stone on Mt. Ember. Go north through One Island town to reach Mt. Ember's base. You'll need to defeat two Team Rocket grunts who are guarding a hidden cave entrance near the summit.</p>
+          <div class="tip fire">📜 <strong>Team Rocket cave:</strong> Near the top of Mt. Ember's exterior, two Rocket grunts are standing next to a cave entrance. Defeat them and enter — the Ruby is inside. Deliver it to Celio to progress the Sevii Islands story.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num fire">3</div>
+        <div class="step-content">
+          <h3>Return to Mt. Ember — Enter the Summit Path</h3>
+          <p>After completing the initial questline and having Strength, return to Mt. Ember. The path to the summit requires using Strength to push boulders. Work your way up through the rocky interior of the mountain toward the peak.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num fire">4</div>
+        <div class="step-content">
+          <h3>Save &amp; Battle Moltres at the Summit</h3>
+          <p>Moltres waits at the very top of Mt. Ember. Save before engaging. At level 50, it uses FireSpin, Agility, Ember, and Leer. Fire Spin can trap you for several turns — have a Water or Rock type ready to take hits.</p>
+          <div class="tip fire">💡 <strong>Weakness:</strong> Moltres is 4× weak to Rock-type moves and also weak to Water and Electric. A Kabutops with Rock Slide or Lapras with Surf can chip it down quickly. Then False Swipe and sleep before throwing Ultra Balls.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-bar">
+    <h3>BUILD YOUR TEAM</h3>
+    <p>Add a legendary bird to your squad and check how it covers your team's weaknesses.</p>
+    <a href="index.html" class="btn-primary">🏠 Open Team Builder</a>
+  </div>
+</div>
+</body>
+</html>

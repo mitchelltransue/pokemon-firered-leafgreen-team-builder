@@ -1,0 +1,3085 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="google-site-verification" content="9FIv9kf_N8yO2BEWcwrzuch4oOpBZ9iaJ0WvpiqGvy4" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FireRed &amp; LeafGreen Team Builder | Plan Your Perfect Pokemon Team</title>
+<meta name="description" content="Build the perfect Pokemon team for FireRed &amp; LeafGreen. Check type coverage, find the best movesets, and dominate the Elite Four.">
+<meta name="keywords" content="Pokemon Fire Red team builder, Pokemon Leaf Green team builder, best Fire Red team, where to catch Pokemon Fire Red, FRLG type coverage">
+<meta property="og:title" content="FireRed &amp; LeafGreen Team Builder | Plan Your Perfect Pokemon Team">
+<meta property="og:description" content="Build the perfect Pokemon team for FireRed &amp; LeafGreen. Check type coverage, find the best movesets, and dominate the Elite Four.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FireRed &amp; LeafGreen Team Builder | Plan Your Perfect Pokemon Team">
+<meta name="twitter:description" content="Build the perfect Pokemon team for FireRed &amp; LeafGreen. Check type coverage, find the best movesets, and dominate the Elite Four.">
+
+<link rel="canonical" href="https://pokemonfrlgteambuilder.netlify.app/">
+<meta name="robots" content="index, follow">
+
+<meta name="author" content="Pokémon FR/LG Team Builder">
+<meta property="og:url" content="https://pokemonfrlgteambuilder.netlify.app/">
+<meta property="og:image" content="https://pokemonfrlgteambuilder.netlify.app/og-image.png">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* ── DESIGN TOKENS ───────────────────────────────────────── */
+  :root {
+    /* Switch-inspired palette */
+    --bg:          #0e0e12;
+    --surface:     #1a1a24;
+    --surface2:    #22222e;
+    --surface3:    #2a2a38;
+    --border:      rgba(255,255,255,0.07);
+    --border-hi:   rgba(255,255,255,0.14);
+
+    /* GBA heritage accents */
+    --red:         #e8354a;
+    --red-soft:    rgba(232,53,74,0.15);
+    --green:       #2ec97a;
+    --green-soft:  rgba(46,201,122,0.13);
+    --gold:        #f5c842;
+    --gold-soft:   rgba(245,200,66,0.12);
+    --blue:        #4b9eff;
+    --blue-soft:   rgba(75,158,255,0.12);
+
+    /* Text */
+    --text:        #f0eff4;
+    --text-2:      #9896a8;
+    --text-3:      #5a5870;
+
+    /* Radius */
+    --r-sm:  8px;
+    --r-md:  14px;
+    --r-lg:  20px;
+    --r-xl:  28px;
+
+    /* Fonts */
+    --font-ui:     'Nunito', sans-serif;
+    --font-pixel:  'Press Start 2P', monospace;
+  }
+
+  /* ── RESET ───────────────────────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* ── BASE ────────────────────────────────────────────────── */
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-ui);
+    font-size: 15px;
+    min-height: 100vh;
+    /* subtle noise texture */
+    background-image:
+      radial-gradient(ellipse 80% 50% at 10% 0%, rgba(232,53,74,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse 80% 50% at 90% 0%, rgba(46,201,122,0.06) 0%, transparent 60%);
+  }
+
+  /* ── SCROLLBAR ───────────────────────────────────────────── */
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--surface3); border-radius: 99px; }
+
+  /* ── HEADER ──────────────────────────────────────────────── */
+  header {
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+  }
+  header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(105deg, rgba(232,53,74,0.18) 0%, transparent 45%),
+      linear-gradient(255deg, rgba(46,201,122,0.12) 0%, transparent 45%);
+    pointer-events: none;
+  }
+  /* pixel scanline glint */
+  header::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 3px,
+      rgba(255,255,255,0.012) 3px,
+      rgba(255,255,255,0.012) 4px
+    );
+    pointer-events: none;
+  }
+  .header-inner {
+    position: relative; z-index: 1;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 22px 28px 20px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  /* Pokéball icon — crisp 2-tone circle */
+  .header-logo {
+    width: 52px; height: 52px;
+    background: conic-gradient(var(--red) 0deg 180deg, #f0eff4 180deg 360deg);
+    border-radius: 50%;
+    border: 3px solid rgba(255,255,255,0.15);
+    position: relative;
+    flex-shrink: 0;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.4), 0 8px 24px rgba(232,53,74,0.3);
+  }
+  .header-logo::before {
+    content: '';
+    position: absolute;
+    left: 50%; top: 50%;
+    transform: translate(-50%,-50%);
+    width: 13px; height: 13px;
+    background: var(--bg);
+    border-radius: 50%;
+    border: 2.5px solid rgba(255,255,255,0.2);
+    box-shadow: 0 0 0 2px var(--bg);
+  }
+  .header-logo::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0;
+    top: calc(50% - 1.5px);
+    height: 3px;
+    background: rgba(0,0,0,0.25);
+  }
+  header h1 {
+    font-family: var(--font-pixel);
+    font-size: clamp(8px, 1.5vw, 14px);
+    line-height: 1.7;
+    color: var(--text);
+    letter-spacing: 0.5px;
+  }
+  header h1 span        { color: var(--red); }
+  header h1 span.lg-accent { color: var(--green); }
+  .header-sub {
+    font-family: var(--font-ui);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-2);
+    margin-top: 5px;
+    letter-spacing: 0.3px;
+  }
+  /* version pills in header */
+  .header-pills { display: flex; gap: 6px; margin-top: 7px; flex-wrap: wrap; }
+  .pill {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 9px;
+    border-radius: 99px;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+  }
+  .pill-fr { background: var(--red-soft); color: var(--red); border: 1px solid rgba(232,53,74,0.3); }
+  .pill-lg { background: var(--green-soft); color: var(--green); border: 1px solid rgba(46,201,122,0.3); }
+
+  /* ── LAYOUT ──────────────────────────────────────────────── */
+  .app {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 24px 28px;
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 20px;
+    align-items: start;
+  }
+  @media (max-width: 960px) { .app { grid-template-columns: 1fr; padding: 16px; } }
+
+  .team-panel {
+    grid-column: 2;
+    grid-row: 1 / 3;
+    position: sticky;
+    top: 20px;
+    height: fit-content;
+  }
+  @media (max-width: 960px) { .team-panel { grid-column: 1; grid-row: 2; position: static; } }
+
+  /* ── CARD / PANEL ────────────────────────────────────────── */
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    padding: 18px 20px;
+    margin-bottom: 16px;
+    /* glass shimmer top edge */
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+  }
+  .panel-title {
+    font-family: var(--font-pixel);
+    font-size: 8px;
+    color: var(--gold);
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+    text-transform: uppercase;
+  }
+
+  /* ── SEARCH BAR ──────────────────────────────────────────── */
+  .search-bar {
+    width: 100%;
+    background: var(--surface2);
+    border: 1px solid var(--border-hi);
+    border-radius: var(--r-md);
+    padding: 11px 16px;
+    color: var(--text);
+    font-family: var(--font-ui);
+    font-size: 15px;
+    font-weight: 600;
+    outline: none;
+    transition: border-color .2s, box-shadow .2s;
+    margin-bottom: 14px;
+  }
+  .search-bar:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px var(--gold-soft);
+  }
+  .search-bar::placeholder { color: var(--text-3); font-weight: 500; }
+
+  /* ── TYPE FILTER ROW ─────────────────────────────────────── */
+  .filter-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 14px;
+  }
+  .filter-btn {
+    padding: 4px 11px;
+    border-radius: 99px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-family: var(--font-ui);
+    font-size: 11px;
+    font-weight: 700;
+    opacity: 0.55;
+    transition: all .15s;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+  }
+  .filter-btn:hover, .filter-btn.active {
+    opacity: 1;
+    border-color: rgba(255,255,255,0.25);
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+  }
+  .filter-btn.all-btn {
+    background: var(--surface3);
+    color: var(--text);
+    opacity: 1;
+    border-color: var(--border-hi);
+  }
+
+  /* ── RESULTS COUNT ───────────────────────────────────────── */
+  .results-count {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-3);
+    margin-bottom: 12px;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+  }
+
+  /* ── POKÉMON GRID ────────────────────────────────────────── */
+  .pokemon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 10px;
+  }
+  .poke-card {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: var(--r-md);
+    padding: 12px 8px 10px;
+    cursor: pointer;
+    transition: transform .18s cubic-bezier(.34,1.56,.64,1),
+                box-shadow .18s ease,
+                border-color .15s ease;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  /* top shimmer line on cards */
+  .poke-card::before {
+    content: '';
+    position: absolute; top: 0; left: 10%; right: 10%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+  }
+  .poke-card:hover {
+    transform: translateY(-4px) scale(1.02);
+    border-color: var(--gold);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.4), 0 0 0 1px var(--gold-soft);
+  }
+  .poke-card.selected {
+    border-color: var(--gold);
+    background: var(--gold-soft);
+    box-shadow: 0 0 0 1px rgba(245,200,66,0.2);
+  }
+  .poke-card.disabled { opacity: 0.25; cursor: default; pointer-events: none; }
+  .poke-card img {
+    width: 72px; height: 72px;
+    image-rendering: pixelated;
+    display: block;
+    margin: 0 auto 4px;
+    /* drop shadow gives "life" to the flat sprites */
+    filter: drop-shadow(0 3px 6px rgba(0,0,0,0.5));
+    transition: transform .18s ease;
+  }
+  .poke-card:hover img { transform: scale(1.08) translateY(-2px); }
+  .poke-num {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--text-3);
+    margin-bottom: 3px;
+    letter-spacing: 0.5px;
+  }
+  .poke-name {
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 5px;
+    line-height: 1.2;
+  }
+  .poke-types { display: flex; gap: 3px; justify-content: center; flex-wrap: wrap; }
+
+  /* ── TYPE BADGES ─────────────────────────────────────────── */
+  .type-badge {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 800;
+    padding: 2px 7px;
+    border-radius: 99px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+  }
+  .type-normal   { background: #7a7a6e; }
+  .type-fire     { background: #e8652a; }
+  .type-water    { background: #4a82e0; }
+  .type-electric { background: #d4aa14; color: #1a1200; text-shadow: none; }
+  .type-grass    { background: #5aaa38; }
+  .type-ice      { background: #5ac0c0; color: #0a2626; text-shadow: none; }
+  .type-fighting { background: #c02820; }
+  .type-poison   { background: #8830a0; }
+  .type-ground   { background: #c0a028; color: #1a1000; text-shadow: none; }
+  .type-flying   { background: #7070d0; }
+  .type-psychic  { background: #e83870; }
+  .type-bug      { background: #889020; }
+  .type-rock     { background: #a08820; }
+  .type-ghost    { background: #503870; }
+  .type-dragon   { background: #5020d0; }
+  .type-dark     { background: #382818; }
+  .type-steel    { background: #8888a8; }
+
+  /* ── TEAM SLOTS ──────────────────────────────────────────── */
+  .team-slots {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .team-slot {
+    background: var(--surface2);
+    border: 1.5px dashed var(--border-hi);
+    border-radius: var(--r-md);
+    padding: 10px 8px;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all .2s;
+    position: relative;
+    text-align: center;
+  }
+  .team-slot.filled {
+    border-style: solid;
+    border-color: rgba(245,200,66,0.4);
+    background: linear-gradient(145deg, var(--surface2), rgba(245,200,66,0.04));
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+  }
+  .team-slot.filled:hover {
+    border-color: var(--red);
+    background: var(--red-soft);
+  }
+  .team-slot img {
+    width: 64px; height: 64px;
+    image-rendering: pixelated;
+    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5));
+  }
+  .slot-name {
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1.2;
+    margin-top: 2px;
+  }
+  .slot-types { display: flex; gap: 3px; flex-wrap: wrap; justify-content: center; margin-top: 4px; }
+  .empty-text { font-size: 12px; font-weight: 600; color: var(--text-3); }
+  .remove-btn {
+    position: absolute;
+    top: 5px; right: 5px;
+    background: var(--red);
+    border: none;
+    color: white;
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 11px;
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0;
+    transition: opacity .15s;
+    font-family: var(--font-ui);
+    font-weight: 800;
+  }
+  .team-slot.filled:hover .remove-btn { opacity: 1; }
+
+  /* ── TYPE COVERAGE ───────────────────────────────────────── */
+  .coverage-grid { display: flex; flex-wrap: wrap; gap: 4px; }
+  .coverage-item {
+    padding: 3px 8px;
+    border-radius: 99px;
+    font-size: 9px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    opacity: 0.22;
+    transition: opacity .2s, transform .2s;
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+  }
+  .coverage-item.covered { opacity: 1; transform: scale(1.05); }
+  .coverage-item.weak { outline: 2px solid #ff4455; outline-offset: 1px; opacity: 1; }
+  .weakness-label {
+    font-size: 11px; font-weight: 700; color: #ff6677;
+    margin-bottom: 5px; margin-top: 10px;
+    text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .strength-label {
+    font-size: 11px; font-weight: 700; color: var(--green);
+    margin-bottom: 5px;
+    text-transform: uppercase; letter-spacing: 0.5px;
+  }
+
+  /* ── TABS ────────────────────────────────────────────────── */
+  .tabs {
+    display: flex;
+    gap: 2px;
+    margin-bottom: 0;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0;
+    overflow-x: auto;
+  }
+  .tab-btn {
+    flex: 1;
+    padding: 8px 4px;
+    background: transparent;
+    border: none;
+    color: var(--text-2);
+    font-family: var(--font-ui);
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all .15s;
+    letter-spacing: 0.3px;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    white-space: nowrap;
+    text-transform: uppercase;
+  }
+  .tab-btn:hover { color: var(--text); }
+  .tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
+  .tab-content { display: none; padding-top: 16px; }
+  .tab-content.active { display: block; }
+
+  /* ── EXPORT / SHARE BTN ──────────────────────────────────── */
+  .export-btn {
+    width: 100%;
+    padding: 13px;
+    background: linear-gradient(135deg, var(--green), #1fa860);
+    border: none;
+    border-radius: var(--r-md);
+    color: #0a1f14;
+    font-family: var(--font-pixel);
+    font-size: 7px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: all .2s;
+    margin-top: 10px;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    font-weight: 400;
+    box-shadow: 0 4px 16px rgba(46,201,122,0.25), inset 0 1px 0 rgba(255,255,255,0.15);
+  }
+  .export-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(46,201,122,0.35), inset 0 1px 0 rgba(255,255,255,0.15);
+  }
+
+  /* ── MODAL ───────────────────────────────────────────────── */
+  .modal-overlay {
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.75);
+    backdrop-filter: blur(8px);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+    opacity: 0; pointer-events: none;
+    transition: opacity .2s;
+  }
+  .modal-overlay.open { opacity: 1; pointer-events: all; }
+  .modal {
+    background: var(--surface);
+    border: 1px solid var(--border-hi);
+    border-radius: var(--r-xl);
+    max-width: 560px; width: 100%;
+    max-height: 88vh; overflow-y: auto;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.08);
+    transform: scale(0.94) translateY(8px);
+    transition: transform .22s cubic-bezier(.34,1.4,.64,1);
+  }
+  .modal-overlay.open .modal { transform: scale(1) translateY(0); }
+  .modal-header {
+    display: flex; align-items: center; gap: 16px;
+    padding: 24px 24px 16px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+  .modal-sprite {
+    width: 96px; height: 96px;
+    image-rendering: pixelated;
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.6));
+    flex-shrink: 0;
+  }
+  .modal-info h2 {
+    font-family: var(--font-pixel);
+    font-size: 12px;
+    color: var(--text);
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+  }
+  .modal-num {
+    font-size: 12px; font-weight: 700;
+    color: var(--text-3); margin-bottom: 4px;
+    letter-spacing: 0.5px;
+  }
+  .modal-close {
+    position: absolute; top: 16px; right: 16px;
+    background: var(--surface2);
+    border: 1px solid var(--border-hi);
+    color: var(--text-2);
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-ui); font-weight: 800;
+    transition: all .15s;
+  }
+  .modal-close:hover { background: var(--red); color: white; border-color: var(--red); }
+  .modal-body { padding: 20px 24px 24px; }
+  .modal-section { margin-bottom: 20px; }
+  .modal-section-title {
+    font-family: var(--font-pixel);
+    font-size: 7px; color: var(--gold);
+    letter-spacing: 1px; margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+
+  /* ── STAT BARS ───────────────────────────────────────────── */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 52px 1fr 32px;
+    gap: 5px 10px;
+    align-items: center;
+  }
+  .stat-name {
+    color: var(--text-3); text-transform: uppercase;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.5px;
+  }
+  .stat-bar-bg {
+    background: var(--surface2);
+    border-radius: 99px; height: 7px; overflow: hidden;
+  }
+  .stat-bar { height: 100%; border-radius: 99px; transition: width .6s cubic-bezier(.4,0,.2,1); }
+  .stat-val { color: var(--text); text-align: right; font-size: 12px; font-weight: 700; }
+
+  /* ── LOCATION LIST ───────────────────────────────────────── */
+  .location-list { list-style: none; }
+  .location-list li {
+    padding: 6px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px; font-weight: 600;
+    color: var(--text-2);
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 8px;
+  }
+  .location-list li:last-child { border-bottom: none; }
+  .version-tag {
+    font-size: 9px; font-weight: 800;
+    padding: 2px 7px; border-radius: 99px;
+    text-transform: uppercase; letter-spacing: 0.4px;
+    flex-shrink: 0;
+  }
+  .fr-tag  { background: var(--red-soft);   color: var(--red);   border: 1px solid rgba(232,53,74,.3); }
+  .lg-tag  { background: var(--green-soft); color: var(--green); border: 1px solid rgba(46,201,122,.3); }
+  .both-tag{ background: var(--gold-soft);  color: var(--gold);  border: 1px solid rgba(245,200,66,.3); }
+
+  /* ── TYPE MATCHUP CHART ──────────────────────────────────── */
+  .type-chart-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 13px;
+  }
+  .multiplier {
+    font-weight: 800; font-size: 12px;
+    padding: 2px 8px; border-radius: 99px;
+  }
+  .x0   { background: rgba(100,100,100,.25); color: #aaa; }
+  .x025 { background: rgba(75,158,255,.2);   color: var(--blue); }
+  .x05  { background: rgba(75,158,255,.15);  color: var(--blue); }
+  .x1   { background: transparent;           color: var(--text-3); }
+  .x2   { background: rgba(232,53,74,.2);    color: var(--red); }
+  .x4   { background: rgba(232,53,74,.35);   color: #ff6677; }
+
+  /* ── ADD TO TEAM BUTTON ──────────────────────────────────── */
+  .add-team-btn {
+    width: 100%;
+    padding: 13px;
+    background: linear-gradient(135deg, var(--red), #c02030);
+    border: none;
+    border-radius: var(--r-md);
+    color: white;
+    font-family: var(--font-pixel);
+    font-size: 8px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: all .2s;
+    margin-top: 8px;
+    box-shadow: 0 4px 16px rgba(232,53,74,0.25), inset 0 1px 0 rgba(255,255,255,0.1);
+  }
+  .add-team-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(232,53,74,0.35);
+  }
+  .add-team-btn:disabled {
+    background: var(--surface3);
+    color: var(--text-3);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+
+  /* ── TEAM EMPTY STATE ────────────────────────────────────── */
+  .team-empty-state {
+    text-align: center; padding: 20px;
+    color: var(--text-3); font-size: 13px;
+    font-weight: 600; line-height: 2;
+  }
+  .pokeball-divider { text-align: center; color: var(--text-3); font-size: 18px; margin: 4px 0; opacity: 0.4; }
+
+  /* ── LOADED BANNER ───────────────────────────────────────── */
+  .loaded-banner {
+    background: var(--green-soft);
+    border: 1px solid rgba(46,201,122,0.3);
+    border-radius: var(--r-md);
+    padding: 10px 14px;
+    font-size: 13px; font-weight: 700;
+    color: var(--green);
+    margin-bottom: 12px;
+    display: none; text-align: center;
+  }
+  .loaded-banner.show { display: block; }
+
+  /* ── SHARE MODAL ─────────────────────────────────────────── */
+  .share-overlay {
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(10px);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 2000; padding: 20px;
+    opacity: 0; pointer-events: none;
+    transition: opacity .2s;
+  }
+  .share-overlay.open { opacity: 1; pointer-events: all; }
+  .share-modal {
+    background: var(--surface);
+    border: 1px solid var(--border-hi);
+    border-radius: var(--r-xl);
+    max-width: 560px; width: 100%;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.6);
+    transform: scale(0.92); transition: transform .22s cubic-bezier(.34,1.4,.64,1);
+    overflow: hidden;
+  }
+  .share-overlay.open .share-modal { transform: scale(1); }
+  .share-header {
+    background: linear-gradient(135deg, rgba(46,201,122,0.15), rgba(46,201,122,0.05));
+    padding: 20px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+  }
+  .share-header h3 {
+    font-family: var(--font-pixel); font-size: 8px;
+    color: var(--green); letter-spacing: 1px;
+  }
+  .share-close {
+    background: var(--surface2); border: 1px solid var(--border-hi);
+    color: var(--text-2); width: 28px; height: 28px;
+    border-radius: 50%; cursor: pointer; font-size: 13px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-ui); font-weight: 800;
+    transition: all .15s;
+  }
+  .share-close:hover { background: var(--red); color: white; border-color: var(--red); }
+  .share-body { padding: 20px 24px 24px; }
+  .share-team-preview {
+    display: flex; gap: 6px; justify-content: center; flex-wrap: wrap;
+    margin-bottom: 16px; padding: 14px;
+    background: var(--surface2); border-radius: var(--r-md);
+    border: 1px solid var(--border);
+  }
+  .share-poke { text-align: center; width: 68px; }
+  .share-poke img {
+    width: 54px; height: 54px; image-rendering: pixelated;
+    display: block; margin: 0 auto;
+    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5));
+  }
+  .share-poke-name { font-size: 10px; font-weight: 700; color: var(--text-2); line-height: 1.2; margin-top: 3px; }
+  .url-box {
+    background: var(--surface2); border: 1px solid var(--border);
+    border-radius: var(--r-sm); padding: 10px 14px;
+    font-size: 12px; color: var(--text-3);
+    word-break: break-all; margin-bottom: 14px;
+    line-height: 1.5; font-family: monospace; min-height: 48px;
+  }
+  .share-actions {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 8px; margin-bottom: 12px;
+  }
+  .share-btn {
+    padding: 11px 8px; border-radius: var(--r-sm);
+    border: 1px solid; cursor: pointer;
+    font-family: var(--font-ui); font-size: 11px; font-weight: 800;
+    letter-spacing: 0.3px; transition: all .15s;
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+    text-transform: uppercase;
+  }
+  .copy-btn    { background: var(--gold-soft); border-color: rgba(245,200,66,.4); color: var(--gold); }
+  .copy-btn:hover { background: rgba(245,200,66,.2); }
+  .copy-btn.copied { background: var(--green-soft); border-color: rgba(46,201,122,.4); color: var(--green); }
+  .twitter-btn { background: rgba(29,161,242,.1); border-color: rgba(29,161,242,.4); color: #4ab3ff; }
+  .twitter-btn:hover { background: rgba(29,161,242,.2); }
+  .reddit-btn  { background: rgba(255,69,0,.1); border-color: rgba(255,69,0,.4); color: #ff6633; grid-column: span 2; }
+  .reddit-btn:hover { background: rgba(255,69,0,.2); }
+  .download-btn{ background: rgba(139,92,246,.12); border-color: rgba(139,92,246,.4); color: #a78bfa; grid-column: span 2; }
+  .download-btn:hover { background: rgba(139,92,246,.22); }
+  .download-btn.done { background: var(--green-soft); border-color: rgba(46,201,122,.4); color: var(--green); }
+  .share-note  { font-size: 12px; font-weight: 600; color: var(--text-3); text-align: center; line-height: 1.6; }
+  .card-preview-wrap { margin-bottom: 14px; text-align: center; display: none; }
+  .card-preview-wrap.show { display: block; }
+  .card-preview-wrap canvas {
+    width: 100% !important; height: auto !important; max-width: 460px;
+    border-radius: var(--r-md); border: 1px solid var(--border-hi);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4); display: block; margin: 0 auto;
+  }
+  .card-preview-label { font-size: 11px; font-weight: 700; color: var(--text-3); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.4px; }
+
+  /* ── GYM CHECKER ─────────────────────────────────────────── */
+  .gym-list { display: flex; flex-direction: column; gap: 8px; }
+  .gym-item {
+    background: var(--surface2); border: 1px solid var(--border);
+    border-radius: var(--r-md); padding: 12px 14px;
+  }
+  .gym-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+  .gym-name { font-family: var(--font-pixel); font-size: 7px; color: var(--text); }
+  .gym-types-row { display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 6px; }
+  .gym-score { font-size: 12px; font-weight: 700; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.3px; }
+  .score-great { color: var(--green); }
+  .score-good  { color: var(--gold); }
+  .score-risky { color: #ff9944; }
+  .score-danger{ color: var(--red); }
+
+  /* ── MOVE COVERAGE ───────────────────────────────────────── */
+  .coverage-section { margin-bottom: 16px; }
+  .coverage-section-title {
+    font-family: var(--font-pixel); font-size: 7px;
+    color: var(--gold); margin-bottom: 10px; letter-spacing: 1px;
+  }
+  .gap-type-row {
+    display: flex; align-items: center; gap: 10px; margin-bottom: 8px;
+    padding: 8px 10px; background: var(--surface2); border-radius: var(--r-sm);
+    border: 1px solid rgba(232,53,74,.2);
+  }
+  .gap-move-list { font-size: 13px; font-weight: 600; color: var(--text); line-height: 1.7; }
+  .gap-move-list span { color: var(--gold); }
+
+  /* ── SAVED TEAMS ─────────────────────────────────────────── */
+  .save-team-row { display: flex; gap: 8px; margin-bottom: 12px; }
+  .save-name-input {
+    flex: 1; background: var(--surface2); border: 1px solid var(--border-hi);
+    border-radius: var(--r-sm); padding: 8px 12px;
+    color: var(--text); font-family: var(--font-ui); font-size: 14px; font-weight: 600;
+    outline: none; transition: border-color .2s;
+  }
+  .save-name-input:focus { border-color: var(--gold); }
+  .save-name-input::placeholder { color: var(--text-3); }
+  .save-btn {
+    padding: 8px 14px; background: var(--gold-soft);
+    border: 1px solid rgba(245,200,66,.4); border-radius: var(--r-sm);
+    color: var(--gold); font-family: var(--font-ui); font-size: 11px; font-weight: 800;
+    cursor: pointer; white-space: nowrap; transition: all .15s; text-transform: uppercase;
+  }
+  .save-btn:hover { background: rgba(245,200,66,.22); }
+  .saved-team-item {
+    background: var(--surface2); border: 1px solid var(--border);
+    border-radius: var(--r-md); padding: 10px 12px;
+    margin-bottom: 8px; display: flex; align-items: center; gap: 8px;
+  }
+  .saved-team-sprites { display: flex; gap: 2px; flex: 1; }
+  .saved-team-sprites img { width: 32px; height: 32px; image-rendering: pixelated; filter: drop-shadow(0 1px 3px rgba(0,0,0,.4)); }
+  .saved-team-name { font-size: 12px; font-weight: 800; color: var(--gold); min-width: 70px; flex-shrink: 0; }
+  .saved-action-btn {
+    padding: 4px 10px; border-radius: var(--r-sm); border: 1px solid;
+    cursor: pointer; font-family: var(--font-ui); font-size: 11px; font-weight: 800;
+    transition: all .15s; flex-shrink: 0; text-transform: uppercase;
+  }
+  .load-saved-btn { border-color: rgba(245,200,66,.4); color: var(--gold); background: var(--gold-soft); }
+  .load-saved-btn:hover { background: rgba(245,200,66,.22); }
+  .del-saved-btn  { border-color: rgba(232,53,74,.4);  color: var(--red);  background: var(--red-soft); }
+  .del-saved-btn:hover { background: rgba(232,53,74,.2); }
+  .no-saved { font-size: 13px; font-weight: 600; color: var(--text-3); text-align: center; padding: 16px 0; }
+
+  /* ── EVO CHAIN ───────────────────────────────────────────── */
+  .evo-chain { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+  .evo-step  { display: flex; flex-direction: column; align-items: center; cursor: pointer; }
+  .evo-step img { width: 54px; height: 54px; image-rendering: pixelated; transition: transform .15s; filter: drop-shadow(0 2px 5px rgba(0,0,0,.4)); }
+  .evo-step:hover img { transform: scale(1.12); }
+  .evo-step-name { font-size: 10px; font-weight: 700; color: var(--text-3); margin-top: 3px; }
+  .evo-step.current img { filter: drop-shadow(0 0 8px var(--gold)); }
+  .evo-step.current .evo-step-name { color: var(--gold); }
+  .evo-arrow { color: var(--text-3); font-size: 16px; margin-top: -12px; }
+  .evo-method { font-size: 9px; font-weight: 700; color: var(--blue); text-align: center; margin-top: 1px; letter-spacing: 0.3px; }
+
+  /* ── PRESETS SECTION ─────────────────────────────────────── */
+  .preset-card {
+    background: var(--surface2); border: 1px solid var(--border);
+    border-radius: var(--r-lg); padding: 16px;
+    cursor: pointer; transition: all .2s;
+  }
+  .preset-card:hover {
+    border-color: rgba(245,200,66,.4);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  }
+  .preset-name {
+    font-family: var(--font-pixel); font-size: 7px;
+    color: var(--gold); margin-bottom: 8px; letter-spacing: 0.5px;
+  }
+  .preset-desc { font-size: 13px; font-weight: 600; color: var(--text-2); margin-bottom: 10px; line-height: 1.5; }
+  .preset-sprites { display: flex; gap: 3px; flex-wrap: wrap; }
+  .preset-sprites img { width: 40px; height: 40px; image-rendering: pixelated; filter: drop-shadow(0 1px 4px rgba(0,0,0,.4)); }
+  .preset-load-btn {
+    width: 100%; margin-top: 10px; padding: 8px;
+    background: var(--gold-soft); border: 1px solid rgba(245,200,66,.4);
+    border-radius: var(--r-sm); color: var(--gold);
+    font-family: var(--font-ui); font-size: 11px; font-weight: 800;
+    cursor: pointer; transition: all .15s; text-transform: uppercase; letter-spacing: 0.4px;
+  }
+  .preset-load-btn:hover { background: rgba(245,200,66,.22); }
+
+  /* ── MOBILE ──────────────────────────────────────────────── */
+  @media (max-width:600px) {
+    .app { padding: 12px; gap: 14px; }
+    .panel { padding: 14px; border-radius: var(--r-md); }
+    .pokemon-grid { grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); gap: 8px; }
+    .tabs { overflow-x: auto; }
+    .tab-btn { font-size: 10px; padding: 6px 3px; }
+    .share-modal { border-radius: var(--r-lg); }
+    .share-actions { grid-template-columns: 1fr; }
+    .download-btn, .reddit-btn { grid-column: 1; }
+    .modal { border-radius: var(--r-lg); margin: 0 4px; }
+    .header-inner { padding: 16px; }
+  }
+  /* NAV */
+  .site-nav-wrap{background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;overflow:hidden;}
+  .site-nav{display:flex;align-items:center;padding:0 20px;height:52px;min-width:0;}
+  .nav-brand{font-family:var(--font-pixel);font-size:9px;color:var(--red);padding-right:18px;border-right:1px solid var(--border);margin-right:4px;flex-shrink:0;white-space:nowrap;}
+  .nav-links{display:flex;align-items:center;flex:1;min-width:0;overflow:hidden;flex-wrap:nowrap;}
+  .nav-links a{display:inline-flex;align-items:center;gap:5px;padding:0 11px;height:52px;color:var(--text-2);text-decoration:none;font-size:12px;font-weight:700;border-bottom:2px solid transparent;transition:all .2s;white-space:nowrap;flex-shrink:0;}
+  .nav-links a:hover{color:var(--text);background:rgba(255,255,255,0.04);}
+  .nav-links a.active{color:var(--gold);border-bottom-color:var(--gold);}
+  .nav-burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;padding:8px;margin-left:auto;background:none;border:none;cursor:pointer;border-radius:var(--r-sm);transition:background .2s;flex-shrink:0;}
+  .nav-burger:hover{background:rgba(255,255,255,0.06);}
+  .nav-burger span{display:block;height:2px;width:100%;background:var(--text-2);border-radius:2px;transition:all .3s;}
+  .nav-burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .nav-burger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+  .nav-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .nav-drawer{display:none;flex-direction:column;background:var(--surface);border-top:1px solid var(--border);padding:8px 0 12px;}
+  .nav-drawer.open{display:flex;}
+  .nav-drawer a{display:flex;align-items:center;gap:10px;padding:13px 24px;color:var(--text-2);text-decoration:none;font-size:14px;font-weight:700;transition:all .2s;border-left:3px solid transparent;}
+  .nav-drawer a:hover{color:var(--text);background:rgba(255,255,255,0.04);}
+  .nav-drawer a.active{color:var(--gold);border-left-color:var(--gold);background:rgba(245,200,66,0.08);}
+  @media(max-width:860px){
+    .nav-links{display:none;}
+    .nav-burger{display:flex;}
+  }
+</style>
+
+<!-- FAQ Schema Markup — enables Google rich results / featured snippets -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the best starter for Pokemon FireRed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bulbasaur is the best starter for new players because it makes the first two gyms significantly easier. Charmander offers the hardest early game but evolves into the strongest late-game sweeper. Squirtle provides reliable balance throughout the entire playthrough with excellent type coverage and durability."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the best team for Pokemon FireRed and LeafGreen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The best balanced team for FireRed includes: Charizard (Fire/Flying), Lapras (Water/Ice), Alakazam (Psychic), Exeggutor (Grass/Psychic), Rhydon (Ground/Rock), and Jolteon (Electric). This team covers all type weaknesses and handles the Elite Four effectively with minimal grinding."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I build a balanced team in Pokemon FireRed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A balanced FireRed team needs coverage for all 17 types and should avoid stacking weaknesses. Prioritize Pokemon that cover multiple types with their movesets (like Lapras learning Ice Beam and Surf). Include at least one Electric, Water, Fire, and Psychic type. Ensure you have answers to common threats like Lorelei's Ice types and Lance's Dragonite."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the best water type in Pokemon FireRed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Lapras is the best Water type in FireRed — it is a free gift from Silph Co., learns both Surf and Ice Beam naturally, and has excellent bulk. Vaporeon from the Celadon City Eevee is also top tier. Golduck is a solid mid-game option available on Routes 6 and 10."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where do you get Lapras in Pokemon FireRed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Lapras is obtained as a free gift from an NPC on the 7th floor of Silph Co. in Saffron City, after clearing Team Rocket from the building. It is level 25. Lapras can also be caught later at Icefall Cave on Four Island in the post-game."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where do you get Snorlax in Pokemon FireRed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Two Snorlax block your path in Pokemon FireRed — one on Route 12 south of Lavender Town, and one on Route 16 west of Celadon City. You need the Poke Flute to wake them, which is given to you by Mr. Fuji in Lavender Town after rescuing him from Pokemon Tower."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you beat the Elite Four in Pokemon FireRed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To beat the Elite Four in Pokemon FireRed: use Electric moves against Lorelei's Ice and Water types; use Psychic or Surf against Bruno's Fighting types; use Shadow Ball against Agatha's Ghost types; use Ice Beam against Lance's Dragons. Lapras with Ice Beam and Thunderbolt is the MVP of the Elite Four run."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is FireRed or LeafGreen better?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Neither is definitively better. FireRed has stronger offensive exclusives: Growlithe, Electabuzz, and Scyther. LeafGreen has better Water and Psychic options: Starmie, Slowbro, and Ninetales. For a first playthrough the difference is minor."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- WebSite Schema — enables Google Sitelinks search box -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "FireRed & LeafGreen Team Builder",
+  "url": "https://pokemonfrlgteambuilder.netlify.app/",
+  "description": "Interactive team builder for Pokémon Fire Red and Leaf Green. Browse all 151 Pokémon, check type coverage, see gym leader matchups, find catch locations, and share your team.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://pokemonfrlgteambuilder.netlify.app/?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+<!-- SoftwareApplication Schema — tells Google this is an interactive tool -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Pokémon Fire Red & Leaf Green Team Builder",
+  "applicationCategory": "GameApplication",
+  "operatingSystem": "Web",
+  "url": "https://pokemonfrlgteambuilder.netlify.app/",
+  "description": "Interactive team builder for Pokémon Fire Red and Leaf Green featuring all 151 Pokémon, type coverage analysis, gym leader matchup checker, catch locations, and shareable team cards.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5",
+    "ratingCount": "1"
+  }
+}
+</script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SWWLLSCX6W"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){{dataLayer.push(arguments);}}
+    gtag('js', new Date());
+    gtag('config', 'G-SWWLLSCX6W');
+  </script>
+</head>
+<body>
+
+<div class="site-nav-wrap">
+  <nav class="site-nav">
+    <span class="nav-brand">FR/LG</span>
+    <div class="nav-links">
+      <a href="index.html" class="active">&#x1F3E0; Team Builder</a>
+      <a href="rare-pokemon.html">&#x2B50; Rare Pok&eacute;mon</a>
+      <a href="fossil-pokemon.html">&#x1F995; Fossils</a>
+      <a href="legendary-birds.html">&#x1F985; Legendary Birds</a>
+      <a href="legendary-dogs.html">&#x1F43E; Legendary Dogs</a>
+      <a href="ho-oh-lugia.html">&#x1F31F; Ho-Oh &amp; Lugia</a>
+      <a href="mew-mewtwo.html">&#x1F9EC; Mew &amp; Mewtwo</a>
+    </div>
+    <button class="nav-burger" id="navBurger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-drawer" id="navDrawer">
+    <a href="index.html" class="active">&#x1F3E0; Team Builder</a>
+    <a href="rare-pokemon.html">&#x2B50; Rare Pok&eacute;mon</a>
+    <a href="fossil-pokemon.html">&#x1F995; Fossils</a>
+    <a href="legendary-birds.html">&#x1F985; Legendary Birds</a>
+    <a href="legendary-dogs.html">&#x1F43E; Legendary Dogs</a>
+    <a href="ho-oh-lugia.html">&#x1F31F; Ho-Oh &amp; Lugia</a>
+    <a href="mew-mewtwo.html">&#x1F9EC; Mew &amp; Mewtwo</a>
+  </div>
+</div>
+<script>
+  (function(){
+    var burger = document.getElementById('navBurger');
+    var drawer = document.getElementById('navDrawer');
+    if(burger && drawer){
+      burger.addEventListener('click', function(){
+        burger.classList.toggle('open');
+        drawer.classList.toggle('open');
+      });
+      drawer.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', function(){
+          burger.classList.remove('open');
+          drawer.classList.remove('open');
+        });
+      });
+    }
+  })();
+</script>
+
+<header>
+  <div class="header-inner">
+    <div class="header-logo"></div>
+    <div>
+      <h1>POKÉMON <span>FIRE RED</span> &amp; <span class="lg-accent">LEAF GREEN</span><br>TEAM BUILDER</h1>
+      <div class="header-sub">All 151 Pokémon · Type Coverage · Gym Matchups · Catch Locations</div>
+      <div class="header-pills">
+        <span class="pill pill-fr">Fire Red</span>
+        <span class="pill pill-lg">Leaf Green</span>
+        <span class="pill" style="background:rgba(75,158,255,0.12);color:#4b9eff;border:1px solid rgba(75,158,255,0.3)">GBA · Gen III</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="app">
+  <!-- LEFT: Browser -->
+  <div class="main-panel">
+    <div class="panel">
+      <div class="panel-title">🔍 Find Pokémon</div>
+      <input type="text" class="search-bar" id="searchInput" placeholder="Search by name or number...">
+      <div class="filter-row" id="typeFilters">
+        <button class="filter-btn all-btn active" data-type="all">ALL</button>
+      </div>
+      <div class="results-count" id="resultsCount"></div>
+      <div class="pokemon-grid" id="pokemonGrid"></div>
+    </div>
+  </div>
+
+  <!-- RIGHT: Team -->
+  <div class="team-panel">
+    <div class="panel">
+      <div class="panel-title">⚔️ Your Team (<span id="teamCount">0</span>/6)</div>
+      <div id="teamSlotsContainer">
+        <div class="team-empty-state">Click any Pokémon to add it to your team!<br>● ○ ○ ○ ○ ○</div>
+      </div>
+    </div>
+
+    <!-- Export / share -->
+    <div class="panel" id="exportPanel" style="display:none">
+      <div class="loaded-banner" id="loadedBanner">✓ Team loaded from shared link!</div>
+      <button class="export-btn" onclick="openShareModal()">🔗 SHARE YOUR TEAM</button>
+    </div>
+
+    <!-- TABS: Coverage | Gyms | Moves | Saved | Presets -->
+    <div class="panel" id="tabsPanel" style="display:none">
+      <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab('coverage',this)">🛡️ COVER</button>
+        <button class="tab-btn" onclick="switchTab('gyms',this)">🏅 GYMS</button>
+        <button class="tab-btn" onclick="switchTab('moves',this)">⚡ MOVES</button>
+        <button class="tab-btn" onclick="switchTab('saved',this)">💾 SAVED</button>
+      </div>
+
+      <!-- Coverage Tab -->
+      <div class="tab-content active" id="tab-coverage">
+        <div class="strength-label">STRENGTHS</div>
+        <div class="coverage-grid" id="strengthGrid"></div>
+        <div class="weakness-label">WEAKNESSES</div>
+        <div class="coverage-grid" id="weaknessGrid"></div>
+      </div>
+
+      <!-- Gyms Tab -->
+      <div class="tab-content" id="tab-gyms">
+        <div class="gym-list" id="gymList"></div>
+      </div>
+
+      <!-- Move Coverage Tab -->
+      <div class="tab-content" id="tab-moves">
+        <div id="moveCoverageContent"></div>
+      </div>
+
+      <!-- Saved Teams Tab -->
+      <div class="tab-content" id="tab-saved">
+        <div class="save-team-row">
+          <input class="save-name-input" id="saveNameInput" placeholder="Name your team..." maxlength="20">
+          <button class="save-btn" onclick="saveCurrentTeam()">SAVE</button>
+        </div>
+        <div id="savedTeamsList"></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- PRESETS SECTION (below main grid) -->
+<div style="max-width:1400px;margin:0 auto;padding:0 20px 30px">
+  <div class="panel">
+    <div class="panel-title">⭐ RECOMMENDED TEAMS — LOAD IN ONE CLICK</div>
+    <div id="presetsGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;margin-top:4px"></div>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" id="modalContent"></div>
+</div>
+
+<!-- SHARE MODAL -->
+<div class="share-overlay" id="shareOverlay">
+  <div class="share-modal">
+    <div class="share-header">
+      <h3>🔗 SHARE YOUR TEAM</h3>
+      <button class="share-close" onclick="closeShareModal()">✕</button>
+    </div>
+    <div class="share-body">
+      <div class="share-team-preview" id="shareTeamPreview"></div>
+      <div class="url-box" id="shareUrlBox"></div>
+      <div class="card-preview-wrap" id="cardPreviewWrap">
+        <div class="card-preview-label">📸 Team Card Preview</div>
+        <canvas id="teamCardCanvas"></canvas>
+      </div>
+      <div class="share-actions">
+        <button class="share-btn copy-btn" id="copyBtn" onclick="copyShareUrl()">📋 COPY LINK</button>
+        <button class="share-btn twitter-btn" onclick="shareToTwitter()">🐦 SHARE ON X</button>
+        <button class="share-btn download-btn" id="downloadBtn" onclick="downloadTeamCard()">🖼️ SAVE TEAM IMAGE</button>
+        <button class="share-btn reddit-btn" onclick="shareToReddit()">🤖 SHARE ON REDDIT</button>
+      </div>
+      <div class="share-note">Save your team as an image to share anywhere — Instagram, Discord, Twitter, or just to flex!</div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ============================================================
+// DATA
+// ============================================================
+const TYPES = ['normal','fire','water','electric','grass','ice','fighting','poison',
+  'ground','flying','psychic','bug','rock','ghost','dragon','dark','steel'];
+
+// Type effectiveness chart [attacking type] vs [defending type]
+// Values: 0=immune, 0.5=not very, 2=super effective
+const TYPE_CHART = {
+  normal:   {rock:0.5,ghost:0,steel:0.5},
+  fire:     {fire:0.5,water:0.5,rock:0.5,dragon:0.5,grass:2,ice:2,bug:2,steel:2},
+  water:    {water:0.5,grass:0.5,dragon:0.5,fire:2,ground:2,rock:2},
+  electric: {electric:0.5,grass:0.5,dragon:0.5,ground:0,flying:2,water:2},
+  grass:    {fire:0.5,grass:0.5,poison:0.5,flying:0.5,bug:0.5,dragon:0.5,steel:0.5,water:2,ground:2,rock:2},
+  ice:      {water:0.5,ice:0.5,fire:0.5,steel:0.5,grass:2,ground:2,flying:2,dragon:2},
+  fighting: {poison:0.5,flying:0.5,psychic:0.5,bug:0.5,ghost:0,rock:2,steel:2,normal:2,ice:2,dark:2},
+  poison:   {poison:0.5,ground:0.5,rock:0.5,ghost:0.5,steel:0,grass:2,bug:2},  // wait wrong era, gen1 ghost had different table
+  ground:   {grass:0.5,bug:0.5,flying:0,fire:2,electric:2,poison:2,rock:2,steel:2},
+  flying:   {electric:0.5,rock:0.5,steel:0.5,grass:2,fighting:2,bug:2},
+  psychic:  {psychic:0.5,steel:0.5,dark:0,ghost:0,fighting:2,poison:2},
+  bug:      {fire:0.5,fighting:0.5,flying:0.5,ghost:0.5,steel:0.5,poison:0.5,grass:2,psychic:2,dark:2},
+  rock:     {rock:0.5,steel:0.5,ground:0.5,fighting:0.5,fire:2,ice:2,flying:2,bug:2},
+  ghost:    {normal:0,dark:0.5,ghost:2,psychic:2},
+  dragon:   {steel:0.5,dragon:2},
+  dark:     {fighting:0.5,dark:0.5,psychic:2,ghost:2},
+  steel:    {fire:0.5,water:0.5,electric:0.5,steel:0.5,ice:2,rock:2,fairy:2,poison:0}
+};
+
+function getEffectiveness(attackType, defTypes) {
+  let mult = 1;
+  const chart = TYPE_CHART[attackType] || {};
+  for (const dt of defTypes) {
+    if (chart[dt] !== undefined) mult *= chart[dt];
+  }
+  return mult;
+}
+
+function getDefensiveMatchups(types) {
+  const result = {};
+  for (const atk of TYPES) {
+    result[atk] = getEffectiveness(atk, types);
+  }
+  return result;
+}
+
+// FRLG Catch Locations (sourced from GameFAQs Wild Pokemon Location Guide by mdwav)
+const LOCATIONS = {
+  1:  [{loc:"Starter from Prof. Oak (Pallet Town)", ver:"both"}],
+  2:  [{loc:"Evolve Bulbasaur (Lv 16)", ver:"both"}],
+  3:  [{loc:"Evolve Ivysaur (Lv 32)", ver:"both"}],
+  4:  [{loc:"Starter from Prof. Oak (Pallet Town)", ver:"both"}],
+  5:  [{loc:"Evolve Charmander (Lv 16)", ver:"both"}],
+  6:  [{loc:"Evolve Charmeleon (Lv 36)", ver:"both"}],
+  7:  [{loc:"Starter from Prof. Oak (Pallet Town)", ver:"both"}],
+  8:  [{loc:"Evolve Squirtle (Lv 16)", ver:"both"}],
+  9:  [{loc:"Evolve Wartortle (Lv 36)", ver:"both"}],
+  10: [{loc:"Route 2 (Grass), Viridian Forest, Routes 24-25", ver:"both"}],
+  11: [{loc:"Viridian Forest (Grass) — evolves from Caterpie Lv 7", ver:"both"}],
+  12: [{loc:"Evolve Metapod (Lv 10)", ver:"both"}],
+  13: [{loc:"Route 2 (Grass), Viridian Forest, Routes 24-25", ver:"both"}],
+  14: [{loc:"Viridian Forest (Grass) — evolves from Weedle Lv 7", ver:"both"}],
+  15: [{loc:"Evolve Kakuna (Lv 10)", ver:"both"}],
+  16: [{loc:"Routes 1, 2, 3, 5, 6, 12, 13, 14, 15 (Grass)", ver:"both"}],
+  17: [{loc:"Routes 13, 14, 15 (Grass, Rare). Evolve Pidgey (Lv 18)", ver:"both"}],
+  18: [{loc:"Evolve Pidgeotto (Lv 36)", ver:"both"}],
+  19: [{loc:"Routes 1, 2, 4, 9, 16, 17, 18 (Grass)", ver:"both"}],
+  20: [{loc:"Routes 16, 17, 18 (Grass, Rare). Evolve Rattata (Lv 20)", ver:"both"}],
+  21: [{loc:"Routes 3, 4, 22 (Grass)", ver:"both"}],
+  22: [{loc:"Routes 17, 18 (Grass). Evolve Spearow (Lv 20)", ver:"both"}],
+  23: [{loc:"Routes 4, 9, 10, 11 (Grass) — FR Only", ver:"fr"},{loc:"Not in LeafGreen wild — trade from FR", ver:"lg"}],
+  24: [{loc:"Evolve Ekans (Lv 22) — FR Only", ver:"fr"},{loc:"Not in LeafGreen wild — trade from FR", ver:"lg"}],
+  25: [{loc:"Viridian Forest (4%), Power Plant (Grass)", ver:"both"}],
+  26: [{loc:"Evolve Pikachu (Thunder Stone)", ver:"both"}],
+  27: [{loc:"Routes 4, 11 (Grass) — LG Only", ver:"lg"},{loc:"Not in FireRed wild — trade from LG", ver:"fr"}],
+  28: [{loc:"Evolve Sandshrew (Lv 22) — LG Only", ver:"lg"},{loc:"Not in FireRed wild — trade from LG", ver:"fr"}],
+  29: [{loc:"Route 3 (Grass, 1%) — LG gets more, FR rarer", ver:"fr"},{loc:"Routes 3 (Grass, 10%), Safari Zone Entrance & Zones 1-3", ver:"lg"}],
+  30: [{loc:"Evolve Nidoran♀ (Lv 16)", ver:"both"}],
+  31: [{loc:"Evolve Nidorina (Moon Stone)", ver:"both"}],
+  32: [{loc:"Routes 3, 4, 22 (Grass, common) — FR Only", ver:"fr"},{loc:"Routes 3 (Grass, 1%) — LG gets rarer", ver:"lg"}],
+  33: [{loc:"Evolve Nidoran♂ (Lv 16)", ver:"both"}],
+  34: [{loc:"Evolve Nidorino (Moon Stone)", ver:"both"}],
+  35: [{loc:"Mt. Moon B2 (5-10%), Routes 3 (rare)", ver:"both"}],
+  36: [{loc:"Evolve Clefairy (Moon Stone)", ver:"both"}],
+  37: [{loc:"Routes 7, 8 (Grass) — LG Only", ver:"lg"},{loc:"Not in FireRed wild — trade from LG", ver:"fr"}],
+  38: [{loc:"Evolve Vulpix (Fire Stone) — LG Only", ver:"lg"},{loc:"Not in FireRed wild — trade from LG", ver:"fr"}],
+  39: [{loc:"Routes 3 (Grass, 5-10%)", ver:"both"}],
+  40: [{loc:"Evolve Jigglypuff (Moon Stone)", ver:"both"}],
+  41: [{loc:"Mt. Moon, Rock Tunnel (all floors), Seafoam Islands, Victory Road (Grass)", ver:"both"}],
+  42: [{loc:"Seafoam Islands (all floors, 5-11%), Victory Road (Rare). Evolve Zubat (Lv 22)", ver:"both"}],
+  43: [{loc:"Routes 5, 6, 7, 12, 13, 14, 15, 24, 25 (Grass) — FR Only", ver:"fr"},{loc:"Not in FireRed wild", ver:"lg"}],
+  44: [{loc:"Routes 12, 13, 14, 15 (Grass, Rare) — FR Only", ver:"fr"},{loc:"Not in FireRed wild", ver:"lg"}],
+  45: [{loc:"Evolve Gloom (Leaf Stone) — FR Only", ver:"fr"},{loc:"Trade from FR", ver:"lg"}],
+  46: [{loc:"Mt. Moon (all floors, 5%), Safari Zone Zone 1", ver:"both"}],
+  47: [{loc:"Safari Zone (Entrance & Zones, 5%). Evolve Paras (Lv 24)", ver:"both"}],
+  48: [{loc:"Routes 12, 13, 14, 15, Safari Zone Entrance & Zone 3 (Grass)", ver:"both"}],
+  49: [{loc:"Safari Zone Zone 2 (5%). Evolve Venonat (Lv 31)", ver:"both"}],
+  50: [{loc:"Diglett's Cave (all floors, very common)", ver:"both"}],
+  51: [{loc:"Diglett's Cave (4-5%, Rare). Evolve Diglett (Lv 26)", ver:"both"}],
+  52: [{loc:"Routes 5, 6, 7, 8 (Grass, 20-25%), Cinnabar Mansion", ver:"both"}],
+  53: [{loc:"Kindle Road (Sevii Islands). Evolve Meowth (Lv 28)", ver:"both"}],
+  54: [{loc:"Seafoam Islands 1F (Grass 20-25%) — FR Only", ver:"fr"},{loc:"Not in FireRed wild", ver:"lg"}],
+  55: [{loc:"Seafoam Islands B1-B4 (Grass) — FR Only", ver:"fr"},{loc:"Not in FireRed wild", ver:"lg"}],
+  56: [{loc:"Route 22 (Grass), Rock Tunnel (Grass)", ver:"both"}],
+  57: [{loc:"Evolve Mankey (Lv 28)", ver:"both"}],
+  58: [{loc:"Routes 7, 8 (Grass), Cinnabar Mansion — FR Only", ver:"fr"},{loc:"Not in FireRed wild — trade from FR", ver:"lg"}],
+  59: [{loc:"Evolve Growlithe (Fire Stone) — FR Only", ver:"fr"},{loc:"Trade from FR", ver:"lg"}],
+  60: [{loc:"Routes 22, 25 (Fishing: Good Rod/Super Rod), Viridian City, Celadon City (Fishing)", ver:"both"}],
+  61: [{loc:"Evolve Poliwag (Lv 25). Also: Viridian City (Super Rod, 40%)", ver:"both"}],
+  62: [{loc:"Evolve Poliwhirl (Water Stone)", ver:"both"}],
+  63: [{loc:"Routes 5, 6, 7, 8, 24, 25 (Grass, 4-10%)", ver:"both"}],
+  64: [{loc:"Evolve Abra (Lv 16)", ver:"both"}],
+  65: [{loc:"Evolve Kadabra (Trade)", ver:"both"}],
+  66: [{loc:"Rock Tunnel 1F & B1 (Grass, 10-15%)", ver:"both"}],
+  67: [{loc:"Evolve Machop (Lv 28)", ver:"both"}],
+  68: [{loc:"Evolve Machoke (Trade)", ver:"both"}],
+  69: [{loc:"Routes 5, 6, 7, 12, 13, 14, 15, 24, 25 (Grass) — LG Only", ver:"lg"},{loc:"Not in FireRed wild", ver:"fr"}],
+  70: [{loc:"Routes 12, 13, 14, 15 (Grass, Rare) — LG Only", ver:"lg"},{loc:"Not in FireRed wild", ver:"fr"}],
+  71: [{loc:"Evolve Weepinbell (Leaf Stone) — LG Only", ver:"lg"},{loc:"Trade from LG", ver:"fr"}],
+  72: [{loc:"Pallet Town, Routes 4, 11-13, 19-21, Cinnabar Island (Surfing, 60-90%)", ver:"both"}],
+  73: [{loc:"Evolve Tentacool (Lv 30). Also One Island, Treasure Beach (Surfing, 5%)", ver:"both"}],
+  74: [{loc:"Mt. Moon (Grass), Rock Tunnel (Grass), Victory Road (Grass), Seafoam Islands", ver:"both"}],
+  75: [{loc:"Rock Tunnel (Rock Smash, 4-5%), Seafoam Islands. Evolve Geodude (Lv 25)", ver:"both"}],
+  76: [{loc:"Evolve Graveler (Trade)", ver:"both"}],
+  77: [{loc:"Kindle Road (One Island), Routes 17, 22 (Sevii). Evolve at Lv 40", ver:"both"}],
+  78: [{loc:"Kindle Road (Rare, 4-5%). Evolve Ponyta (Lv 40)", ver:"both"}],
+  79: [{loc:"Seafoam Islands 1F (Grass 20-25%) — LG Only", ver:"lg"},{loc:"Not in LeafGreen wild", ver:"fr"}],
+  80: [{loc:"Seafoam Islands B1-B4 (Grass) — LG Only. Evolve Slowpoke (Lv 37 or King's Rock trade)", ver:"lg"},{loc:"Not in FireRed wild", ver:"fr"}],
+  81: [{loc:"Route 10 (Grass, 20-25%), Power Plant", ver:"both"}],
+  82: [{loc:"Power Plant (5-9%), Route 10 (Rare). Evolve Magnemite (Lv 30)", ver:"both"}],
+  83: [{loc:"Route 12, 13 (Grass, 5%) — FR Only", ver:"fr"},{loc:"Trade from FR", ver:"lg"}],
+  84: [{loc:"Routes 16, 17, 18 (Grass, 20-25%)", ver:"both"}],
+  85: [{loc:"Evolve Doduo (Lv 31)", ver:"both"}],
+  86: [{loc:"Seafoam Islands B1-B4 (Grass, 10%), also fishing in Seafoam — LG Only", ver:"lg"},{loc:"Trade from LG", ver:"fr"}],
+  87: [{loc:"Seafoam Islands B3-B4 (Grass, Rare). Evolve Seel (Lv 34)", ver:"both"}],
+  88: [{loc:"Celadon City (Surfing, 1%), Cinnabar Mansion 1F-B1 (Grass) — LG Only", ver:"lg"},{loc:"Cinnabar Mansion (Grass) — FR Only", ver:"fr"}],
+  89: [{loc:"Cinnabar Mansion B1 (5%, Rare). Evolve Grimer (Lv 38)", ver:"both"}],
+  90: [{loc:"Pallet Town, Vermillion City (Super Rod FR: 40%), Seafoam Islands (Good Rod FR)", ver:"fr"},{loc:"Not wild in LG — Staryu available instead", ver:"lg"}],
+  91: [{loc:"Evolve Shellder (Water Stone) — FR side fishing gives Shellder", ver:"fr"},{loc:"Trade from FR", ver:"lg"}],
+  92: [{loc:"Pokémon Tower 3F-7F (Grass, 55-85%)", ver:"both"}],
+  93: [{loc:"Pokémon Tower 3F-7F (Grass, 5-14%). Evolve Gastly (Lv 25)", ver:"both"}],
+  94: [{loc:"Cerulean Cave (Rare). Evolve Haunter (Trade)", ver:"both"}],
+  95: [{loc:"Rock Tunnel 1F & B1 (Grass, 4-5%), Victory Road (Grass)", ver:"both"}],
+  96: [{loc:"Routes 11 (Grass, 25%), Route 12 (rare)", ver:"both"}],
+  97: [{loc:"Evolve Drowzee (Lv 26)", ver:"both"}],
+  98: [{loc:"Routes 6, 11 (Fishing Good Rod FR) / Routes 19-21 — FR Only", ver:"fr"},{loc:"Not in LeafGreen wild", ver:"lg"}],
+  99: [{loc:"Evolve Krabby (Lv 28). Also fishing Super Rod (FR) — FR Only", ver:"fr"},{loc:"Not in LeafGreen wild", ver:"lg"}],
+  100: [{loc:"Route 10 (Grass, 20%), Power Plant (Grass, 20%)", ver:"both"}],
+  101: [{loc:"Power Plant (5%), Route 10 (Rare). Evolve Voltorb (Lv 30)", ver:"both"}],
+  102: [{loc:"Celadon City (Surfing, LG only). Not found wild in FR", ver:"lg"},{loc:"Not found wild in FireRed", ver:"fr"}],
+  103: [{loc:"Evolve Exeggcute (Leaf Stone)", ver:"both"}],
+  104: [{loc:"Pokémon Tower 3F-7F (Grass, 5-10%)", ver:"both"}],
+  105: [{loc:"Evolve Cubone (Lv 28)", ver:"both"}],
+  106: [{loc:"Gift from karate master in Saffron City (after clearing Silph Co.) — you choose one", ver:"both"}],
+  107: [{loc:"Gift from karate master in Saffron City (after clearing Silph Co.) — you choose one", ver:"both"}],
+  108: [{loc:"Safari Zone (all zones, 5-15%)", ver:"both"}],
+  109: [{loc:"Celadon City (Surfing FR, 1%), Cinnabar Mansion (Grass) — FR Only", ver:"fr"},{loc:"Pokémon Tower, Cinnabar Mansion (Grass) — LG Only", ver:"lg"}],
+  110: [{loc:"Cinnabar Mansion (5%, Rare). Evolve Koffing (Lv 35)", ver:"both"}],
+  111: [{loc:"Safari Zone (all zones, Grass) — LG Only", ver:"lg"},{loc:"Not wild in FireRed", ver:"fr"}],
+  112: [{loc:"Safari Zone (rare). Evolve Rhyhorn (Lv 42)", ver:"both"}],
+  113: [{loc:"Safari Zone (all zones, 1-4% Rare)", ver:"both"}],
+  114: [{loc:"Pallet Town area (Treasure Beach, One Island, Grass, 20-30%)", ver:"both"}],
+  115: [{loc:"Safari Zone Zone 1 (4%), Zone 3 (1%)", ver:"both"}],
+  116: [{loc:"Pallet Town (Good Rod FR), Route 4, Vermillion City, Routes 19-21 (Fishing)", ver:"both"}],
+  117: [{loc:"Evolve Horsea (Lv 32). Super Rod rare in coastal routes", ver:"both"}],
+  118: [{loc:"Routes 12, 13 (Good Rod, 20%), Fuchsia City (Good Rod, 20%), Safari Zone (Fishing)", ver:"both"}],
+  119: [{loc:"Evolve Goldeen (Lv 33). Super Rod Fuchsia & Safari Zone (40%)", ver:"both"}],
+  120: [{loc:"Pallet Town (Super Rod LG, 40%), Vermillion City (Super Rod LG), Cinnabar Island (Super Rod LG)", ver:"lg"},{loc:"Not found wild in FireRed — Shellder instead", ver:"fr"}],
+  121: [{loc:"Evolve Staryu (Water Stone) — LG Only", ver:"lg"},{loc:"Trade from LG", ver:"fr"}],
+  122: [{loc:"Routes 21-25 (Sevii Islands Treasure Beach Grass, 5%) — LG Only", ver:"lg"},{loc:"Not wild in FireRed", ver:"fr"}],
+  123: [{loc:"Safari Zone Zone 1 (4%), Zone 2 Entrance — FR Only", ver:"fr"},{loc:"Not wild in LeafGreen", ver:"lg"}],
+  124: [{loc:"Seafoam Islands (all floors, Rare) — FR Only", ver:"fr"},{loc:"Not wild in LeafGreen", ver:"lg"}],
+  125: [{loc:"Power Plant (4-5%) — FR Only", ver:"fr"},{loc:"Not wild in LeafGreen", ver:"lg"}],
+  126: [{loc:"Cinnabar Mansion 1F-B1 (Grass, 5%) — FR Only", ver:"fr"},{loc:"Not wild in LeafGreen", ver:"lg"}],
+  127: [{loc:"Safari Zone Zone 1 (Entrance, 4%) — FR Only", ver:"fr"},{loc:"Not wild in LeafGreen", ver:"lg"}],
+  128: [{loc:"Safari Zone Zone 2 (1%) and Zone 3 (4%)", ver:"both"}],
+  129: [{loc:"Old Rod anywhere (100%), Good Rod routes/cities (20%)", ver:"both"}],
+  130: [{loc:"Evolve Magikarp (Lv 20). Super Rod (Rare, 1%)", ver:"both"}],
+  131: [{loc:"Seafoam Islands B4F (Legendary — needs Surf & Strength to access)", ver:"both"}],
+  132: [{loc:"Cinnabar Mansion B1 (10%), Routes 13-15 (Grass, 5%)", ver:"both"}],
+  133: [{loc:"Celadon City (Game Corner Prize: 6666 coins)", ver:"both"}],
+  134: [{loc:"Evolve Eevee with Water Stone", ver:"both"}],
+  135: [{loc:"Evolve Eevee with Thunder Stone", ver:"both"}],
+  136: [{loc:"Evolve Eevee with Fire Stone", ver:"both"}],
+  137: [{loc:"Celadon City (Game Corner Prize: 9999 coins)", ver:"both"}],
+  138: [{loc:"Cinnabar Lab — revive from Helix Fossil (found in Mt. Moon)", ver:"both"}],
+  139: [{loc:"Evolve Omanyte (Lv 40)", ver:"both"}],
+  140: [{loc:"Cinnabar Lab — revive from Dome Fossil (found in Mt. Moon)", ver:"both"}],
+  141: [{loc:"Evolve Kabuto (Lv 40)", ver:"both"}],
+  142: [{loc:"Cinnabar Lab — revive from Old Amber (given by scientist in Pewter Museum)", ver:"both"}],
+  143: [{loc:"Cinnabar Mansion B1 (Rare), Routes 12, 15 (sleeping, use Poké Flute to battle)", ver:"both"}],
+  144: [{loc:"Seafoam Islands B4F (Legendary — after moving boulders into holes)", ver:"both"}],
+  145: [{loc:"Power Plant (Legendary — one-time encounter)", ver:"both"}],
+  146: [{loc:"Mt. Ember Summit, One Island (Legendary)", ver:"both"}],
+  147: [{loc:"Safari Zone (Super Rod, 15%), Cerulean Cave (Rare). Evolves at Lv 30", ver:"both"}],
+  148: [{loc:"Evolve Dratini (Lv 30)", ver:"both"}],
+  149: [{loc:"Cerulean Cave (Rare). Evolve Dragonair (Lv 55)", ver:"both"}],
+  150: [{loc:"Cerulean Cave B1F (Legendary — post-game, after becoming Champion)", ver:"both"}],
+  151: [{loc:"Event-only (not legitimately obtainable in normal gameplay)", ver:"both"}],
+};
+
+// Base stats for 151
+const BASE_STATS = {
+  1:{hp:45,atk:49,def:49,spa:65,spd:65,spe:45},
+  2:{hp:60,atk:62,def:63,spa:80,spd:80,spe:60},
+  3:{hp:80,atk:82,def:83,spa:100,spd:100,spe:80},
+  4:{hp:39,atk:52,def:43,spa:60,spd:50,spe:65},
+  5:{hp:58,atk:64,def:58,spa:80,spd:65,spe:80},
+  6:{hp:78,atk:84,def:78,spa:109,spd:85,spe:100},
+  7:{hp:44,atk:48,def:65,spa:50,spd:64,spe:43},
+  8:{hp:59,atk:63,def:80,spa:65,spd:80,spe:58},
+  9:{hp:79,atk:83,def:100,spa:85,spd:105,spe:78},
+  10:{hp:45,atk:30,def:35,spa:20,spd:20,spe:45},
+  11:{hp:50,atk:20,def:55,spa:25,spd:25,spe:30},
+  12:{hp:60,atk:45,def:50,spa:90,spd:80,spe:70},
+  13:{hp:40,atk:35,def:30,spa:20,spd:20,spe:50},
+  14:{hp:45,atk:25,def:50,spa:25,spd:25,spe:35},
+  15:{hp:65,atk:90,def:40,spa:45,spd:80,spe:75},
+  16:{hp:40,atk:45,def:40,spa:35,spd:35,spe:56},
+  17:{hp:63,atk:60,def:55,spa:50,spd:50,spe:71},
+  18:{hp:83,atk:80,def:75,spa:70,spd:70,spe:91},
+  19:{hp:30,atk:56,def:35,spa:25,spd:35,spe:72},
+  20:{hp:55,atk:81,def:60,spa:50,spd:70,spe:97},
+  21:{hp:40,atk:60,def:30,spa:31,spd:31,spe:70},
+  22:{hp:65,atk:90,def:65,spa:61,spd:61,spe:100},
+  23:{hp:35,atk:60,def:44,spa:40,spd:54,spe:55},
+  24:{hp:60,atk:85,def:69,spa:65,spd:79,spe:80},
+  25:{hp:35,atk:55,def:40,spa:50,spd:50,spe:90},
+  26:{hp:60,atk:90,def:55,spa:90,spd:80,spe:110},
+  27:{hp:50,atk:75,def:85,spa:20,spd:30,spe:40},
+  28:{hp:75,atk:100,def:110,spa:45,spd:55,spe:65},
+  29:{hp:55,atk:47,def:52,spa:40,spd:40,spe:41},
+  30:{hp:70,atk:62,def:67,spa:55,spd:55,spe:56},
+  31:{hp:90,atk:92,def:87,spa:75,spd:85,spe:76},
+  32:{hp:46,atk:57,def:40,spa:40,spd:40,spe:50},
+  33:{hp:61,atk:72,def:57,spa:55,spd:55,spe:65},
+  34:{hp:81,atk:102,def:77,spa:85,spd:75,spe:85},
+  35:{hp:70,atk:45,def:48,spa:60,spd:65,spe:35},
+  36:{hp:95,atk:70,def:73,spa:95,spd:90,spe:60},
+  37:{hp:38,atk:41,def:40,spa:50,spd:65,spe:65},
+  38:{hp:73,atk:76,def:75,spa:81,spd:100,spe:100},
+  39:{hp:115,atk:45,def:20,spa:45,spd:25,spe:20},
+  40:{hp:140,atk:70,def:45,spa:85,spd:50,spe:45},
+  41:{hp:40,atk:45,def:35,spa:30,spd:40,spe:55},
+  42:{hp:75,atk:80,def:70,spa:65,spd:75,spe:90},
+  43:{hp:45,atk:50,def:55,spa:75,spd:65,spe:30},
+  44:{hp:75,atk:80,def:85,spa:110,spd:90,spe:50},
+  45:{hp:75,atk:80,def:85,spa:110,spd:90,spe:50},
+  46:{hp:35,atk:70,def:55,spa:55,spd:55,spe:25},
+  47:{hp:60,atk:95,def:80,spa:60,spd:80,spe:30},
+  48:{hp:60,atk:55,def:50,spa:45,spd:50,spe:45},
+  49:{hp:70,atk:65,def:60,spa:90,spd:75,spe:90},
+  50:{hp:10,atk:55,def:25,spa:35,spd:45,spe:95},
+  51:{hp:35,atk:80,def:50,spa:50,spd:70,spe:120},
+  52:{hp:40,atk:45,def:35,spa:40,spd:40,spe:90},
+  53:{hp:65,atk:75,def:60,spa:65,spd:65,spe:115},
+  54:{hp:50,atk:52,def:48,spa:65,spd:50,spe:55},
+  55:{hp:80,atk:82,def:78,spa:95,spd:80,spe:85},
+  56:{hp:40,atk:80,def:35,spa:35,spd:45,spe:70},
+  57:{hp:65,atk:105,def:60,spa:60,spd:70,spe:95},
+  58:{hp:55,atk:70,def:45,spa:70,spd:50,spe:60},
+  59:{hp:90,atk:110,def:80,spa:100,spd:80,spe:95},
+  60:{hp:40,atk:50,def:40,spa:40,spd:40,spe:90},
+  61:{hp:65,atk:65,def:65,spa:50,spd:50,spe:90},
+  62:{hp:90,atk:95,def:95,spa:70,spd:90,spe:70},
+  63:{hp:25,atk:20,def:15,spa:105,spd:55,spe:90},
+  64:{hp:40,atk:35,def:30,spa:120,spd:70,spe:105},
+  65:{hp:55,atk:50,def:45,spa:135,spd:95,spe:120},
+  66:{hp:70,atk:80,def:50,spa:35,spd:35,spe:35},
+  67:{hp:80,atk:100,def:70,spa:50,spd:60,spe:45},
+  68:{hp:90,atk:130,def:80,spa:65,spd:85,spe:55},
+  69:{hp:60,atk:55,def:45,spa:45,spd:45,spe:35},
+  70:{hp:75,atk:70,def:65,spa:70,spd:65,spe:40},
+  71:{hp:100,atk:80,def:80,spa:100,spd:100,spe:70},
+  72:{hp:40,atk:40,def:35,spa:50,spd:100,spe:70},
+  73:{hp:80,atk:70,def:65,spa:80,spd:120,spe:100},
+  74:{hp:40,atk:80,def:100,spa:30,spd:30,spe:20},
+  75:{hp:55,atk:95,def:115,spa:45,spd:45,spe:35},
+  76:{hp:80,atk:120,def:130,spa:55,spd:65,spe:45},
+  77:{hp:50,atk:85,def:55,spa:65,spd:65,spe:90},
+  78:{hp:65,atk:100,def:70,spa:80,spd:80,spe:105},
+  79:{hp:95,atk:75,def:110,spa:100,spd:80,spe:30},
+  80:{hp:95,atk:75,def:110,spa:100,spd:80,spe:30},
+  81:{hp:25,atk:35,def:70,spa:95,spd:55,spe:45},
+  82:{hp:50,atk:60,def:95,spa:120,spd:70,spe:70},
+  83:{hp:52,atk:90,def:55,spa:58,spd:62,spe:60},
+  84:{hp:35,atk:85,def:45,spa:35,spd:35,spe:75},
+  85:{hp:60,atk:110,def:70,spa:60,spd:60,spe:110},
+  86:{hp:65,atk:45,def:55,spa:45,spd:70,spe:45},
+  87:{hp:90,atk:70,def:80,spa:70,spd:95,spe:70},
+  88:{hp:80,atk:80,def:50,spa:40,spd:50,spe:25},
+  89:{hp:105,atk:105,def:75,spa:65,spd:100,spe:50},
+  90:{hp:30,atk:65,def:100,spa:45,spd:25,spe:40},
+  91:{hp:50,atk:95,def:180,spa:85,spd:45,spe:70},
+  92:{hp:30,atk:35,def:30,spa:100,spd:35,spe:80},
+  93:{hp:45,atk:50,def:45,spa:115,spd:55,spe:95},
+  94:{hp:60,atk:65,def:60,spa:130,spd:75,spe:110},
+  95:{hp:35,atk:45,def:160,spa:30,spd:45,spe:70},
+  96:{hp:60,atk:48,def:45,spa:43,spd:90,spe:42},
+  97:{hp:85,atk:73,def:70,spa:73,spd:115,spe:67},
+  98:{hp:30,atk:105,def:90,spa:25,spd:25,spe:50},
+  99:{hp:55,atk:130,def:115,spa:50,spd:50,spe:75},
+  100:{hp:40,atk:30,def:50,spa:55,spd:55,spe:100},
+  101:{hp:60,atk:50,def:70,spa:80,spd:80,spe:140},
+  102:{hp:60,atk:40,def:80,spa:60,spd:45,spe:40},
+  103:{hp:95,atk:95,def:85,spa:125,spd:65,spe:55},
+  104:{hp:50,atk:50,def:95,spa:40,spd:50,spe:35},
+  105:{hp:60,atk:80,def:110,spa:50,spd:80,spe:45},
+  106:{hp:50,atk:120,def:53,spa:35,spd:110,spe:87},
+  107:{hp:50,atk:105,def:79,spa:35,spd:110,spe:76},
+  108:{hp:90,atk:55,def:75,spa:60,spd:75,spe:30},
+  109:{hp:40,atk:65,def:95,spa:60,spd:45,spe:35},
+  110:{hp:65,atk:90,def:120,spa:85,spd:70,spe:60},
+  111:{hp:80,atk:85,def:95,spa:30,spd:30,spe:25},
+  112:{hp:105,atk:130,def:120,spa:45,spd:45,spe:40},
+  113:{hp:250,atk:5,def:5,spa:35,spd:105,spe:50},
+  114:{hp:65,atk:55,def:115,spa:100,spd:40,spe:60},
+  115:{hp:105,atk:95,def:80,spa:40,spd:80,spe:90},
+  116:{hp:30,atk:40,def:70,spa:70,spd:25,spe:60},
+  117:{hp:55,atk:65,def:95,spa:95,spd:45,spe:85},
+  118:{hp:45,atk:67,def:60,spa:35,spd:50,spe:63},
+  119:{hp:80,atk:92,def:65,spa:65,spd:80,spe:68},
+  120:{hp:30,atk:45,def:55,spa:70,spd:55,spe:85},
+  121:{hp:60,atk:75,def:85,spa:100,spd:85,spe:115},
+  122:{hp:40,atk:45,def:65,spa:100,spd:120,spe:90},
+  123:{hp:70,atk:110,def:80,spa:55,spd:80,spe:105},
+  124:{hp:65,atk:50,def:35,spa:115,spd:95,spe:95},
+  125:{hp:65,atk:83,def:57,spa:95,spd:85,spe:105},
+  126:{hp:65,atk:95,def:57,spa:100,spd:85,spe:93},
+  127:{hp:65,atk:125,def:100,spa:55,spd:70,spe:85},
+  128:{hp:75,atk:100,def:95,spa:40,spd:70,spe:110},
+  129:{hp:20,atk:10,def:55,spa:15,spd:20,spe:80},
+  130:{hp:95,atk:125,def:79,spa:60,spd:100,spe:81},
+  131:{hp:130,atk:85,def:80,spa:85,spd:95,spe:60},
+  132:{hp:48,atk:48,def:48,spa:48,spd:48,spe:48},
+  133:{hp:55,atk:55,def:50,spa:45,spd:65,spe:55},
+  134:{hp:130,atk:65,def:60,spa:110,spd:95,spe:65},
+  135:{hp:65,atk:65,def:60,spa:110,spd:95,spe:130},
+  136:{hp:65,atk:130,def:60,spa:95,spd:110,spe:65},
+  137:{hp:65,atk:60,def:70,spa:85,spd:75,spe:40},
+  138:{hp:35,atk:40,def:100,spa:90,spd:55,spe:35},
+  139:{hp:70,atk:60,def:125,spa:115,spd:70,spe:55},
+  140:{hp:30,atk:80,def:90,spa:55,spd:45,spe:55},
+  141:{hp:60,atk:115,def:105,spa:65,spd:70,spe:80},
+  142:{hp:80,atk:105,def:65,spa:60,spd:70,spe:130},
+  143:{hp:160,atk:110,def:65,spa:65,spd:110,spe:30},
+  144:{hp:90,atk:85,def:100,spa:95,spd:125,spe:85},
+  145:{hp:90,atk:90,def:85,spa:125,spd:90,spe:100},
+  146:{hp:90,atk:100,def:90,spa:125,spd:85,spe:90},
+  147:{hp:41,atk:64,def:45,spa:50,spd:50,spe:50},
+  148:{hp:61,atk:84,def:65,spa:70,spd:70,spe:70},
+  149:{hp:91,atk:134,def:95,spa:100,spd:100,spe:80},
+  150:{hp:106,atk:110,def:90,spa:154,spd:90,spe:130},
+  151:{hp:100,atk:100,def:100,spa:100,spd:100,spe:100},
+};
+
+const POKEMON_DATA = [
+  {id:1,name:"Bulbasaur",types:["grass","poison"]},
+  {id:2,name:"Ivysaur",types:["grass","poison"]},
+  {id:3,name:"Venusaur",types:["grass","poison"]},
+  {id:4,name:"Charmander",types:["fire"]},
+  {id:5,name:"Charmeleon",types:["fire"]},
+  {id:6,name:"Charizard",types:["fire","flying"]},
+  {id:7,name:"Squirtle",types:["water"]},
+  {id:8,name:"Wartortle",types:["water"]},
+  {id:9,name:"Blastoise",types:["water"]},
+  {id:10,name:"Caterpie",types:["bug"]},
+  {id:11,name:"Metapod",types:["bug"]},
+  {id:12,name:"Butterfree",types:["bug","flying"]},
+  {id:13,name:"Weedle",types:["bug","poison"]},
+  {id:14,name:"Kakuna",types:["bug","poison"]},
+  {id:15,name:"Beedrill",types:["bug","poison"]},
+  {id:16,name:"Pidgey",types:["normal","flying"]},
+  {id:17,name:"Pidgeotto",types:["normal","flying"]},
+  {id:18,name:"Pidgeot",types:["normal","flying"]},
+  {id:19,name:"Rattata",types:["normal"]},
+  {id:20,name:"Raticate",types:["normal"]},
+  {id:21,name:"Spearow",types:["normal","flying"]},
+  {id:22,name:"Fearow",types:["normal","flying"]},
+  {id:23,name:"Ekans",types:["poison"]},
+  {id:24,name:"Arbok",types:["poison"]},
+  {id:25,name:"Pikachu",types:["electric"]},
+  {id:26,name:"Raichu",types:["electric"]},
+  {id:27,name:"Sandshrew",types:["ground"]},
+  {id:28,name:"Sandslash",types:["ground"]},
+  {id:29,name:"Nidoran♀",types:["poison"]},
+  {id:30,name:"Nidorina",types:["poison"]},
+  {id:31,name:"Nidoqueen",types:["poison","ground"]},
+  {id:32,name:"Nidoran♂",types:["poison"]},
+  {id:33,name:"Nidorino",types:["poison"]},
+  {id:34,name:"Nidoking",types:["poison","ground"]},
+  {id:35,name:"Clefairy",types:["normal"]},
+  {id:36,name:"Clefable",types:["normal"]},
+  {id:37,name:"Vulpix",types:["fire"]},
+  {id:38,name:"Ninetales",types:["fire"]},
+  {id:39,name:"Jigglypuff",types:["normal"]},
+  {id:40,name:"Wigglytuff",types:["normal"]},
+  {id:41,name:"Zubat",types:["poison","flying"]},
+  {id:42,name:"Golbat",types:["poison","flying"]},
+  {id:43,name:"Oddish",types:["grass","poison"]},
+  {id:44,name:"Gloom",types:["grass","poison"]},
+  {id:45,name:"Vileplume",types:["grass","poison"]},
+  {id:46,name:"Paras",types:["bug","grass"]},
+  {id:47,name:"Parasect",types:["bug","grass"]},
+  {id:48,name:"Venonat",types:["bug","poison"]},
+  {id:49,name:"Venomoth",types:["bug","poison"]},
+  {id:50,name:"Diglett",types:["ground"]},
+  {id:51,name:"Dugtrio",types:["ground"]},
+  {id:52,name:"Meowth",types:["normal"]},
+  {id:53,name:"Persian",types:["normal"]},
+  {id:54,name:"Psyduck",types:["water"]},
+  {id:55,name:"Golduck",types:["water"]},
+  {id:56,name:"Mankey",types:["fighting"]},
+  {id:57,name:"Primeape",types:["fighting"]},
+  {id:58,name:"Growlithe",types:["fire"]},
+  {id:59,name:"Arcanine",types:["fire"]},
+  {id:60,name:"Poliwag",types:["water"]},
+  {id:61,name:"Poliwhirl",types:["water"]},
+  {id:62,name:"Poliwrath",types:["water","fighting"]},
+  {id:63,name:"Abra",types:["psychic"]},
+  {id:64,name:"Kadabra",types:["psychic"]},
+  {id:65,name:"Alakazam",types:["psychic"]},
+  {id:66,name:"Machop",types:["fighting"]},
+  {id:67,name:"Machoke",types:["fighting"]},
+  {id:68,name:"Machamp",types:["fighting"]},
+  {id:69,name:"Bellsprout",types:["grass","poison"]},
+  {id:70,name:"Weepinbell",types:["grass","poison"]},
+  {id:71,name:"Victreebel",types:["grass","poison"]},
+  {id:72,name:"Tentacool",types:["water","poison"]},
+  {id:73,name:"Tentacruel",types:["water","poison"]},
+  {id:74,name:"Geodude",types:["rock","ground"]},
+  {id:75,name:"Graveler",types:["rock","ground"]},
+  {id:76,name:"Golem",types:["rock","ground"]},
+  {id:77,name:"Ponyta",types:["fire"]},
+  {id:78,name:"Rapidash",types:["fire"]},
+  {id:79,name:"Slowpoke",types:["water","psychic"]},
+  {id:80,name:"Slowbro",types:["water","psychic"]},
+  {id:81,name:"Magnemite",types:["electric","steel"]},
+  {id:82,name:"Magneton",types:["electric","steel"]},
+  {id:83,name:"Farfetch'd",types:["normal","flying"]},
+  {id:84,name:"Doduo",types:["normal","flying"]},
+  {id:85,name:"Dodrio",types:["normal","flying"]},
+  {id:86,name:"Seel",types:["water"]},
+  {id:87,name:"Dewgong",types:["water","ice"]},
+  {id:88,name:"Grimer",types:["poison"]},
+  {id:89,name:"Muk",types:["poison"]},
+  {id:90,name:"Shellder",types:["water"]},
+  {id:91,name:"Cloyster",types:["water","ice"]},
+  {id:92,name:"Gastly",types:["ghost","poison"]},
+  {id:93,name:"Haunter",types:["ghost","poison"]},
+  {id:94,name:"Gengar",types:["ghost","poison"]},
+  {id:95,name:"Onix",types:["rock","ground"]},
+  {id:96,name:"Drowzee",types:["psychic"]},
+  {id:97,name:"Hypno",types:["psychic"]},
+  {id:98,name:"Krabby",types:["water"]},
+  {id:99,name:"Kingler",types:["water"]},
+  {id:100,name:"Voltorb",types:["electric"]},
+  {id:101,name:"Electrode",types:["electric"]},
+  {id:102,name:"Exeggcute",types:["grass","psychic"]},
+  {id:103,name:"Exeggutor",types:["grass","psychic"]},
+  {id:104,name:"Cubone",types:["ground"]},
+  {id:105,name:"Marowak",types:["ground"]},
+  {id:106,name:"Hitmonlee",types:["fighting"]},
+  {id:107,name:"Hitmonchan",types:["fighting"]},
+  {id:108,name:"Lickitung",types:["normal"]},
+  {id:109,name:"Koffing",types:["poison"]},
+  {id:110,name:"Weezing",types:["poison"]},
+  {id:111,name:"Rhyhorn",types:["ground","rock"]},
+  {id:112,name:"Rhydon",types:["ground","rock"]},
+  {id:113,name:"Chansey",types:["normal"]},
+  {id:114,name:"Tangela",types:["grass"]},
+  {id:115,name:"Kangaskhan",types:["normal"]},
+  {id:116,name:"Horsea",types:["water"]},
+  {id:117,name:"Seadra",types:["water"]},
+  {id:118,name:"Goldeen",types:["water"]},
+  {id:119,name:"Seaking",types:["water"]},
+  {id:120,name:"Staryu",types:["water"]},
+  {id:121,name:"Starmie",types:["water","psychic"]},
+  {id:122,name:"Mr. Mime",types:["psychic"]},
+  {id:123,name:"Scyther",types:["bug","flying"]},
+  {id:124,name:"Jynx",types:["ice","psychic"]},
+  {id:125,name:"Electabuzz",types:["electric"]},
+  {id:126,name:"Magmar",types:["fire"]},
+  {id:127,name:"Pinsir",types:["bug"]},
+  {id:128,name:"Tauros",types:["normal"]},
+  {id:129,name:"Magikarp",types:["water"]},
+  {id:130,name:"Gyarados",types:["water","flying"]},
+  {id:131,name:"Lapras",types:["water","ice"]},
+  {id:132,name:"Ditto",types:["normal"]},
+  {id:133,name:"Eevee",types:["normal"]},
+  {id:134,name:"Vaporeon",types:["water"]},
+  {id:135,name:"Jolteon",types:["electric"]},
+  {id:136,name:"Flareon",types:["fire"]},
+  {id:137,name:"Porygon",types:["normal"]},
+  {id:138,name:"Omanyte",types:["rock","water"]},
+  {id:139,name:"Omastar",types:["rock","water"]},
+  {id:140,name:"Kabuto",types:["rock","water"]},
+  {id:141,name:"Kabutops",types:["rock","water"]},
+  {id:142,name:"Aerodactyl",types:["rock","flying"]},
+  {id:143,name:"Snorlax",types:["normal"]},
+  {id:144,name:"Articuno",types:["ice","flying"]},
+  {id:145,name:"Zapdos",types:["electric","flying"]},
+  {id:146,name:"Moltres",types:["fire","flying"]},
+  {id:147,name:"Dratini",types:["dragon"]},
+  {id:148,name:"Dragonair",types:["dragon"]},
+  {id:149,name:"Dragonite",types:["dragon","flying"]},
+  {id:150,name:"Mewtwo",types:["psychic"]},
+  {id:151,name:"Mew",types:["psychic"]},
+];
+
+// ============================================================
+// STATE
+// ============================================================
+let team = [];
+let selectedType = 'all';
+let searchQuery = '';
+let currentModal = null;
+
+// ============================================================
+// RENDER
+// ============================================================
+function spriteUrl(id) {
+  return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
+}
+
+function typeBadge(type) {
+  return `<span class="type-badge type-${type}">${type}</span>`;
+}
+
+function statColor(val) {
+  if (val >= 120) return '#00ff88';
+  if (val >= 90) return '#88ff44';
+  if (val >= 70) return '#ffdd00';
+  if (val >= 50) return '#ff8800';
+  return '#ff4444';
+}
+
+function refreshActiveTab() {
+  const activeTab = document.querySelector('.tab-btn.active');
+  if (activeTab && team.length > 0) {
+    const match = activeTab.getAttribute('onclick').match(/'([^']+)'/);
+    if (match) {
+      const tabId = match[1];
+      if (tabId === 'gyms') renderGymChecker();
+      if (tabId === 'moves') renderMoveCoverage();
+    }
+  }
+}
+
+function renderTeamSlots() {
+  const container = document.getElementById('teamSlotsContainer');
+  const titleEl = document.querySelector('.team-panel .panel-title');
+  titleEl.textContent = `⚔️ Your Team (${team.length}/6)`;
+
+  if (team.length === 0) {
+    container.innerHTML = `<div class="team-empty-state">Click any Pokémon to add it to your team!<br>● ○ ○ ○ ○ ○</div>`;
+    document.getElementById('exportPanel').style.display = 'none';
+    const tp = document.getElementById('tabsPanel');
+    if (tp) tp.style.display = 'none';
+    const tc0 = document.getElementById('teamCount');
+    if (tc0) tc0.textContent = '0';
+    return;
+  }
+  document.getElementById('exportPanel').style.display = 'block';
+  const tp2 = document.getElementById('tabsPanel');
+  if (tp2) tp2.style.display = 'block';
+
+  let html = '<div class="team-slots">';
+  for (let i = 0; i < 6; i++) {
+    const p = team[i];
+    if (p) {
+      html += `<div class="team-slot filled" onclick="openModal(${p.id})">
+        <button class="remove-btn" onclick="event.stopPropagation();removeFromTeam(${p.id})">✕</button>
+        <img src="${spriteUrl(p.id)}" alt="${p.name}" loading="lazy">
+        <div class="slot-name">${p.name}</div>
+        <div class="slot-types">${p.types.map(typeBadge).join('')}</div>
+      </div>`;
+    } else {
+      html += `<div class="team-slot"><span class="empty-text">Empty</span></div>`;
+    }
+  }
+  html += '</div>';
+  container.innerHTML = html;
+  renderCoverage();
+  const tc = document.getElementById('teamCount');
+  if (tc) tc.textContent = team.length;
+  refreshActiveTab();
+}
+
+function renderCoverage() {
+  if (team.length === 0) return;
+  // coveragePanel is now inside the tabs panel
+
+  // Offensive coverage: what types can we hit super effectively?
+  const offensiveCoverage = new Set();
+  for (const p of team) {
+    for (const atkType of p.types) {
+      const chart = TYPE_CHART[atkType] || {};
+      for (const [defType, mult] of Object.entries(chart)) {
+        if (mult >= 2) offensiveCoverage.add(defType);
+      }
+    }
+  }
+
+  // Defensive weaknesses: count types that hit us super effectively
+  const weaknessCounts = {};
+  for (const p of team) {
+    const matchups = getDefensiveMatchups(p.types);
+    for (const [atkType, mult] of Object.entries(matchups)) {
+      if (mult >= 2) weaknessCounts[atkType] = (weaknessCounts[atkType] || 0) + 1;
+    }
+  }
+
+  // Strength grid
+  const sg = document.getElementById('strengthGrid');
+  sg.innerHTML = TYPES.map(t => 
+    `<span class="coverage-item type-badge type-${t} ${offensiveCoverage.has(t) ? 'covered' : ''}">${t}</span>`
+  ).join('');
+
+  // Weakness grid
+  const wg = document.getElementById('weaknessGrid');
+  wg.innerHTML = TYPES.map(t => {
+    const count = weaknessCounts[t] || 0;
+    return `<span class="coverage-item type-badge type-${t} ${count > 0 ? 'weak' : ''}">${t}${count > 1 ? ` (×${count})` : ''}</span>`;
+  }).join('');
+}
+
+function renderGrid() {
+  const grid = document.getElementById('pokemonGrid');
+  const query = searchQuery.toLowerCase();
+  
+  const filtered = POKEMON_DATA.filter(p => {
+    const matchSearch = p.name.toLowerCase().includes(query) || String(p.id).includes(query);
+    const matchType = selectedType === 'all' || p.types.includes(selectedType);
+    return matchSearch && matchType;
+  });
+
+  document.getElementById('resultsCount').textContent = `Showing ${filtered.length} of 151 Pokémon`;
+
+  grid.innerHTML = filtered.map(p => {
+    const inTeam = team.some(t => t.id === p.id);
+    const teamFull = team.length >= 6 && !inTeam;
+    return `<div class="poke-card ${inTeam ? 'selected' : ''} ${teamFull ? 'disabled' : ''}" 
+      onclick="${teamFull ? '' : `openModal(${p.id})`}">
+      <div class="poke-num">#${String(p.id).padStart(3,'0')}</div>
+      <img src="${spriteUrl(p.id)}" alt="${p.name}" loading="lazy">
+      <div class="poke-name">${p.name}</div>
+      <div class="poke-types">${p.types.map(typeBadge).join('')}</div>
+    </div>`;
+  }).join('');
+}
+
+function renderTypeFilters() {
+  const container = document.getElementById('typeFilters');
+  const allBtn = `<button class="filter-btn all-btn ${selectedType==='all'?'active':''}" data-type="all">ALL</button>`;
+  const typeBtns = TYPES.map(t => 
+    `<button class="filter-btn type-badge type-${t} ${selectedType===t?'active':''}" data-type="${t}">${t}</button>`
+  ).join('');
+  container.innerHTML = allBtn + typeBtns;
+  container.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      selectedType = btn.dataset.type;
+      renderTypeFilters();
+      renderGrid();
+    });
+  });
+}
+
+// ============================================================
+// MODAL
+// ============================================================
+function openModal(id) {
+  const p = POKEMON_DATA.find(x => x.id === id);
+  if (!p) return;
+  currentModal = id;
+  const stats = BASE_STATS[id] || {};
+  const matchups = getDefensiveMatchups(p.types);
+  const locs = LOCATIONS[id] || [{loc:"Unknown", ver:"both"}];
+  const inTeam = team.some(t => t.id === id);
+  const teamFull = team.length >= 6;
+
+  const weaknesses = Object.entries(matchups).filter(([,v]) => v > 1).sort((a,b) => b[1]-a[1]);
+  const resistances = Object.entries(matchups).filter(([,v]) => v < 1).sort((a,b) => a[1]-b[1]);
+  const immune = Object.entries(matchups).filter(([,v]) => v === 0);
+
+  const multClass = (v) => {
+    if (v === 0) return 'x0';
+    if (v <= 0.25) return 'x025';
+    if (v <= 0.5) return 'x05';
+    if (v <= 1) return 'x1';
+    if (v <= 2) return 'x2';
+    return 'x4';
+  };
+  const multLabel = (v) => {
+    if (v === 0) return 'Immune';
+    if (v === 0.25) return '¼×';
+    if (v === 0.5) return '½×';
+    if (v === 1) return '1×';
+    if (v === 2) return '2×';
+    if (v === 4) return '4×';
+    return `${v}×`;
+  };
+
+  const allMatchups = Object.entries(matchups);
+
+  const statMax = {hp:250,atk:134,def:180,spa:154,spd:125,spe:140};
+  const statLabels = {hp:'HP',atk:'ATK',def:'DEF',spa:'SP.ATK',spd:'SP.DEF',spe:'SPD'};
+
+  document.getElementById('modalContent').innerHTML = `
+    <div class="modal-header">
+      <img class="modal-sprite" src="${spriteUrl(id)}" alt="${p.name}">
+      <div class="modal-info">
+        <div class="modal-num">#${String(id).padStart(3,'0')}</div>
+        <h2>${p.name.toUpperCase()}</h2>
+        <div>${p.types.map(typeBadge).join(' ')}</div>
+      </div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-section">
+        <div class="modal-section-title">📊 Base Stats</div>
+        <div class="stats-grid">
+          ${Object.entries(stats).map(([k,v]) => `
+            <div class="stat-name">${statLabels[k]||k}</div>
+            <div class="stat-bar-bg"><div class="stat-bar" style="width:${Math.min(100,(v/(statMax[k]||200))*100)}%;background:${statColor(v)}"></div></div>
+            <div class="stat-val">${v}</div>
+          `).join('')}
+        </div>
+      </div>
+      <div class="modal-section">
+        <div class="modal-section-title">🛡️ Type Matchups (Defending)</div>
+        ${weaknesses.length ? `<div class="weakness-label">Weak to:</div>
+        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px">
+          ${weaknesses.map(([t,v])=>`<span class="type-badge type-${t}">${t} ${multLabel(v)}</span>`).join('')}
+        </div>` : ''}
+        ${resistances.length ? `<div class="strength-label">Resists:</div>
+        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px">
+          ${resistances.map(([t,v])=>`<span class="type-badge type-${t}">${t} ${multLabel(v)}</span>`).join('')}
+        </div>` : ''}
+        <details style="margin-top:8px">
+          <summary style="cursor:pointer;font-size:13px;color:var(--text-2);margin-bottom:6px">▶ Full type chart</summary>
+          ${allMatchups.map(([t,v]) => `<div class="type-chart-row"><span class="type-badge type-${t}">${t}</span><span class="multiplier ${multClass(v)}">${multLabel(v)}</span></div>`).join('')}
+        </details>
+      </div>
+      <div class="modal-section">
+        <div class="modal-section-title">📍 Where to Catch (FR/LG)</div>
+        <ul class="location-list">
+          ${locs.map(l => `<li>${l.loc} 
+            ${l.ver==='fr' ? '<span class="version-tag fr-tag">FR</span>' : 
+              l.ver==='lg' ? '<span class="version-tag lg-tag">LG</span>' : 
+              '<span class="version-tag both-tag">Both</span>'}
+          </li>`).join('')}
+        </ul>
+      </div>
+      ${(() => {
+        const evoChain = EVO_CHAINS[id];
+        if (!evoChain || evoChain.length <= 1) return '';
+        const steps = evoChain.map((evoId, i) => {
+          const ep = POKEMON_DATA.find(x => x.id === evoId);
+          if (!ep) return '';
+          const isCurrent = evoId === id;
+          const method = EVO_METHODS[evoId] || '';
+          const arrow = i > 0 ? `<div class="evo-arrow">→</div>` : '';
+          const methodLabel = method ? `<div class="evo-method">${method}</div>` : '';
+          return `${arrow}<div class="evo-step ${isCurrent ? 'current' : ''}" onclick="closeModal();setTimeout(()=>openModal(${evoId}),50)">
+            <img src="${spriteUrl(evoId)}" alt="${ep.name}" loading="lazy">
+            ${methodLabel}
+            <div class="evo-step-name">${ep.name}</div>
+          </div>`;
+        }).join('');
+        return `<div class="modal-section">
+          <div class="modal-section-title">🔄 Evolution Chain</div>
+          <div class="evo-chain">${steps}</div>
+        </div>`;
+      })()}
+      <button class="add-team-btn" id="addTeamBtn"
+        ${inTeam ? 'disabled' : teamFull ? 'disabled' : ''}
+        onclick="${inTeam ? '' : `addToTeam(${id})`}">
+        ${inTeam ? '✓ ON YOUR TEAM' : teamFull ? '✗ TEAM FULL (6/6)' : '+ ADD TO TEAM'}
+      </button>
+    </div>
+  `;
+  document.getElementById('modalOverlay').classList.add('open');
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('open');
+  currentModal = null;
+}
+
+// ============================================================
+// TEAM MANAGEMENT
+// ============================================================
+function addToTeam(id) {
+  if (team.length >= 6) return;
+  if (team.some(t => t.id === id)) return;
+  const p = POKEMON_DATA.find(x => x.id === id);
+  if (!p) return;
+  team.push(p);
+  closeModal();
+  renderTeamSlots();
+  renderGrid();
+}
+
+function removeFromTeam(id) {
+  team = team.filter(t => t.id !== id);
+  renderTeamSlots();
+  renderGrid();
+}
+
+// ============================================================
+// EXPORT / SHARE
+// ============================================================
+function buildShareUrl() {
+  const ids = team.map(p => p.id).join(',');
+  const base = window.location.href.split('?')[0].split('#')[0];
+  return base + '?team=' + ids;
+}
+
+function openShareModal() {
+  if (team.length === 0) return;
+  const url = buildShareUrl();
+  const preview = document.getElementById('shareTeamPreview');
+  preview.innerHTML = team.map(p => `
+    <div class="share-poke">
+      <img src="${spriteUrl(p.id)}" alt="${p.name}" loading="lazy">
+      <div class="share-poke-name">${p.name}</div>
+    </div>
+  `).join('');
+  document.getElementById('shareUrlBox').textContent = url;
+  const btn = document.getElementById('copyBtn');
+  btn.textContent = '📋 COPY LINK';
+  btn.classList.remove('copied');
+  document.getElementById('cardPreviewWrap').classList.remove('show');
+  document.getElementById('shareOverlay').classList.add('open');
+  // Generate card after a brief delay so modal is visible first
+  setTimeout(() => generateTeamCard(), 150);
+}
+
+function closeShareModal() {
+  document.getElementById('shareOverlay').classList.remove('open');
+}
+
+// ============================================================
+// TEAM CARD IMAGE GENERATOR
+// ============================================================
+async function generateTeamCard() {
+  const SCALE = 2; // retina — outputs 2160x2160
+  const S = 1080;  // logical square size
+  const canvas = document.getElementById('teamCardCanvas');
+  canvas.width = S * SCALE;
+  canvas.height = S * SCALE;
+  // Preview at half size so it fits the modal
+  canvas.style.width = '460px';
+  canvas.style.height = '460px';
+  const ctx = canvas.getContext('2d');
+  ctx.scale(SCALE, SCALE);
+
+  const PAD = 28;
+
+  // TYPE COLORS
+  const TC = {
+    normal:'#a8a878',fire:'#f08030',water:'#6890f0',electric:'#f8d030',
+    grass:'#78c850',ice:'#98d8d8',fighting:'#c03028',poison:'#a040a0',
+    ground:'#e0c068',flying:'#a890f0',psychic:'#f85888',bug:'#a8b820',
+    rock:'#b8a038',ghost:'#705898',dragon:'#7038f8',dark:'#705848',steel:'#b8b8d0'
+  };
+  const LIGHT_TYPES = ['electric','ice','ground','steel'];
+
+  // ── BACKGROUND ──────────────────────────────────────────────
+  // Deep dark base
+  ctx.fillStyle = '#080810';
+  ctx.fillRect(0, 0, S, S);
+
+  // Diagonal split tint: red top-left, green bottom-right
+  const splitTL = ctx.createRadialGradient(0, 0, 0, 0, 0, S * 0.75);
+  splitTL.addColorStop(0, 'rgba(180,0,0,0.22)');
+  splitTL.addColorStop(1, 'transparent');
+  ctx.fillStyle = splitTL;
+  ctx.fillRect(0, 0, S, S);
+
+  const splitBR = ctx.createRadialGradient(S, S, 0, S, S, S * 0.75);
+  splitBR.addColorStop(0, 'rgba(20,120,20,0.20)');
+  splitBR.addColorStop(1, 'transparent');
+  ctx.fillStyle = splitBR;
+  ctx.fillRect(0, 0, S, S);
+
+  // Subtle grid texture
+  ctx.strokeStyle = 'rgba(255,255,255,0.025)';
+  ctx.lineWidth = 1;
+  for (let gx = 0; gx < S; gx += 54) {
+    ctx.beginPath(); ctx.moveTo(gx, 0); ctx.lineTo(gx, S); ctx.stroke();
+  }
+  for (let gy = 0; gy < S; gy += 54) {
+    ctx.beginPath(); ctx.moveTo(0, gy); ctx.lineTo(S, gy); ctx.stroke();
+  }
+
+  // Gold outer border
+  ctx.strokeStyle = '#f0a020';
+  ctx.lineWidth = 4;
+  ctx.strokeRect(4, 4, S - 8, S - 8);
+
+  // Inner thin border
+  ctx.strokeStyle = 'rgba(240,160,32,0.3)';
+  ctx.lineWidth = 1;
+  ctx.strokeRect(10, 10, S - 20, S - 20);
+
+  // ── HEADER ──────────────────────────────────────────────────
+  const HEADER_H = 100;
+  const hGrad = ctx.createLinearGradient(0, 0, S, 0);
+  hGrad.addColorStop(0,   '#cc0000');
+  hGrad.addColorStop(0.45,'#6a0000');
+  hGrad.addColorStop(0.55,'#003300');
+  hGrad.addColorStop(1,   '#228b22');
+  ctx.fillStyle = hGrad;
+  ctx.fillRect(PAD, PAD, S - PAD*2, HEADER_H);
+
+  // Header top highlight
+  ctx.fillStyle = 'rgba(255,255,255,0.08)';
+  ctx.fillRect(PAD, PAD, S - PAD*2, 3);
+
+  // Gold header bottom line
+  ctx.fillStyle = '#f0a020';
+  ctx.fillRect(PAD, PAD + HEADER_H - 3, S - PAD*2, 3);
+
+  // ── HEADER TEXT ─────────────────────────────────────────────
+  // "MY TEAM" big label
+  ctx.fillStyle = '#ffffff';
+  ctx.font = 'bold 38px monospace';
+  ctx.textAlign = 'center';
+  ctx.fillText('MY TEAM', S / 2, PAD + 52);
+
+  // Subtitle
+  ctx.fillStyle = '#f0a020';
+  ctx.font = 'bold 14px monospace';
+  ctx.textAlign = 'center';
+  ctx.fillText('POKÉMON  FIRE RED  &  LEAF GREEN', S / 2, PAD + 82);
+
+  // ── POKEMON CARDS GRID ──────────────────────────────────────
+  // 3 cols × 2 rows — with empty slot support
+  const COLS = 3, ROWS = 2;
+  const GRID_PAD = 16;
+  const GRID_TOP = PAD + HEADER_H + GRID_PAD;
+  const GRID_BOTTOM = S - 60; // leave room for footer
+  const GRID_H = GRID_BOTTOM - GRID_TOP;
+  const CARD_GAP = 12;
+  const CARD_W = Math.floor((S - PAD*2 - CARD_GAP*(COLS-1)) / COLS);
+  const CARD_H = Math.floor((GRID_H - CARD_GAP*(ROWS-1)) / ROWS);
+
+  // Load all sprites
+  const spriteImages = await Promise.all(
+    Array.from({length: 6}, (_, i) => team[i] ? new Promise(resolve => {
+      const img = new Image();
+      img.crossOrigin = 'anonymous';
+      img.onload = () => resolve(img);
+      img.onerror = () => resolve(null);
+      img.src = spriteUrl(team[i].id);
+    }) : Promise.resolve(null))
+  );
+
+  for (let slot = 0; slot < 6; slot++) {
+    const col = slot % COLS;
+    const row = Math.floor(slot / COLS);
+    const cx = PAD + col * (CARD_W + CARD_GAP);
+    const cy = GRID_TOP + row * (CARD_H + CARD_GAP);
+    const p = team[slot];
+
+    if (!p) {
+      // Empty slot
+      ctx.fillStyle = 'rgba(255,255,255,0.03)';
+      ctx.beginPath();
+      ctx.roundRect(cx, cy, CARD_W, CARD_H, 10);
+      ctx.fill();
+      ctx.strokeStyle = 'rgba(255,255,255,0.08)';
+      ctx.lineWidth = 1.5;
+      ctx.setLineDash([6, 4]);
+      ctx.beginPath();
+      ctx.roundRect(cx, cy, CARD_W, CARD_H, 10);
+      ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle = 'rgba(255,255,255,0.12)';
+      ctx.font = '22px monospace';
+      ctx.textAlign = 'center';
+      ctx.fillText('EMPTY', cx + CARD_W/2, cy + CARD_H/2 + 8);
+      continue;
+    }
+
+    const img = spriteImages[slot];
+    const primaryColor = TC[p.types[0]] || '#888';
+
+    // Card bg — gradient using type color
+    const cBg = ctx.createLinearGradient(cx, cy, cx, cy + CARD_H);
+    cBg.addColorStop(0, 'rgba(255,255,255,0.08)');
+    cBg.addColorStop(1, 'rgba(0,0,0,0.45)');
+    ctx.fillStyle = cBg;
+    ctx.beginPath();
+    ctx.roundRect(cx, cy, CARD_W, CARD_H, 10);
+    ctx.fill();
+
+    // Type color glow at top of card
+    const typeGlow = ctx.createLinearGradient(cx, cy, cx, cy + CARD_H * 0.45);
+    typeGlow.addColorStop(0, primaryColor + '28');
+    typeGlow.addColorStop(1, 'transparent');
+    ctx.fillStyle = typeGlow;
+    ctx.beginPath();
+    ctx.roundRect(cx, cy, CARD_W, CARD_H, 10);
+    ctx.fill();
+
+    // Card border
+    ctx.strokeStyle = primaryColor;
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.roundRect(cx, cy, CARD_W, CARD_H, 10);
+    ctx.stroke();
+
+    // Pokédex number top-left
+    ctx.fillStyle = 'rgba(255,255,255,0.30)';
+    ctx.font = 'bold 11px monospace';
+    ctx.textAlign = 'left';
+    ctx.fillText('#' + String(p.id).padStart(3,'0'), cx + 10, cy + 16);
+
+    // Sprite — large, centered in upper portion
+    const SPRITE_AREA_H = CARD_H * 0.52;
+    const SPRITE_SIZE = Math.min(SPRITE_AREA_H - 14, CARD_W - 20);
+    if (img) {
+      // Drop shadow
+      ctx.shadowColor = primaryColor + '55';
+      ctx.shadowBlur = 18;
+      ctx.drawImage(img, cx + (CARD_W - SPRITE_SIZE)/2, cy + 20, SPRITE_SIZE, SPRITE_SIZE);
+      ctx.shadowBlur = 0;
+      ctx.shadowColor = 'transparent';
+    }
+
+    // Divider line
+    const divY = cy + SPRITE_AREA_H + 10;
+    ctx.fillStyle = 'rgba(255,255,255,0.08)';
+    ctx.fillRect(cx + 10, divY, CARD_W - 20, 1);
+
+    // Name
+    ctx.fillStyle = '#ffffff';
+    ctx.font = 'bold 14px monospace';
+    ctx.textAlign = 'center';
+    const displayName = p.name.toUpperCase();
+    ctx.fillText(displayName, cx + CARD_W/2, divY + 18);
+
+    // Type badges
+    const BADGE_H = 18;
+    const BADGE_GAP = 5;
+    const numTypes = p.types.length;
+    const totalBadgeW = numTypes === 1 ? 80 : (CARD_W - 20 - BADGE_GAP);
+    const badgeW = numTypes === 1 ? totalBadgeW : (totalBadgeW - BADGE_GAP) / 2;
+    const badgeStartX = cx + (CARD_W - totalBadgeW) / 2;
+
+    p.types.forEach((type, ti) => {
+      const bx = badgeStartX + ti * (badgeW + BADGE_GAP);
+      const by = divY + 24;
+      ctx.fillStyle = TC[type] || '#888';
+      ctx.beginPath();
+      ctx.roundRect(bx, by, badgeW, BADGE_H, 4);
+      ctx.fill();
+      ctx.fillStyle = LIGHT_TYPES.includes(type) ? '#333' : '#fff';
+      ctx.font = 'bold 10px monospace';
+      ctx.textAlign = 'center';
+      ctx.fillText(type.toUpperCase(), bx + badgeW/2, by + BADGE_H - 5);
+    });
+
+    // Stat bars (HP, ATK, DEF, SPD) — 4 compact bars
+    const stats = BASE_STATS[p.id];
+    if (stats) {
+      const BAR_TOP = divY + 50;
+      const BAR_H = 6;
+      const BAR_W = CARD_W - 22;
+      const BAR_GAP = 10;
+      const STAT_KEYS = [['hp',250],['atk',160],['def',160],['spe',160]];
+      const STAT_LABELS = {hp:'HP',atk:'ATK',def:'DEF',spe:'SPD'};
+
+      STAT_KEYS.forEach(([key, max], si) => {
+        const val = stats[key] || 0;
+        const pct = Math.min(val / max, 1);
+        const barY = BAR_TOP + si * BAR_GAP;
+
+        // Label
+        ctx.fillStyle = 'rgba(255,255,255,0.4)';
+        ctx.font = '8px monospace';
+        ctx.textAlign = 'left';
+        ctx.fillText(STAT_LABELS[key], cx + 11, barY + BAR_H);
+
+        // Track
+        ctx.fillStyle = 'rgba(255,255,255,0.07)';
+        ctx.beginPath();
+        ctx.roundRect(cx + 28, barY, BAR_W - 16, BAR_H, 3);
+        ctx.fill();
+
+        // Fill
+        ctx.fillStyle = pct > 0.65 ? '#00e87a' : pct > 0.40 ? '#f0c030' : '#ff4455';
+        ctx.beginPath();
+        ctx.roundRect(cx + 28, barY, Math.max(4, (BAR_W - 16) * pct), BAR_H, 3);
+        ctx.fill();
+
+        // Value
+        ctx.fillStyle = 'rgba(255,255,255,0.5)';
+        ctx.font = '7px monospace';
+        ctx.textAlign = 'right';
+        ctx.fillText(String(val), cx + CARD_W - 9, barY + BAR_H);
+      });
+    }
+  }
+
+  // ── FOOTER ──────────────────────────────────────────────────
+  const FOOT_Y = S - 50;
+  // Separator
+  const footGrad = ctx.createLinearGradient(PAD, 0, S-PAD, 0);
+  footGrad.addColorStop(0, 'transparent');
+  footGrad.addColorStop(0.2, '#f0a020');
+  footGrad.addColorStop(0.8, '#f0a020');
+  footGrad.addColorStop(1, 'transparent');
+  ctx.fillStyle = footGrad;
+  ctx.fillRect(PAD, FOOT_Y, S - PAD*2, 1.5);
+
+  // Pokéball icon (simple circle)
+  ctx.beginPath();
+  ctx.arc(S/2, FOOT_Y + 22, 8, 0, Math.PI * 2);
+  ctx.strokeStyle = '#f0a020';
+  ctx.lineWidth = 1.5;
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(S/2 - 8, FOOT_Y + 22);
+  ctx.lineTo(S/2 + 8, FOOT_Y + 22);
+  ctx.strokeStyle = '#f0a020';
+  ctx.lineWidth = 1;
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.arc(S/2, FOOT_Y + 22, 3, 0, Math.PI * 2);
+  ctx.fillStyle = '#f0a020';
+  ctx.fill();
+
+  // URL watermark
+  ctx.fillStyle = 'rgba(240,160,32,0.55)';
+  ctx.font = 'bold 11px monospace';
+  ctx.textAlign = 'center';
+  ctx.fillText('FIRE RED & LEAF GREEN TEAM BUILDER', S/2, FOOT_Y + 40);
+
+  document.getElementById('cardPreviewWrap').classList.add('show');
+}
+
+function downloadTeamCard() {
+  const canvas = document.getElementById('teamCardCanvas');
+  const link = document.createElement('a');
+  const names = team.map(p => p.name).join('-');
+  link.download = 'frlg-team-' + names.replace(/[^a-zA-Z0-9-]/g, '') + '.png';
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+
+  const btn = document.getElementById('downloadBtn');
+  btn.textContent = '✓ SAVED!';
+  btn.classList.add('done');
+  setTimeout(() => {
+    btn.textContent = '🖼️ SAVE TEAM IMAGE';
+    btn.classList.remove('done');
+  }, 2500);
+}
+
+function copyShareUrl() {
+  const url = buildShareUrl();
+  const finish = () => {
+    const btn = document.getElementById('copyBtn');
+    btn.textContent = '✓ COPIED!';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = '📋 COPY LINK'; btn.classList.remove('copied'); }, 2500);
+  };
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(url).then(finish).catch(() => {
+      const ta = document.createElement('textarea');
+      ta.value = url; document.body.appendChild(ta); ta.select();
+      document.execCommand('copy'); document.body.removeChild(ta); finish();
+    });
+  } else {
+    const ta = document.createElement('textarea');
+    ta.value = url; document.body.appendChild(ta); ta.select();
+    document.execCommand('copy'); document.body.removeChild(ta); finish();
+  }
+}
+
+function shareToTwitter() {
+  const names = team.map(p => p.name).join(', ');
+  const url = buildShareUrl();
+  const text = 'My Pokémon Fire Red/Leaf Green team: ' + names + '! Check it out 👇';
+  window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(url), '_blank');
+}
+
+function shareToReddit() {
+  const names = team.map(p => p.name).join(' / ');
+  const url = buildShareUrl();
+  const title = 'My FR/LG Team: ' + names + ' — built with this team builder!';
+  window.open('https://www.reddit.com/submit?url=' + encodeURIComponent(url) + '&title=' + encodeURIComponent(title), '_blank');
+}
+
+function loadTeamFromUrl() {
+  const params = new URLSearchParams(window.location.search);
+  const teamParam = params.get('team');
+  if (!teamParam) return false;
+  const ids = teamParam.split(',').map(Number).filter(n => n >= 1 && n <= 151).slice(0, 6);
+  if (ids.length === 0) return false;
+  team = [];
+  for (const id of ids) {
+    const p = POKEMON_DATA.find(x => x.id === id);
+    if (p && !team.find(t => t.id === id)) team.push(p);
+  }
+  return team.length > 0;
+}
+
+// ============================================================
+// EVENTS
+// ============================================================
+document.getElementById('searchInput').addEventListener('input', e => {
+  searchQuery = e.target.value;
+  renderGrid();
+});
+
+document.getElementById('modalOverlay').addEventListener('click', e => {
+  if (e.target === document.getElementById('modalOverlay')) closeModal();
+});
+
+document.getElementById('shareOverlay').addEventListener('click', e => {
+  if (e.target === document.getElementById('shareOverlay')) closeShareModal();
+});
+
+// ============================================================
+// EVOLUTION CHAINS
+// ============================================================
+const EVO_CHAINS = {
+  1:[1,2,3],2:[1,2,3],3:[1,2,3],
+  4:[4,5,6],5:[4,5,6],6:[4,5,6],
+  7:[7,8,9],8:[7,8,9],9:[7,8,9],
+  10:[10,11,12],11:[10,11,12],12:[10,11,12],
+  13:[13,14,15],14:[13,14,15],15:[13,14,15],
+  16:[16,17,18],17:[16,17,18],18:[16,17,18],
+  19:[19,20],20:[19,20],
+  21:[21,22],22:[21,22],
+  23:[23,24],24:[23,24],
+  25:[25,26],26:[25,26],
+  27:[27,28],28:[27,28],
+  29:[29,30,31],30:[29,30,31],31:[29,30,31],
+  32:[32,33,34],33:[32,33,34],34:[32,33,34],
+  35:[35,36],36:[35,36],
+  37:[37,38],38:[37,38],
+  39:[39,40],40:[39,40],
+  41:[41,42],42:[41,42],
+  43:[43,44,45],44:[43,44,45],45:[43,44,45],
+  46:[46,47],47:[46,47],
+  48:[48,49],49:[48,49],
+  50:[50,51],51:[50,51],
+  52:[52,53],53:[52,53],
+  54:[54,55],55:[54,55],
+  56:[56,57],57:[56,57],
+  58:[58,59],59:[58,59],
+  60:[60,61,62],61:[60,61,62],62:[60,61,62],
+  63:[63,64,65],64:[63,64,65],65:[63,64,65],
+  66:[66,67,68],67:[66,67,68],68:[66,67,68],
+  69:[69,70,71],70:[69,70,71],71:[69,70,71],
+  72:[72,73],73:[72,73],
+  74:[74,75,76],75:[74,75,76],76:[74,75,76],
+  77:[77,78],78:[77,78],
+  79:[79,80],80:[79,80],
+  81:[81,82],82:[81,82],
+  83:[83],84:[84,85],85:[84,85],
+  86:[86,87],87:[86,87],
+  88:[88,89],89:[88,89],
+  90:[90,91],91:[90,91],
+  92:[92,93,94],93:[92,93,94],94:[92,93,94],
+  95:[95],
+  96:[96,97],97:[96,97],
+  98:[98,99],99:[98,99],
+  100:[100,101],101:[100,101],
+  102:[102,103],103:[102,103],
+  104:[104,105],105:[104,105],
+  106:[106],107:[107],108:[108],
+  109:[109,110],110:[109,110],
+  111:[111,112],112:[111,112],
+  113:[113],114:[114],115:[115],
+  116:[116,117],117:[116,117],
+  118:[118,119],119:[118,119],
+  120:[120,121],121:[120,121],
+  122:[122],123:[123],124:[124],125:[125],126:[126],127:[127],128:[128],
+  129:[129,130],130:[129,130],
+  131:[131],132:[132],
+  133:[133,134],134:[134],135:[135],136:[136],
+  137:[137],
+  138:[138,139],139:[138,139],
+  140:[140,141],141:[140,141],
+  142:[142],143:[143],144:[144],145:[145],146:[146],
+  147:[147,148,149],148:[147,148,149],149:[147,148,149],
+  150:[150],151:[151]
+};
+const EVO_METHODS = {
+  2:'Lv 16',3:'Lv 32',5:'Lv 16',6:'Lv 36',8:'Lv 16',9:'Lv 36',
+  11:'Lv 7',12:'Lv 10',14:'Lv 7',15:'Lv 10',17:'Lv 18',18:'Lv 36',
+  20:'Lv 20',22:'Lv 20',24:'Lv 22',26:'Thunder Stone',28:'Lv 22',
+  30:'Lv 16',31:'Moon Stone',33:'Lv 16',34:'Moon Stone',
+  36:'Moon Stone',38:'Fire Stone',40:'Moon Stone',42:'Lv 22',
+  44:'Lv 21',45:'Leaf Stone',47:'Lv 24',49:'Lv 31',51:'Lv 26',
+  53:'Lv 28',55:'Lv 33',57:'Lv 28',59:'Fire Stone',61:'Lv 25',
+  62:'Water Stone',64:'Lv 16',65:'Trade',67:'Lv 28',68:'Trade',
+  70:'Lv 21',71:'Leaf Stone',73:'Lv 30',75:'Lv 25',76:'Trade',
+  78:'Lv 40',80:'Lv 37',82:'Lv 30',85:'Lv 31',87:'Lv 34',
+  89:'Lv 38',91:'Water Stone',93:'Lv 25',94:'Trade',97:'Lv 26',
+  99:'Lv 28',101:'Lv 30',103:'Leaf Stone',105:'Lv 28',110:'Lv 35',
+  112:'Lv 42',117:'Lv 32',119:'Lv 33',121:'Water Stone',
+  130:'Lv 20',139:'Lv 40',141:'Lv 40',148:'Lv 30',149:'Lv 55'
+};
+
+// ============================================================
+// GYM LEADERS & ELITE FOUR DATA
+// ============================================================
+const GYM_LEADERS = [
+  { name:'BROCK',       badge:'Boulder',  location:'Pewter City',    types:['rock','ground'],   pokemon:[{name:'Geodude',types:['rock','ground']},{name:'Onix',types:['rock','ground']}] },
+  { name:'MISTY',       badge:'Cascade',  location:'Cerulean City',  types:['water'],            pokemon:[{name:'Staryu',types:['water']},{name:'Starmie',types:['water','psychic']}] },
+  { name:'LT. SURGE',   badge:'Thunder',  location:'Vermillion City',types:['electric'],         pokemon:[{name:'Voltorb',types:['electric']},{name:'Pikachu',types:['electric']},{name:'Raichu',types:['electric']}] },
+  { name:'ERIKA',       badge:'Rainbow',  location:'Celadon City',   types:['grass','poison'],   pokemon:[{name:'Victreebel',types:['grass','poison']},{name:'Tangela',types:['grass']},{name:'Vileplume',types:['grass','poison']}] },
+  { name:'KOGA',        badge:'Soul',     location:'Fuchsia City',   types:['poison'],           pokemon:[{name:'Koffing',types:['poison']},{name:'Muk',types:['poison']},{name:'Koffing',types:['poison']},{name:'Weezing',types:['poison']}] },
+  { name:'SABRINA',     badge:'Marsh',    location:'Saffron City',   types:['psychic'],          pokemon:[{name:'Kadabra',types:['psychic']},{name:'Mr. Mime',types:['psychic']},{name:'Venomoth',types:['bug','poison']},{name:'Alakazam',types:['psychic']}] },
+  { name:'BLAINE',      badge:'Volcano',  location:'Cinnabar Island',types:['fire'],             pokemon:[{name:'Growlithe',types:['fire']},{name:'Ponyta',types:['fire']},{name:'Rapidash',types:['fire']},{name:'Arcanine',types:['fire']}] },
+  { name:'GIOVANNI',    badge:'Earth',    location:'Viridian City',  types:['ground'],           pokemon:[{name:'Rhyhorn',types:['ground','rock']},{name:'Dugtrio',types:['ground']},{name:'Nidoqueen',types:['poison','ground']},{name:'Nidoking',types:['poison','ground']},{name:'Rhydon',types:['ground','rock']}] },
+  { name:'LORELEI',     badge:'Elite 4',  location:'Victory Road',   types:['ice','water'],      pokemon:[{name:'Dewgong',types:['water','ice']},{name:'Cloyster',types:['water','ice']},{name:'Slowbro',types:['water','psychic']},{name:'Jynx',types:['ice','psychic']},{name:'Lapras',types:['water','ice']}] },
+  { name:'BRUNO',       badge:'Elite 4',  location:'Victory Road',   types:['fighting','rock'],  pokemon:[{name:'Onix',types:['rock','ground']},{name:'Hitmonchan',types:['fighting']},{name:'Hitmonlee',types:['fighting']},{name:'Onix',types:['rock','ground']},{name:'Machamp',types:['fighting']}] },
+  { name:'AGATHA',      badge:'Elite 4',  location:'Victory Road',   types:['ghost','poison'],   pokemon:[{name:'Gengar',types:['ghost','poison']},{name:'Haunter',types:['ghost','poison']},{name:'Arbok',types:['poison']},{name:'Gengar',types:['ghost','poison']},{name:'Arbok',types:['poison']}] },
+  { name:'LANCE',       badge:'Elite 4',  location:'Victory Road',   types:['dragon','flying'],  pokemon:[{name:'Gyarados',types:['water','flying']},{name:'Dragonair',types:['dragon']},{name:'Dragonair',types:['dragon']},{name:'Aerodactyl',types:['rock','flying']},{name:'Dragonite',types:['dragon','flying']}] },
+  { name:'RIVAL',       badge:'Champion', location:'Victory Road',   types:['various'],          pokemon:[{name:'Pidgeot',types:['normal','flying']},{name:'Alakazam',types:['psychic']},{name:'Rhydon',types:['ground','rock']},{name:'Starter evo',types:['fire']},{name:'Arcanine',types:['fire']},{name:'Exeggutor',types:['grass','psychic']}] },
+];
+
+// ============================================================
+// MOVE COVERAGE DATA  
+// ============================================================
+const COVERAGE_MOVES = {
+  fire:    ['Flamethrower','Fire Blast','Fire Punch','Overheat'],
+  water:   ['Surf','Ice Beam','Water Gun','Blizzard'],
+  grass:   ['Razor Leaf','Solar Beam','Giga Drain','Mega Drain'],
+  electric:['Thunderbolt','Thunder','Shock Wave','ThunderPunch'],
+  ice:     ['Ice Beam','Blizzard','Ice Punch','Powder Snow'],
+  fighting:['Brick Break','Cross Chop','Low Kick','Karate Chop'],
+  poison:  ['Sludge Bomb','Toxic','Poison Fang','Sludge'],
+  ground:  ['Earthquake','Dig','Mud Shot','Magnitude'],
+  flying:  ['Fly','Aerial Ace','Wing Attack','Sky Attack'],
+  psychic: ['Psychic','Psybeam','Psywave','Extrasensory'],
+  bug:     ['Signal Beam','Silver Wind','Bug Bite','Fury Cutter'],
+  rock:    ['Rock Slide','Rock Blast','Rollout','Rock Throw'],
+  ghost:   ['Shadow Ball','Lick','Night Shade','Confuse Ray'],
+  dragon:  ['Dragon Claw','Twister','Dragon Rage','Outrage'],
+  dark:    ['Bite','Crunch','Faint Attack','Thief'],
+  steel:   ['Iron Tail','Metal Claw','Steel Wing','Flash Cannon'],
+  normal:  ['Body Slam','Hyper Beam','Return','Double-Edge'],
+};
+
+// ============================================================
+// PRESET TEAMS
+// ============================================================
+const PRESET_TEAMS = [
+  {
+    // Source: PokéDB in-game team thread (top-voted, 1.8M views) + GameFAQs community consensus
+    // All obtainable solo in either version, no trading needed
+    name: 'COMMUNITY FAVOURITE',
+    desc: 'The most recommended no-trade team across GameFAQs & PokéDB. Charizard + Lapras covers most of the game. Nidoking available before Gym 2 with a Moon Stone from Mt. Moon.',
+    ids: [6, 34, 131, 26, 143, 57]
+  },
+  {
+    // Source: PokéDB top answer + Serebii forum recommendations for balanced coverage
+    // Charizard, Primeape, Raichu, Dugtrio, Snorlax, Lapras — all solo obtainable
+    name: 'BALANCED & BEGINNER-FRIENDLY',
+    desc: "Highly praised by the community for gym-to-gym coverage. Primeape beats Brock early, Raichu handles water routes, Dugtrio sweeps Lt. Surge's Electric types.",
+    ids: [6, 57, 26, 51, 143, 131]
+  },
+  {
+    // Source: GameFAQs + Serebii FR exclusive team recommendations
+    // FR exclusives: Arcanine (Growlithe on Rte 7/8), Electabuzz (Rte 10/11), Scyther (Game Corner)
+    // Jolteon from Eevee (Celadon Mansion), Lapras (Silph Co), Nidoking (Rte 3)
+    name: 'FIRE RED EXCLUSIVES',
+    desc: "Built around Pokémon only found in Fire Red. Arcanine on Route 7, Electabuzz on Route 10, Scyther from the Game Corner. Pick Squirtle to cover Fire Red's lack of Water types.",
+    ids: [9, 59, 125, 123, 34, 131]
+  },
+  {
+    // Source: GameFAQs LG answers + pokemondb version comparison
+    // LG exclusives: Ninetales (Vulpix Rte 7/8), Starmie (Staryu LG-only fishing), Slowbro (LG Rte 10+)
+    // Pinsir from Game Corner (LG), Nidoking (Rte 3), Lapras (Silph Co)
+    name: 'LEAF GREEN EXCLUSIVES',
+    desc: 'Built around Pokémon only found in Leaf Green. Ninetales covers Fire, Starmie is one of the best Water/Psychic types in Gen 1. Pick Charmander since Leaf Green covers Water well.',
+    ids: [6, 38, 121, 80, 127, 34]
+  },
+  {
+    // Source: Serebii forums + GameFAQs — Jolteon from Eevee is consistently praised
+    // Eevee in Celadon Mansion, evolve with Thunder Stone from Celadon Dept Store
+    // Hypno: Drowzee on Route 11 (both versions) — replaces Alakazam without trading
+    // Gyarados: Magikarp from Mt. Moon Pokémon Centre for 500P
+    name: 'SPECIAL ATTACK SWEEP',
+    desc: 'Special-attack focused team. Jolteon from the Celadon City Eevee, Hypno from Drowzee on Route 11 (no trading needed unlike Alakazam), Gyarados from the Magikarp salesman at Mt. Moon.',
+    ids: [6, 135, 97, 130, 131, 34]
+  },
+  {
+    // Source: Community consensus across all sources for Bulbasaur run
+    // Bulbasaur is best against gyms 1,2,4,5 — huge advantage early
+    // Hitmonlee from Fighting Dojo in Saffron City (no trade unlike Machamp)
+    // Jolteon (Eevee), Lapras (Silph Co), Snorlax (Rte 12), Nidoking
+    name: 'BULBASAUR STARTER RUN',
+    desc: 'Bulbasaur is super effective or neutral against 6 of 8 gyms. Hitmonlee from the Saffron City Fighting Dojo needs no trading, unlike Machamp. A strong pick for beginners.',
+    ids: [3, 106, 135, 131, 34, 143]
+  }
+];
+
+// ============================================================
+// TABS
+// ============================================================
+function switchTab(tabId, btn) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('tab-' + tabId).classList.add('active');
+  if (tabId === 'gyms') renderGymChecker();
+  if (tabId === 'moves') renderMoveCoverage();
+  if (tabId === 'saved') renderSavedTeams();
+}
+
+// ============================================================
+// PRESETS
+// ============================================================
+function renderPresets() {
+  const grid = document.getElementById('presetsGrid');
+  if (!grid) return;
+  grid.innerHTML = PRESET_TEAMS.map((preset, idx) => `
+    <div class="preset-card">
+      <div class="preset-name">${preset.name}</div>
+      <div class="preset-desc">${preset.desc}</div>
+      <div class="preset-sprites">
+        ${preset.ids.map(id => `<img src="${spriteUrl(id)}" alt="" loading="lazy">`).join('')}
+      </div>
+      <button class="preset-load-btn" onclick="loadPreset(${idx})">▶ LOAD THIS TEAM</button>
+    </div>
+  `).join('');
+}
+
+function loadPreset(idx) {
+  const preset = PRESET_TEAMS[idx];
+  team = preset.ids.map(id => POKEMON_DATA.find(p => p.id === id)).filter(Boolean);
+  renderTeamSlots();
+  renderGrid();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ============================================================
+// GYM LEADER CHECKER
+// ============================================================
+function renderGymChecker() {
+  if (team.length === 0) {
+    document.getElementById('gymList').innerHTML = '<div class="no-saved">Add Pokémon to your team first!</div>';
+    return;
+  }
+  const html = GYM_LEADERS.map(gym => {
+    // Calculate how well your team handles this gym
+    let bestMults = [];
+    for (const gymPoke of gym.pokemon) {
+      let bestMult = 0;
+      for (const myPoke of team) {
+        for (const atkType of myPoke.types) {
+          const mult = getEffectiveness(atkType, gymPoke.types);
+          if (mult > bestMult) bestMult = mult;
+        }
+      }
+      bestMults.push(bestMult);
+    }
+    // How many of their pokemon can we hit super effectively?
+    const superEffCount = bestMults.filter(m => m >= 2).length;
+    const totalPoke = gym.pokemon.length;
+    const score = superEffCount / totalPoke;
+
+    // Vulnerability: how many of our pokemon are weak to gym types
+    let weakCount = 0;
+    for (const myPoke of team) {
+      for (const gymType of gym.types) {
+        if (getEffectiveness(gymType, myPoke.types) >= 2) { weakCount++; break; }
+      }
+    }
+
+    let verdict, scoreClass;
+    if (score >= 0.7 && weakCount <= 1) { verdict = '✓ STRONG MATCHUP'; scoreClass = 'score-great'; }
+    else if (score >= 0.4 || weakCount <= 2) { verdict = '◆ DECENT MATCHUP'; scoreClass = 'score-good'; }
+    else if (score >= 0.2 || weakCount <= 3) { verdict = '⚠ RISKY MATCHUP'; scoreClass = 'score-risky'; }
+    else { verdict = '✗ TOUGH FIGHT'; scoreClass = 'score-danger'; }
+
+    const typesBadges = gym.types.filter(t => t !== 'various').map(typeBadge).join(' ');
+
+    return `<div class="gym-item">
+      <div class="gym-header">
+        <div class="gym-name">${gym.name}</div>
+        <div style="font-size:11px;color:var(--text-2)">${gym.location}</div>
+      </div>
+      <div class="gym-types-row">${typesBadges}</div>
+      <div class="gym-score ${scoreClass}">${verdict}</div>
+      <div style="font-size:12px;color:var(--text-2);margin-top:3px">${superEffCount}/${totalPoke} Pokémon hit super effectively · ${weakCount} of your team vulnerable</div>
+    </div>`;
+  }).join('');
+  document.getElementById('gymList').innerHTML = html;
+}
+
+// ============================================================
+// MOVE COVERAGE SUGGESTER
+// ============================================================
+function renderMoveCoverage() {
+  const el = document.getElementById('moveCoverageContent');
+  if (team.length === 0) {
+    el.innerHTML = '<div class="no-saved">Add Pokémon to your team first!</div>';
+    return;
+  }
+
+  // Find which types your team can cover offensively
+  const covered = new Set();
+  for (const p of team) {
+    for (const atkType of p.types) {
+      const chart = TYPE_CHART[atkType] || {};
+      for (const [defType, mult] of Object.entries(chart)) {
+        if (mult >= 2) covered.add(defType);
+      }
+    }
+  }
+
+  const gaps = TYPES.filter(t => !covered.has(t));
+  const partialCover = TYPES.filter(t => covered.has(t));
+
+  let html = '';
+
+  if (gaps.length === 0) {
+    html += '<div class="no-saved" style="color:#00ff88">✓ Your team has full type coverage!</div>';
+  } else {
+    html += '<div class="coverage-section"><div class="coverage-section-title">⚠ TYPE GAPS — Consider these moves:</div>';
+    html += gaps.map(type => {
+      const moves = COVERAGE_MOVES[type] || [];
+      return `<div class="gap-type-row">
+        <span class="type-badge type-${type}">${type}</span>
+        <div class="gap-move-list">${moves.map((m,i) => i === 0 ? `<span>${m}</span>` : m).join(', ')}</div>
+      </div>`;
+    }).join('');
+    html += '</div>';
+  }
+
+  html += '<div class="coverage-section"><div class="coverage-section-title">✓ TYPES YOU COVER:</div>';
+  html += '<div style="display:flex;flex-wrap:wrap;gap:4px">' + partialCover.map(t => `<span class="type-badge type-${t}">${t}</span>`).join('') + '</div></div>';
+
+  // TM recommendations per Pokémon
+  html += '<div class="coverage-section" style="margin-top:12px"><div class="coverage-section-title">💡 KEY TMs TO TEACH:</div>';
+  html += '<div style="font-size:13px;color:var(--text);line-height:2">';
+  const keyTMs = [
+    {move:'Surf (HM03)',note:'Water coverage — teachable to most'},
+    {move:'Ice Beam (TM13)',note:'Covers Grass/Dragon/Ground/Flying'},
+    {move:'Thunderbolt (TM24)',note:'Covers Water/Flying'},
+    {move:'Flamethrower (TM35)',note:'Covers Bug/Steel/Grass/Ice'},
+    {move:'Earthquake (TM26)',note:'Covers Electric/Fire/Poison/Rock/Steel'},
+    {move:'Psychic (TM29)',note:'Covers Fighting/Poison'},
+    {move:'Shadow Ball (TM30)',note:'Covers Ghost/Psychic'},
+    {move:'Brick Break (TM31)',note:'Covers Normal/Rock/Steel/Ice/Dark'},
+  ];
+  html += keyTMs.map(tm => `<div>▶ <span style="color:var(--gold)">${tm.move}</span> — ${tm.note}</div>`).join('');
+  html += '</div></div>';
+
+  el.innerHTML = html;
+}
+
+// ============================================================
+// SAVE / LOAD TEAMS (localStorage)
+// ============================================================
+function getSavedTeams() {
+  try { return JSON.parse(localStorage.getItem('frlg_saved_teams') || '[]'); }
+  catch(e) { return []; }
+}
+function setSavedTeams(teams) {
+  try { localStorage.setItem('frlg_saved_teams', JSON.stringify(teams)); } catch(e) {}
+}
+
+function saveCurrentTeam() {
+  if (team.length === 0) return;
+  const nameInput = document.getElementById('saveNameInput');
+  const name = nameInput.value.trim() || 'My Team ' + (getSavedTeams().length + 1);
+  const saved = getSavedTeams();
+  saved.push({ name, ids: team.map(p => p.id), savedAt: Date.now() });
+  setSavedTeams(saved);
+  nameInput.value = '';
+  renderSavedTeams();
+}
+
+function loadSavedTeam(idx) {
+  const saved = getSavedTeams();
+  const entry = saved[idx];
+  if (!entry) return;
+  team = entry.ids.map(id => POKEMON_DATA.find(p => p.id === id)).filter(Boolean);
+  renderTeamSlots();
+  renderGrid();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function deleteSavedTeam(idx) {
+  const saved = getSavedTeams();
+  saved.splice(idx, 1);
+  setSavedTeams(saved);
+  renderSavedTeams();
+}
+
+function renderSavedTeams() {
+  const saved = getSavedTeams();
+  const el = document.getElementById('savedTeamsList');
+  if (!el) return;
+  if (saved.length === 0) {
+    el.innerHTML = '<div class="no-saved">No saved teams yet. Build a team and hit SAVE!</div>';
+    return;
+  }
+  el.innerHTML = saved.map((s, idx) => `
+    <div class="saved-team-item">
+      <div class="saved-team-name">${s.name}</div>
+      <div class="saved-team-sprites">
+        ${s.ids.map(id => `<img src="${spriteUrl(id)}" loading="lazy">`).join('')}
+      </div>
+      <button class="saved-action-btn load-saved-btn" onclick="loadSavedTeam(${idx})">LOAD</button>
+      <button class="saved-action-btn del-saved-btn" onclick="deleteSavedTeam(${idx})">✕</button>
+    </div>
+  `).join('');
+}
+
+// ============================================================
+// EVOLUTION CHAIN RENDERER (for modal)
+// ============================================================
+function renderEvoChain(id) {
+  const chain = EVO_CHAINS[id];
+  if (!chain || chain.length <= 1) return '';
+  return chain.map((evoId, i) => {
+    const p = POKEMON_DATA.find(x => x.id === evoId);
+    if (!p) return '';
+    const isCurrent = evoId === id;
+    const method = EVO_METHODS[evoId] || '';
+    const arrow = i > 0 ? `<div class="evo-arrow">→</div>` : '';
+    const methodLabel = method ? `<div class="evo-method">${method}</div>` : '';
+    return `${arrow}<div class="evo-step ${isCurrent ? 'current' : ''}" onclick="closeModal();setTimeout(()=>openModal(${evoId}),50)">
+      <img src="${spriteUrl(evoId)}" alt="${p.name}" loading="lazy">
+      ${methodLabel}
+      <div class="evo-step-name">${p.name}</div>
+    </div>`;
+  }).join('');
+}
+
+// refreshActiveTab defined above near renderTeamSlots
+
+// Evo chain is rendered inline inside openModal
+
+// ============================================================
+// INIT
+// ============================================================
+renderTypeFilters();
+renderGrid();
+renderPresets();
+const loadedFromUrl = loadTeamFromUrl();
+renderTeamSlots();
+if (loadedFromUrl) {
+  const banner = document.getElementById('loadedBanner');
+  banner.classList.add('show');
+  setTimeout(() => banner.classList.remove('show'), 4000);
+}
+</script>
+
+<!-- SEO GUIDE SECTION -->
+<div id="guide" style="max-width:1400px;margin:0 auto;padding:0 20px 60px;font-family:'Nunito',sans-serif">
+
+  <style>
+    .guide-section { background:#16213e; border:1px solid var(--surface3); border-radius:8px; padding:28px 32px; margin-bottom:24px; }
+    .guide-section h2 { font-family:'Press Start 2P',monospace; font-size:11px; color:#f5c842; margin-bottom:16px; line-height:1.6; letter-spacing:.5px; }
+    .guide-section h3 { font-family:'Press Start 2P',monospace; font-size:9px; color:#e8dcc8; margin:20px 0 10px; letter-spacing:.5px; }
+    .guide-section p { color:var(--text-2); font-size:18px; line-height:1.7; margin-bottom:12px; }
+    .guide-section ul { color:var(--text-2); font-size:18px; line-height:2; padding-left:20px; }
+    .guide-section ul li { margin-bottom:2px; }
+    .guide-section a { color:#f0a020; text-decoration:none; }
+    .guide-section a:hover { text-decoration:underline; }
+    .guide-table { width:100%; border-collapse:collapse; margin:12px 0; }
+    .guide-table th { background:var(--surface3); color:#f0a020; font-family:'Press Start 2P',monospace; font-size:8px; padding:8px 10px; text-align:left; }
+    .guide-table td { border-bottom:1px solid var(--surface3); padding:8px 10px; color:#b0a898; font-size:17px; line-height:1.5; }
+    .guide-table tr:hover td { background:rgba(255,255,255,0.02); }
+    .tag-fr { background:rgba(204,0,0,.2); color:#ff6666; border:1px solid rgba(204,0,0,.4); border-radius:3px; padding:1px 5px; font-size:13px; }
+    .tag-lg { background:rgba(34,139,34,.2); color:#66dd66; border:1px solid rgba(34,139,34,.4); border-radius:3px; padding:1px 5px; font-size:13px; }
+    .tag-both { background:rgba(240,160,32,.15); color:#f0a020; border:1px solid rgba(240,160,32,.3); border-radius:3px; padding:1px 5px; font-size:13px; }
+    .poke-inline { display:inline-flex; align-items:center; gap:4px; vertical-align:middle; }
+    .poke-inline img { width:28px; height:28px; image-rendering:pixelated; vertical-align:middle; }
+    .guide-two-col { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+    @media(max-width:600px){ .guide-two-col { grid-template-columns:1fr; } }
+  </style>
+
+  <!-- H1 for SEO -->
+  <h1 style="font-family:'Press Start 2P',monospace;font-size:12px;color:var(--gold);text-align:center;padding:32px 0 8px;letter-spacing:1px;line-height:1.8">
+    POKÉMON FIRE RED & LEAF GREEN TEAM BUILDER — COMPLETE GUIDE
+  </h1>
+  <p style="text-align:center;color:#8a8070;font-size:17px;margin-bottom:28px">
+    Build the best team for your playthrough — type coverage, catch locations, gym matchups and more
+  </p>
+
+  <!-- BEST TEAM NO TRADING -->
+  <div class="guide-section">
+    <h2 id="best-team">BEST POKÉMON FIRE RED TEAM — NO TRADING REQUIRED</h2>
+    <p>The most commonly recommended no-trade team across GameFAQs, PokéDB and Serebii is built around <strong style="color:#e8dcc8">Charizard, Nidoking, Lapras, Raichu, Snorlax</strong> and a flexible sixth slot. Here's why each one earns their place:</p>
+
+    <h3>CHARIZARD (Starter — Choose Charmander)</h3>
+    <p>Charizard is widely considered the best starter for a solo playthrough. Fire/Flying typing gives STAB on both Fly (HM) and Flamethrower, Earthquake covers Rock and Electric weaknesses, and Dragon Claw adds late-game coverage against Lance. The early game with Charmander is tough — Brock and Misty are both rough — but Charizard repays that investment from the 4th gym onward.</p>
+
+    <h3>NIDOKING (Route 3 + Moon Stone from Mt. Moon)</h3>
+    <p>One of the most recommended Pokémon across every guide. Catch Nidoran♂ on Route 3 just before Mt. Moon, and a Moon Stone is available inside Mt. Moon itself — meaning you can have a fully evolved Nidoking before the second gym. Ground/Poison typing with access to Earthquake, Megahorn, Brick Break and Sludge Bomb makes Nidoking one of the most versatile attackers in the game.</p>
+
+    <h3>LAPRAS (Gift — Silph Co., 7th Floor)</h3>
+    <p>After clearing Team Rocket from Silph Co. in Saffron City, an NPC on the 7th floor gives you a free Lapras at level 25. Water/Ice typing with natural access to Surf (HM), Ice Beam and Thunderbolt makes Lapras invaluable for the Elite Four — it handles Lorelei, Bruno and Lance without much trouble. You can also catch one later at Icefall Cave on Four Island, but the Silph Co. gift is much earlier and easier.</p>
+
+    <h3>RAICHU (Pikachu in Viridian Forest + Thunder Stone)</h3>
+    <p>Pikachu appears in Viridian Forest at a 5% encounter rate — worth hunting for. Evolve into Raichu with a Thunder Stone from the Celadon City Department Store. Electric coverage handles the water routes and Lt. Surge's rematch, and Raichu's Speed makes it a reliable revenge killer throughout the game.</p>
+
+    <h3>SNORLAX (Routes 12 and 16 — Poké Flute required)</h3>
+    <p>Two Snorlax block your path in the game — one on Route 12 (south of Lavender Town) and one on Route 16 (west of Celadon City). Wake them with the Poké Flute obtained from Mr. Fuji in Lavender Town. Snorlax has enormous HP and Special Defense, laughs at Blaine's fire moves thanks to Thick Fat, and hits hard with Body Slam or Return. Catch one — it's worth the Ultra Balls.</p>
+  </div>
+
+  <!-- VERSION EXCLUSIVES -->
+  <div class="guide-section">
+    <h2 id="version-exclusives">FIRE RED VS LEAF GREEN — VERSION EXCLUSIVE POKÉMON</h2>
+    <p>Fire Red and Leaf Green each have Pokémon that cannot be obtained in the other version without trading. Plan your team around what's available in your version.</p>
+
+    <div class="guide-two-col">
+      <div>
+        <h3>🔴 FIRE RED EXCLUSIVES</h3>
+        <table class="guide-table">
+          <tr><th>Pokémon</th><th>Where to Find</th></tr>
+          <tr><td><span class="poke-inline"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/23.png">Ekans / Arbok</span></td><td>Routes 4, 8, 10, 11</td></tr>
+          <tr><td><span class="poke-inline"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/43.png">Oddish line</span></td><td>Routes 5, 6, 7, 8 (night)</td></tr>
+          <tr><td><span class="poke-inline"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/54.png">Psyduck / Golduck</span></td><td>Seafoam Islands, Cerulean Cave</td></tr>
+          <tr><td><span class="poke-inline"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/58.png">Growlithe / Arcanine</span></td><td>Routes 7 &amp; 8 (Growlithe). Use Fire Stone to evolve.</td></tr>
+          <tr><td><span class="poke-inline"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/90.png">Shellder / Cloyster</span></td><td>Seafoam Islands (fishing)</td></tr>
+          <tr><td><span class="poke-inline"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/123.png">Scyther</span></td><td>Game Corner (5500 coins)</td></tr>
+          <tr><td><span class="poke-inline"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/125.png">Electabuzz</span></td><td>Routes 10 &amp; 11</td></tr>
+        </table>
+      </div>
+      <div>
+        <h3>🟢 LEAF GREEN EXCLUSIVES</h3>
+        <table class="guide-table">
+          <tr><th>Pokémon</th><th>Where to Find</th></tr>
+          <tr><td><span class="poke-inline"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/27.png">Sandshrew / Sandslash</span></td><td>Routes 4, 8, 10, 11</td></tr>
+          <tr><td><span class="poke-inline"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/37.png">Vulpix / Ninetales</span></td><td>Routes 7 &amp; 8. Use Fire Stone to evolve.</td></tr>
+          <tr><td><span class="poke-inline"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/69.png">Bellsprout line</span></td><td>Routes 5, 6, 7, 8</td></tr>
+          <tr><td><span class="poke-inline"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/79.png">Slowpoke / Slowbro</span></td><td>Seafoam Islands, Routes 10–13</td></tr>
+          <tr><td><span class="poke-inline"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/120.png">Staryu / Starmie</span></td><td>Seafoam Islands (fishing). Use Water Stone.</td></tr>
+          <tr><td><span class="poke-inline"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/126.png">Magmar</span></td><td>Cinnabar Mansion</td></tr>
+          <tr><td><span class="poke-inline"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/127.png">Pinsir</span></td><td>Game Corner (2500 coins)</td></tr>
+        </table>
+      </div>
+    </div>
+    <p style="margin-top:16px">Pokémon that require trading to evolve — like Alakazam, Machamp, Golem and Gengar — should be avoided for solo playthroughs. Use Hypno (Drowzee on Route 11), Hitmonlee (Fighting Dojo in Saffron City), Rhydon (Rhyhorn in Safari Zone) and Haunter instead.</p>
+  </div>
+
+  <!-- GYM GUIDE -->
+  <div class="guide-section">
+    <h2 id="gym-guide">GYM LEADER GUIDE — HOW TO BEAT EVERY GYM IN FIRE RED & LEAF GREEN</h2>
+    <p>Use the <a href="#" onclick="document.querySelector('.team-panel').scrollIntoView({behavior:'smooth'});return false">Gym Checker tab</a> above to see how your specific team matches up. Here's what to know about each gym:</p>
+
+    <table class="guide-table">
+      <tr><th>#</th><th>Leader</th><th>Type</th><th>Best Counter</th><th>Key Watch-out</th></tr>
+      <tr><td>1</td><td>Brock (Pewter)</td><td>Rock/Ground</td><td>Water or Grass moves. Bulbasaur or Squirtle starters have a huge advantage here.</td><td>Charmander players need Mankey from Route 22 — Low Kick hits for super effective.</td></tr>
+      <tr><td>2</td><td>Misty (Cerulean)</td><td>Water/Psychic</td><td>Electric or Grass. Pikachu from Viridian Forest or Bulbasaur starter.</td><td>Starmie uses BubbleBeam and has high Special — don't send in a Fire type.</td></tr>
+      <tr><td>3</td><td>Lt. Surge (Vermilion)</td><td>Electric</td><td>Ground moves. Diglett's Cave is right next to Vermilion — catch a Diglett and it counters Surge completely.</td><td>Dugtrio is immune to Electric and OHKO's Raichu with Earthquake.</td></tr>
+      <tr><td>4</td><td>Erika (Celadon)</td><td>Grass/Poison</td><td>Fire, Ice, Flying or Psychic. Charizard destroys this gym.</td><td>Victreebel's Razor Leaf has a high critical hit rate in Gen 3.</td></tr>
+      <tr><td>5</td><td>Koga (Fuchsia)</td><td>Poison</td><td>Ground or Psychic. Nidoking with Earthquake is ideal.</td><td>Koga uses Smokescreen + toxic stalling. Bring Antidotes and Full Heals.</td></tr>
+      <tr><td>6</td><td>Sabrina (Saffron)</td><td>Psychic</td><td>Ghost or Bug. Shadow Ball TM is available by this point.</td><td>Alakazam is extremely fast and hits hard — priority or a Dark-type move helps.</td></tr>
+      <tr><td>7</td><td>Blaine (Cinnabar)</td><td>Fire</td><td>Water, Rock or Ground. Surf from Lapras or Golduck is reliable.</td><td>Arcanine has Intimidate which lowers your Attack — switch to a Special attacker.</td></tr>
+      <tr><td>8</td><td>Giovanni (Viridian)</td><td>Ground</td><td>Water, Ice or Grass. Lapras with Surf and Ice Beam handles this gym cleanly.</td><td>Rhyhorn and Rhydon have Rock typing too — Grass is not very effective against Rock.</td></tr>
+    </table>
+  </div>
+
+  <!-- ELITE FOUR -->
+  <div class="guide-section">
+    <h2 id="elite-four">HOW TO BEAT THE ELITE FOUR IN FIRE RED & LEAF GREEN</h2>
+    <p>The Elite Four requires real type coverage planning. The ideal team carries Water/Ice, Electric, Psychic and Fighting coverage between all six members.</p>
+
+    <h3>LORELEI — Ice/Water</h3>
+    <p>Electric moves destroy Dewgong, Cloyster and Lapras. Thunderbolt from Raichu or Jolteon works well. Watch out for Jynx — it's Ice/Psychic and should be handled with Fire or Steel moves rather than Fighting.</p>
+
+    <h3>BRUNO — Fighting/Rock</h3>
+    <p>Psychic or Flying types handle his Fighting Pokémon. His two Onix are weak to Water — Surf from Lapras cleans them up. Hitmonlee's Blaze Kick can catch you off guard if your Pokémon is at low HP.</p>
+
+    <h3>AGATHA — Ghost/Poison</h3>
+    <p>In Gen 3, Psychic types are no longer immune to Ghost. Shadow Ball (TM30) is the cleanest answer — Snorlax and Lapras can both learn it. Ground moves hit Arbok and the Gengar line doesn't resist Ground, though they're Ghost/Poison not Ground weak. Bring a Pokémon with high Special Defense for Gengar's Shadow Ball.</p>
+
+    <h3>LANCE — Dragon/Flying</h3>
+    <p>Ice Beam or Blizzard is essential. Lapras with Ice Beam handles Dragonair and Dragonite. Aerodactyl is weak to Rock, Water and Electric — Thunderbolt finishes it cleanly. Lance is often cited as the easiest Elite Four member if you have Lapras.</p>
+
+    <h3>RIVAL (Champion)</h3>
+    <p>Your rival's team depends on which starter you chose. He always has Pidgeot, Alakazam, Rhydon and a full evolved starter from the other two. Raichu covers Pidgeot and Gyarados. Nidoking or Lapras handles Rhydon. Snorlax's Shadow Ball or Bite deals with Alakazam's Psychic stalling.</p>
+  </div>
+
+  <!-- WHERE TO CATCH KEY POKEMON -->
+  <div class="guide-section">
+    <h2 id="catch-locations">WHERE TO CATCH THE BEST POKÉMON IN FIRE RED & LEAF GREEN</h2>
+    <p>The most searched question for this game — here are the exact locations for the Pokémon people want most:</p>
+    <table class="guide-table">
+      <tr><th>Pokémon</th><th>Location</th><th>Version</th><th>Notes</th></tr>
+      <tr><td><span class="poke-inline"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/131.png">Lapras</span></td><td>Silph Co., 7th Floor</td><td><span class="tag-both">Both</span></td><td>Free gift from NPC after beating Team Rocket. Level 25. Also in Icefall Cave (post-game).</td></tr>
+      <tr><td><span class="poke-inline"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/143.png">Snorlax</span></td><td>Routes 12 &amp; 16</td><td><span class="tag-both">Both</span></td><td>Blocking the road. Wake with Poké Flute from Mr. Fuji in Lavender Town. Level 30.</td></tr>
+      <tr><td><span class="poke-inline"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/34.png">Nidoking</span></td><td>Route 3 (as Nidoran♂)</td><td><span class="tag-both">Both</span></td><td>Catch Nidoran♂ early. Moon Stone in Mt. Moon evolves Nidorino → Nidoking.</td></tr>
+      <tr><td><span class="poke-inline"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png">Pikachu</span></td><td>Viridian Forest</td><td><span class="tag-both">Both</span></td><td>5% encounter rate. Use Thunder Stone from Celadon Dept. Store to get Raichu.</td></tr>
+      <tr><td><span class="poke-inline"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/133.png">Eevee</span></td><td>Celadon City Mansion</td><td><span class="tag-both">Both</span></td><td>Top floor of the building behind the Pokémon Center. One per game. Evolves into Jolteon, Vaporeon or Flareon with stones.</td></tr>
+      <tr><td><span class="poke-inline"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/147.png">Dratini</span></td><td>Safari Zone / Game Corner</td><td><span class="tag-both">Both</span></td><td>Fish in the Safari Zone with a Super Rod, or buy for 2800 coins at the Celadon Game Corner.</td></tr>
+      <tr><td><span class="poke-inline"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/58.png">Growlithe</span></td><td>Routes 7 &amp; 8</td><td><span class="tag-fr">FR Only</span></td><td>Evolves into Arcanine with a Fire Stone. Available from Celadon Dept. Store.</td></tr>
+      <tr><td><span class="poke-inline"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/125.png">Electabuzz</span></td><td>Routes 10 &amp; 11</td><td><span class="tag-fr">FR Only</span></td><td>Strong Electric type. No evolution required in Gen 3.</td></tr>
+      <tr><td><span class="poke-inline"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/37.png">Vulpix</span></td><td>Routes 7 &amp; 8</td><td><span class="tag-lg">LG Only</span></td><td>Evolves into Ninetales with a Fire Stone. FR players get Growlithe here instead.</td></tr>
+      <tr><td><span class="poke-inline"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/120.png">Staryu</span></td><td>Seafoam Islands</td><td><span class="tag-lg">LG Only</span></td><td>Fish with a Super Rod. Use Water Stone to get Starmie — one of the best Water/Psychic types in the game.</td></tr>
+      <tr><td><span class="poke-inline"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/129.png">Magikarp</span></td><td>Mt. Moon Pokémon Center</td><td><span class="tag-both">Both</span></td><td>Buy from the salesman for 500 Pokédollars. Evolves into Gyarados at level 20.</td></tr>
+      <tr><td><span class="poke-inline"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/150.png">Mewtwo</span></td><td>Cerulean Cave B1F</td><td><span class="tag-both">Both</span></td><td>Unlocked after becoming Champion. Level 70. Bring Ultra Balls and a Pokémon that can inflict Sleep or Paralysis.</td></tr>
+    </table>
+  </div>
+
+  <!-- WHICH STARTER -->
+  <div class="guide-section">
+    <h2 id="which-starter">WHICH STARTER IS BEST IN FIRE RED & LEAF GREEN?</h2>
+    <p>All three starters are viable for a full playthrough, but they have very different early-game difficulty levels and strengths across the gym circuit.</p>
+
+    <div class="guide-two-col">
+      <div>
+        <h3>🔥 CHARMANDER → CHARIZARD</h3>
+        <p>Hardest early game (weak to Brock and Misty's gyms) but widely considered the best long-term starter. Charizard's Fire/Flying typing with high Special Attack and Speed makes it the most versatile of the three. Dragon Claw gives coverage against Lance. Best starter for experienced players.</p>
+
+        <h3>🌿 BULBASAUR → VENUSAUR</h3>
+        <p>Best starter for beginners. Super effective against Brock (Rock), Misty (Water), Erika (Grass/Poison gym is tricky but Venusaur handles it), Koga (Poison) and Giovanni (Ground). Statistically beats or goes neutral against 6 of 8 gyms. Easiest early game of the three.</p>
+      </div>
+      <div>
+        <h3>💧 SQUIRTLE → BLASTOISE</h3>
+        <p>Strong starter, especially for Leaf Green where Water types are harder to find (Starmie and Slowbro are LG exclusives but available mid-game). Beats Brock and has reliable Surf coverage throughout. High Defense makes it the most durable of the three starters in a long run.</p>
+
+        <h3>🏆 VERDICT</h3>
+        <p>For a first playthrough or minimum hassle: <strong style="color:#e8dcc8">Bulbasaur</strong>. For the most powerful late-game carry: <strong style="color:#e8dcc8">Charmander</strong>. For Leaf Green specifically where you need a Water type early: <strong style="color:#e8dcc8">Squirtle</strong>.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="guide-section">
+    <h2 id="faq">FREQUENTLY ASKED QUESTIONS</h2>
+
+    <h3>Can you get all 151 Pokémon in Fire Red without trading?</h3>
+    <p>No. Version exclusive Pokémon require trading between Fire Red and Leaf Green. You also cannot get the other two starters (Bulbasaur, Squirtle or Charmander depending on your choice) without trading. Some Pokémon only evolve by trading — Alakazam, Machamp, Golem and Gengar all require a trade to reach their final form.</p>
+
+    <h3>What Pokémon should I avoid because they need trading to evolve?</h3>
+    <p>If you're playing solo without access to another game, avoid building your team around Kadabra (needs trade → Alakazam), Machoke (needs trade → Machamp), Graveler (needs trade → Golem) and Haunter (needs trade → Gengar). Use Hypno, Hitmonlee, Rhydon and Misdreavus as alternatives.</p>
+
+    <h3>What is the best water type in Fire Red?</h3>
+    <p>Lapras is the consensus best — free from Silph Co., excellent stats and learns both Surf and Ice Beam naturally. Vaporeon (Eevee from Celadon City + Water Stone) is also excellent. In Fire Red specifically, Golduck (Psyduck on Routes 6/10) is a strong option. Leaf Green players can get Starmie, one of the best Water/Psychic types in the game.</p>
+
+    <h3>Where do you get the Poké Flute in Fire Red?</h3>
+    <p>The Poké Flute is given to you by Mr. Fuji in Lavender Town's Volunteer Pokémon House, after you rescue him from Team Rocket at the top of Pokémon Tower. You need it to wake the two Snorlax blocking Routes 12 and 16.</p>
+
+    <h3>What is the strongest non-legendary Pokémon in Fire Red?</h3>
+    <p>Dragonite has the highest base stat total of any non-legendary Pokémon in Gen 1 at 600, making it a pseudo-legendary. It's also notoriously slow to obtain — Dratini must be caught at the Safari Zone or Game Corner, and reaches its final form at level 55. Snorlax, Lapras and Nidoking are all easier to get and strong enough for a full playthrough without the grind.</p>
+
+    <h3>Is Fire Red or Leaf Green better?</h3>
+    <p>Neither is definitively better — it depends on your playstyle. Fire Red has Arcanine, Electabuzz and Scyther as exclusive highlights. Leaf Green has Starmie, Slowbro and Ninetales. Competitive players historically preferred Fire Red for Electabuzz and Scyther. For a first playthrough, the difference is minor.</p>
+  </div>
+
+</div>
+<!-- END SEO GUIDE SECTION -->
+
+</body>
+</html>
