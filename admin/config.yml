@@ -3,36 +3,34 @@ backend:
   repo: mitchelltransue/pokemon-firered-leafgreen-team-builder
   branch: main
 
-media_folder: "images/uploads"
-public_folder: "/images/uploads"
+media_folder: images/uploads
+public_folder: /images/uploads
 
 collections:
-  - name: "blog"
-    label: "Blog Posts"
-    folder: "_posts"
+  - name: blog
+    label: Blog Posts
+    folder: _posts
     create: true
     slug: "{{slug}}"
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Description", name: "description", widget: "string" }
-      - { label: "Category", name: "category", widget: "select",
-          options: ["Guide", "Team Tips", "Nuzlocke", "Type Coverage"] }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - label: Title
+        name: title
+        widget: string
+      - label: Publish Date
+        name: date
+        widget: datetime
+      - label: Description
+        name: description
+        widget: string
+      - label: Category
+        name: category
+        widget: select
+        options: [Guide, Team Tips, Nuzlocke, Type Coverage]
+      - label: Body
+        name: body
+        widget: markdown
 ```
 
-4. Find this line in what you just pasted:
+7. Commit with the message:
 ```
-repo: YOUR-GITHUB-USERNAME/YOUR-REPO-NAME
-```
-
-Replace it with your actual GitHub username and repo name. For example if your GitHub username is `johnsmith` and your repo is called `frlg-team-builder` it should look like:
-```
-repo: johnsmith/frlg-team-builder
-```
-
-Not sure of your exact repo name? Look at the URL in your browser — it will say `github.com/YOUR-USERNAME/YOUR-REPO-NAME`.
-
-5. Once that line is updated, scroll down and commit with the message:
-```
-Add Netlify CMS config
+Fix config.yml formatting
