@@ -2,6 +2,7 @@ backend:
   name: github
   repo: mitchelltransue/pokemon-firered-leafgreen-team-builder
   branch: main
+  site_domain: 6f617888-9394-4431-a607-cb602e4d7ab0.netlify.app
 
 media_folder: images/uploads
 public_folder: /images/uploads
