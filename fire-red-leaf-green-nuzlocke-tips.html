@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="google-site-verification" content="9FIv9kf_N8yO2BEWcwrzuch4oOpBZ9iaJ0WvpiqGvy4" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FireRed &amp; LeafGreen Nuzlocke Guide — Tips, Tricks &amp; Survival Strategies</title>
+<meta name="description" content="Complete Nuzlocke guide for Pokémon FireRed and LeafGreen. Best starter, must-catch Pokémon by route, gym-by-gym strategy, Elite Four survival tips and common run-killing mistakes to avoid.">
+<meta name="keywords" content="FireRed Nuzlocke tips, LeafGreen Nuzlocke guide, Pokemon Nuzlocke tricks, FireRed Nuzlocke rules, how to beat FireRed Nuzlocke, Nuzlocke challenge tips">
+<link rel="canonical" href="https://pokemonfrlgteambuilder.netlify.app/fire-red-leaf-green-nuzlocke-tips.html">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="FireRed &amp; LeafGreen Nuzlocke Guide — Tips, Tricks &amp; Survival Strategies">
+<meta property="og:description" content="Complete Nuzlocke guide for Pokémon FireRed and LeafGreen. Best starter, must-catch Pokémon by route, gym-by-gym strategy, Elite Four survival tips and common run-killing mistakes to avoid.">
+<meta property="og:type" content="article">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"What is the best starter for a FireRed Nuzlocke?","acceptedAnswer":{"@type":"Answer","text":"Squirtle is the consensus best Nuzlocke starter. It handles Brock easily, has strong bulk, and Blastoise is an excellent late-game wall. Bulbasaur is a solid second choice, dominating the first two gyms. Charmander is the hardest mode — brutal early game against Brock and Misty, but Charizard is a powerful carry for experienced players."}},
+    {"@type":"Question","name":"What are the Nuzlocke rules?","acceptedAnswer":{"@type":"Answer","text":"The two core Nuzlocke rules are: (1) You may only catch the first wild Pokémon you encounter on each new route or area. If it faints or escapes, that slot is gone forever. (2) Any Pokémon that faints is considered dead and must be released or permanently boxed. Most players also add the Dupes Clause."}},
+    {"@type":"Question","name":"What is the hardest part of a FireRed Nuzlocke?","acceptedAnswer":{"@type":"Answer","text":"Sabrina's gym in Saffron City is widely considered the most dangerous part of a FireRed Nuzlocke. Her Alakazam is extremely fast and hits hard with Psychic. The Elite Four (especially Lance's three Dragonites) is the other major danger point."}},
+    {"@type":"Question","name":"How do I survive the Elite Four in a Nuzlocke?","acceptedAnswer":{"@type":"Answer","text":"Stock at least 20 Full Restores before entering, make sure your team averages level 55+, always have Ice Beam for Lance's Dragonites, bring Ground coverage for Agatha's team, and use a sacrificial lead switch against gym leaders to get a free attack turn."}}
+  ]
+}
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SWWLLSCX6W"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-SWWLLSCX6W');</script>
+<style>
+  :root{
+    --bg:#0e0e12;--surface:#1a1a24;--surface2:#22222e;--surface3:#2a2a38;
+    --border:rgba(255,255,255,0.07);--border-hi:rgba(255,255,255,0.14);
+    --red:#e8354a;--red-soft:rgba(232,53,74,0.15);
+    --green:#2ec97a;--green-soft:rgba(46,201,122,0.13);
+    --gold:#f5c842;--gold-soft:rgba(245,200,66,0.12);
+    --blue:#4b9eff;--blue-soft:rgba(75,158,255,0.12);
+    --text:#f0eff4;--text-2:#9896a8;--text-3:#5a5870;
+    --r-sm:8px;--r-md:14px;--r-lg:20px;--r-xl:28px;
+    --font-ui:'Nunito',sans-serif;--font-pixel:'Press Start 2P',monospace;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:var(--font-ui);font-size:15px;min-height:100vh;
+    background-image:radial-gradient(ellipse 80% 50% at 10% 0%,rgba(232,53,74,0.07) 0%,transparent 55%),radial-gradient(ellipse 80% 50% at 90% 0%,rgba(46,201,122,0.05) 0%,transparent 55%);}
+  ::-webkit-scrollbar{width:5px;}::-webkit-scrollbar-track{background:transparent;}::-webkit-scrollbar-thumb{background:var(--surface3);border-radius:99px;}
+
+  /* NAV */
+  .site-nav-wrap{background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;overflow:hidden;}
+  .site-nav{display:flex;align-items:center;padding:0 20px;height:52px;min-width:0;}
+  .nav-brand{font-family:var(--font-pixel);font-size:9px;color:var(--red);padding-right:18px;border-right:1px solid var(--border);margin-right:4px;flex-shrink:0;white-space:nowrap;}
+  .nav-links{display:flex;align-items:center;flex:1;min-width:0;overflow:hidden;flex-wrap:nowrap;}
+  .nav-links a{display:inline-flex;align-items:center;gap:5px;padding:0 11px;height:52px;color:var(--text-2);text-decoration:none;font-size:12px;font-weight:700;border-bottom:2px solid transparent;transition:all .2s;white-space:nowrap;flex-shrink:0;}
+  .nav-links a:hover{color:var(--text);background:rgba(255,255,255,0.04);}
+  .nav-links a.active{color:var(--gold);border-bottom-color:var(--gold);}
+  .nav-burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;padding:8px;margin-left:auto;background:none;border:none;cursor:pointer;border-radius:var(--r-sm);transition:background .2s;flex-shrink:0;}
+  .nav-burger:hover{background:rgba(255,255,255,0.06);}
+  .nav-burger span{display:block;height:2px;width:100%;background:var(--text-2);border-radius:2px;transition:all .3s;}
+  .nav-burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .nav-burger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+  .nav-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .nav-drawer{display:none;flex-direction:column;background:var(--surface);border-top:1px solid var(--border);padding:8px 0 12px;}
+  .nav-drawer.open{display:flex;}
+  .nav-drawer a{display:flex;align-items:center;gap:10px;padding:13px 24px;color:var(--text-2);text-decoration:none;font-size:14px;font-weight:700;transition:all .2s;border-left:3px solid transparent;}
+  .nav-drawer a:hover{color:var(--text);background:rgba(255,255,255,0.04);}
+  .nav-drawer a.active{color:var(--gold);border-left-color:var(--gold);background:rgba(245,200,66,0.08);}
+  @media(max-width:860px){.nav-links{display:none;}.nav-burger{display:flex;}}
+
+  /* HEADER */
+  header{background:var(--surface);border-bottom:1px solid var(--border);padding:40px 24px 32px;position:relative;overflow:hidden;}
+  header::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(232,53,74,0.07),transparent 50%,rgba(46,201,122,0.05) 100%);pointer-events:none;}
+  header::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(255,255,255,0.008) 3px,rgba(255,255,255,0.008) 4px);pointer-events:none;}
+  .header-inner{max-width:860px;margin:0 auto;position:relative;z-index:1;}
+  .breadcrumb{font-size:12px;color:var(--text-3);margin-bottom:12px;}
+  .breadcrumb a{color:var(--text-3);text-decoration:none;}
+  .breadcrumb a:hover{color:var(--text-2);}
+  header h1{font-family:var(--font-pixel);font-size:clamp(10px,2vw,14px);line-height:1.9;color:var(--text);margin-bottom:10px;}
+  .accent-red{color:var(--red);}.accent-green{color:var(--green);}.accent-gold{color:var(--gold);}
+  .header-desc{color:var(--text-2);font-size:15px;max-width:640px;line-height:1.6;}
+  .header-tags{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap;}
+  .htag{background:var(--surface2);border:1px solid var(--border);padding:4px 12px;border-radius:99px;font-size:12px;font-weight:700;color:var(--text-2);}
+
+  /* PAGE BODY */
+  .page-body{max-width:860px;margin:0 auto;padding:32px 24px 80px;}
+  .poke-section{margin-bottom:52px;}
+  .section-label{font-family:var(--font-pixel);font-size:9px;color:var(--text-3);letter-spacing:.1em;margin-bottom:14px;display:flex;align-items:center;gap:12px;}
+  .section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+  .section-label.red{color:var(--red);}.section-label.green{color:var(--green);}.section-label.gold{color:var(--gold);}
+  .section-h2{font-family:var(--font-pixel);font-size:11px;color:var(--text);margin-bottom:12px;line-height:1.8;letter-spacing:.04em;}
+  .section-intro{color:var(--text-2);font-size:15px;line-height:1.7;margin-bottom:18px;}
+  .page-divider{border:none;border-top:1px solid var(--border);margin:44px 0;}
+
+  /* TOC */
+  .toc{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-xl);padding:24px 28px;margin-bottom:36px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.06);}
+  .toc-title{font-family:var(--font-pixel);font-size:8px;color:var(--gold);letter-spacing:.08em;margin-bottom:14px;}
+  .toc ol{padding-left:20px;display:grid;gap:7px;}
+  .toc a{color:var(--text-2);text-decoration:none;font-size:14px;font-weight:600;transition:color .15s;}
+  .toc a:hover{color:var(--gold);}
+
+  /* ALERT BOXES */
+  .alert{border-radius:var(--r-md);padding:16px 20px;margin:16px 0;font-size:14px;line-height:1.6;display:flex;gap:12px;align-items:flex-start;}
+  .alert-icon{font-size:18px;flex-shrink:0;margin-top:1px;}
+  .alert p{flex:1;color:var(--text-2);}
+  .alert strong{display:block;margin-bottom:3px;}
+  .alert.warning{background:rgba(245,200,66,0.08);border:1px solid rgba(245,200,66,0.2);}
+  .alert.warning strong{color:var(--gold);}
+  .alert.danger{background:rgba(232,53,74,0.08);border:1px solid rgba(232,53,74,0.2);}
+  .alert.danger strong{color:var(--red);}
+  .alert.info{background:var(--green-soft);border:1px solid rgba(46,201,122,0.2);}
+  .alert.info strong{color:var(--green);}
+  .alert.tip{background:var(--blue-soft);border:1px solid rgba(75,158,255,0.2);}
+  .alert.tip strong{color:var(--blue);}
+
+  /* TYPE BADGES */
+  .type-badge{display:inline-block;font-size:10px;font-weight:800;padding:2px 9px;border-radius:99px;text-transform:uppercase;letter-spacing:.04em;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,0.4);}
+  .type-normal{background:#7a7a6e;}.type-fire{background:#e8652a;}.type-water{background:#4a82e0;}
+  .type-electric{background:#d4aa14;color:#1a1200;text-shadow:none;}.type-grass{background:#5aaa38;}
+  .type-ice{background:#5ac0c0;color:#0a2626;text-shadow:none;}.type-fighting{background:#c02820;}
+  .type-poison{background:#8830a0;}.type-ground{background:#c0a028;color:#1a1000;text-shadow:none;}
+  .type-flying{background:#7070d0;}.type-psychic{background:#e83870;}.type-bug{background:#889020;}
+  .type-rock{background:#a08820;}.type-ghost{background:#503870;}.type-dragon{background:#5020d0;}
+  .type-dark{background:#382818;}.type-steel{background:#8888a8;}
+
+  /* RULE CARDS */
+  .rule-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px;margin:16px 0;}
+  .rule-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:20px 22px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.04);transition:border-color .2s;}
+  .rule-card:hover{border-color:var(--border-hi);}
+  .rule-card.core{border-top:2px solid var(--red);}
+  .rule-card.optional{border-top:2px solid var(--green);}
+  .rule-label{font-family:var(--font-pixel);font-size:7px;letter-spacing:.08em;margin-bottom:8px;}
+  .rule-label.core{color:var(--red);}.rule-label.optional{color:var(--green);}
+  .rule-card h3{font-size:15px;font-weight:800;color:var(--text);margin-bottom:7px;}
+  .rule-card p{color:var(--text-2);font-size:14px;line-height:1.6;}
+
+  /* STARTER CARDS */
+  .starter-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:16px 0;}
+  @media(max-width:580px){.starter-grid{grid-template-columns:1fr;}}
+  .starter-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-xl);padding:22px 18px;text-align:center;transition:border-color .2s;}
+  .starter-card:hover{border-color:var(--border-hi);}
+  .starter-card img{width:80px;height:80px;image-rendering:pixelated;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.5));display:block;margin:0 auto 10px;}
+  .starter-name{font-family:var(--font-pixel);font-size:8px;color:var(--text);margin-bottom:8px;letter-spacing:.04em;}
+  .starter-types{display:inline-flex;gap:5px;flex-wrap:wrap;justify-content:center;margin-bottom:10px;}
+  .starter-verdict{display:inline-block;padding:4px 12px;border-radius:99px;font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;margin-bottom:10px;}
+  .verdict-easy{background:var(--green-soft);color:var(--green);border:1px solid rgba(46,201,122,0.3);}
+  .verdict-medium{background:var(--gold-soft);color:var(--gold);border:1px solid rgba(245,200,66,0.3);}
+  .verdict-hard{background:var(--red-soft);color:var(--red);border:1px solid rgba(232,53,74,0.3);}
+  .starter-card p{color:var(--text-2);font-size:13px;line-height:1.6;text-align:left;}
+
+  /* STEPS */
+  .steps{display:flex;flex-direction:column;gap:12px;margin:16px 0;}
+  .step{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:20px 22px;display:flex;gap:18px;align-items:flex-start;transition:border-color .2s;}
+  .step:hover{border-color:var(--border-hi);}
+  .step-icon{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;margin-top:2px;background:var(--surface2);border:1px solid var(--border);}
+  .step-content h3{font-size:15px;font-weight:800;color:var(--text);margin-bottom:6px;}
+  .step-content p{color:var(--text-2);font-size:14px;line-height:1.6;}
+  .step-tip{background:var(--surface2);border-left:3px solid var(--gold);border-radius:0 var(--r-sm) var(--r-sm) 0;padding:10px 14px;margin-top:10px;font-size:13px;color:var(--text-2);line-height:1.5;}
+  .step-tip strong{color:var(--gold);}
+  .step-tip.red-tip{border-left-color:var(--red);}
+  .step-tip.red-tip strong{color:var(--red);}
+  .step-tip.green-tip{border-left-color:var(--green);}
+  .step-tip.green-tip strong{color:var(--green);}
+
+  /* TABLE */
+  .table-wrap{overflow-x:auto;margin:16px 0;}
+  table{width:100%;border-collapse:collapse;font-size:14px;}
+  thead tr{background:var(--surface2);}
+  thead th{padding:10px 14px;text-align:left;font-family:var(--font-pixel);font-size:7px;color:var(--gold);letter-spacing:.06em;border-bottom:1px solid var(--border);}
+  tbody td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text-2);vertical-align:top;line-height:1.5;}
+  tbody td:first-child{color:var(--text);font-weight:700;}
+  tbody tr:hover td{background:rgba(255,255,255,0.02);}
+  .vtag{display:inline-block;font-size:10px;font-weight:800;padding:2px 7px;border-radius:99px;text-transform:uppercase;letter-spacing:.04em;}
+  .vtag-fr{background:var(--red-soft);color:var(--red);border:1px solid rgba(232,53,74,.3);}
+  .vtag-lg{background:var(--green-soft);color:var(--green);border:1px solid rgba(46,201,122,.3);}
+  .vtag-both{background:var(--gold-soft);color:var(--gold);border:1px solid rgba(245,200,66,.3);}
+  .vtag-gift{background:var(--blue-soft);color:var(--blue);border:1px solid rgba(75,158,255,.3);}
+  .priority-high{color:var(--red);font-weight:800;}
+  .priority-mid{color:var(--gold);}
+
+  /* GYM CARDS */
+  .gym-grid{display:flex;flex-direction:column;gap:12px;margin:16px 0;}
+  .gym-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:20px 22px;transition:border-color .2s;}
+  .gym-card:hover{border-color:var(--border-hi);}
+  .gym-header{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:10px;flex-wrap:wrap;}
+  .gym-name{font-family:var(--font-pixel);font-size:8px;color:var(--text);letter-spacing:.04em;}
+  .gym-loc{font-size:12px;font-weight:700;color:var(--text-3);}
+  .gym-types{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:8px;}
+  .gym-threat{background:var(--surface2);border-left:3px solid var(--red);border-radius:0 var(--r-sm) var(--r-sm) 0;padding:8px 12px;font-size:13px;color:var(--text-2);margin-bottom:6px;line-height:1.5;}
+  .gym-counter{background:var(--surface2);border-left:3px solid var(--green);border-radius:0 var(--r-sm) var(--r-sm) 0;padding:8px 12px;font-size:13px;color:var(--text-2);line-height:1.5;}
+  .gym-threat strong{color:var(--red);}.gym-counter strong{color:var(--green);}
+
+  /* E4 CARDS */
+  .e4-grid{display:flex;flex-direction:column;gap:12px;margin:16px 0;}
+  .e4-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:20px 22px;display:flex;gap:18px;align-items:flex-start;transition:border-color .2s;}
+  .e4-card:hover{border-color:var(--border-hi);}
+  .e4-num{font-family:var(--font-pixel);font-size:18px;color:var(--red);opacity:.25;flex-shrink:0;width:36px;line-height:1.1;}
+  .e4-card.champion .e4-num{color:var(--gold);}
+  .e4-content h3{font-size:15px;font-weight:800;color:var(--text);margin-bottom:6px;}
+  .e4-content p{color:var(--text-2);font-size:14px;line-height:1.6;}
+
+  /* MISTAKE CARDS */
+  .mistake-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px;margin:16px 0;}
+  .mistake-card{background:var(--surface);border:1px solid rgba(232,53,74,.18);border-radius:var(--r-lg);padding:20px 22px;transition:border-color .2s;}
+  .mistake-card:hover{border-color:rgba(232,53,74,.35);}
+  .mistake-label{font-family:var(--font-pixel);font-size:7px;color:var(--red);letter-spacing:.08em;margin-bottom:8px;}
+  .mistake-card h3{font-size:15px;font-weight:800;color:var(--text);margin-bottom:7px;}
+  .mistake-card p{color:var(--text-2);font-size:14px;line-height:1.6;}
+
+  /* DIFF CARDS */
+  .diff-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px;margin:16px 0;}
+  .diff-card{background:var(--surface);border:1px solid var(--border);border-top:2px solid var(--green);border-radius:var(--r-lg);padding:20px 22px;transition:border-color .2s;}
+  .diff-card:hover{border-color:rgba(46,201,122,.3);}
+  .diff-label{font-family:var(--font-pixel);font-size:7px;color:var(--green);letter-spacing:.08em;margin-bottom:8px;}
+  .diff-card h3{font-size:15px;font-weight:800;color:var(--text);margin-bottom:7px;}
+  .diff-card p{color:var(--text-2);font-size:14px;line-height:1.6;}
+
+  /* RELATED LINKS */
+  .related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:12px;margin:16px 0;}
+  .related-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:18px 20px;text-decoration:none;transition:all .2s;display:block;}
+  .related-card:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.3);}
+  .related-label{font-family:var(--font-pixel);font-size:7px;color:var(--text-3);letter-spacing:.08em;margin-bottom:7px;}
+  .related-card h3{font-size:14px;font-weight:800;color:var(--gold);margin-bottom:5px;}
+  .related-card p{color:var(--text-2);font-size:13px;line-height:1.5;}
+
+  @media(max-width:600px){
+    .rule-grid,.mistake-grid,.diff-grid,.related-grid{grid-template-columns:1fr;}
+    header h1{font-size:10px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<div class="site-nav-wrap">
+  <nav class="site-nav">
+    <span class="nav-brand">FR/LG</span>
+    <div class="nav-links">
+      <a href="index.html">&#x1F3E0; Team Builder</a>
+      <a href="rare-pokemon.html">&#x2B50; Rare Pok&eacute;mon</a>
+      <a href="fossil-pokemon.html">&#x1F995; Fossils</a>
+      <a href="legendary-birds.html">&#x1F985; Legendary Birds</a>
+      <a href="legendary-dogs.html">&#x1F43E; Legendary Dogs</a>
+      <a href="ho-oh-lugia.html">&#x1F31F; Ho-Oh &amp; Lugia</a>
+      <a href="mew-mewtwo.html">&#x1F9EC; Mew &amp; Mewtwo</a>
+    </div>
+    <button class="nav-burger" id="navBurger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-drawer" id="navDrawer">
+    <a href="index.html">&#x1F3E0; Team Builder</a>
+    <a href="rare-pokemon.html">&#x2B50; Rare Pok&eacute;mon</a>
+    <a href="fossil-pokemon.html">&#x1F995; Fossils</a>
+    <a href="legendary-birds.html">&#x1F985; Legendary Birds</a>
+    <a href="legendary-dogs.html">&#x1F43E; Legendary Dogs</a>
+    <a href="ho-oh-lugia.html">&#x1F31F; Ho-Oh &amp; Lugia</a>
+    <a href="mew-mewtwo.html">&#x1F9EC; Mew &amp; Mewtwo</a>
+  </div>
+</div>
+<script>
+  (function(){
+    var b=document.getElementById('navBurger'),d=document.getElementById('navDrawer');
+    if(b&&d){b.addEventListener('click',function(){b.classList.toggle('open');d.classList.toggle('open');});
+    d.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){b.classList.remove('open');d.classList.remove('open');});});}
+  })();
+</script>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="breadcrumb"><a href="index.html">FR/LG Team Builder</a> › Nuzlocke Guide</div>
+    <h1><span class="accent-red">FIRE RED</span> &amp; <span class="accent-green">LEAF GREEN</span><br>NUZLOCKE TIPS &amp; <span class="accent-gold">SURVIVAL GUIDE</span></h1>
+    <p class="header-desc">Everything you need to survive Kanto's toughest challenge mode — from your first encounter to the Elite Four. Written for beginners and returning players alike.</p>
+    <div class="header-tags">
+      <span class="htag">🔴 Fire Red</span>
+      <span class="htag">🟢 Leaf Green</span>
+      <span class="htag">All Difficulties</span>
+      <span class="htag">Updated 2025</span>
+    </div>
+  </div>
+</header>
+
+<div class="page-body">
+
+  <!-- TOC -->
+  <div class="toc">
+    <div class="toc-title">📋 TABLE OF CONTENTS</div>
+    <ol>
+      <li><a href="#rules">What Is a Nuzlocke? (Core Rules)</a></li>
+      <li><a href="#starter">Choosing Your Starter</a></li>
+      <li><a href="#core-tips">8 Core Survival Tips</a></li>
+      <li><a href="#best-catches">Best Catches by Route</a></li>
+      <li><a href="#gyms">Gym-by-Gym Strategy</a></li>
+      <li><a href="#elite-four">Elite Four &amp; Champion Survival Guide</a></li>
+      <li><a href="#leafgreen">LeafGreen Differences That Matter</a></li>
+      <li><a href="#mistakes">Common Mistakes That Kill Runs</a></li>
+    </ol>
+  </div>
+
+  <!-- RULES -->
+  <div class="poke-section" id="rules">
+    <div class="section-label red">📜 THE RULES</div>
+    <h2 class="section-h2">WHAT IS A NUZLOCKE?</h2>
+    <p class="section-intro">A Nuzlocke transforms FireRed and LeafGreen from a breezy RPG into a genuinely tense experience. There are two core rules almost everyone plays with, plus several popular add-ons that deepen the challenge.</p>
+    <div class="rule-grid">
+      <div class="rule-card core">
+        <div class="rule-label core">CORE RULE #1</div>
+        <h3>First Encounter Only</h3>
+        <p>You may only catch the <strong style="color:var(--text)">first wild Pokémon you encounter</strong> on each new route or area. If you faint it, miss the catch, or it runs — that slot is gone forever. No second chances.</p>
+      </div>
+      <div class="rule-card core">
+        <div class="rule-label core">CORE RULE #2</div>
+        <h3>Permadeath</h3>
+        <p>Any Pokémon that faints is considered <strong style="color:var(--text)">dead</strong>. You must release it or permanently box it. Most players also nickname every Pokémon to raise the emotional stakes.</p>
+      </div>
+      <div class="rule-card optional">
+        <div class="rule-label optional">OPTIONAL — RECOMMENDED</div>
+        <h3>Dupes Clause</h3>
+        <p>If your first encounter is a species you already have, you may skip it and attempt the next different species. Strongly recommended for FireRed/LeafGreen, which have many repeated encounters across routes.</p>
+      </div>
+      <div class="rule-card optional">
+        <div class="rule-label optional">OPTIONAL</div>
+        <h3>Shiny Clause</h3>
+        <p>If a shiny Pokémon appears as any encounter, you may catch it regardless of the Dupes Clause. Most players allow this as a reward for luck. Perfectly reasonable to include in any run.</p>
+      </div>
+      <div class="rule-card optional">
+        <div class="rule-label optional">OPTIONAL — HARDER</div>
+        <h3>Species Clause</h3>
+        <p>You cannot have two Pokémon of the same species on your team at any time. Pair with Dupes Clause for a cleaner experience. Doesn't add much difficulty but keeps team variety high.</p>
+      </div>
+      <div class="rule-card optional">
+        <div class="rule-label optional">OPTIONAL — VERY HARD</div>
+        <h3>No Items in Battle</h3>
+        <p>Bans Potions, Revives and Berries during battles. Dramatically increases difficulty. Only recommended for experienced Nuzlockers — FireRed/LeafGreen is already a meaningful challenge without it.</p>
+      </div>
+    </div>
+    <div class="alert info">
+      <span class="alert-icon">💡</span>
+      <p><strong>New to Nuzlockes?</strong> Start with the two core rules plus Dupes Clause. A vanilla FireRed Nuzlocke is already a real challenge — you don't need extra restrictions on your first run.</p>
+    </div>
+  </div>
+
+  <hr class="page-divider">
+
+  <!-- STARTER -->
+  <div class="poke-section" id="starter">
+    <div class="section-label red">🔥 STARTER CHOICE</div>
+    <h2 class="section-h2">CHOOSING YOUR STARTER</h2>
+    <p class="section-intro">Your starter matters more in a Nuzlocke than in a normal run. You can't grind out of type disadvantages — one bad matchup and your starter is gone. Here's how each fares across the full game.</p>
+    <div class="starter-grid">
+      <div class="starter-card">
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png" alt="Squirtle">
+        <div class="starter-name">SQUIRTLE</div>
+        <div class="starter-types"><span class="type-badge type-water">Water</span></div>
+        <div class="starter-verdict verdict-easy">Recommended</div>
+        <p>The consensus best Nuzlocke starter. Handles Brock easily, has strong defensive bulk, and Blastoise is an excellent late-game wall. No truly terrible matchups and reliable Surf coverage into the Elite Four.</p>
+      </div>
+      <div class="starter-card">
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png" alt="Bulbasaur">
+        <div class="starter-name">BULBASAUR</div>
+        <div class="starter-types"><span class="type-badge type-grass">Grass</span><span class="type-badge type-poison">Poison</span></div>
+        <div class="starter-verdict verdict-medium">Situational</div>
+        <p>Dominates the first two gyms but faces serious mid-game problems — Surge, Erika, Koga, and Blaine all resist Grass. Sleep Powder is powerful but accuracy-dependent, which is risky when a missed turn can cost a life.</p>
+      </div>
+      <div class="starter-card">
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png" alt="Charmander">
+        <div class="starter-name">CHARMANDER</div>
+        <div class="starter-types"><span class="type-badge type-fire">Fire</span></div>
+        <div class="starter-verdict verdict-hard">Hard Mode</div>
+        <p>Powerful and beloved, but the early game is brutal — Brock and Misty are both tough matchups. Charizard is one of the best late-game Nuzlocke carries. Recommended for experienced players only.</p>
+      </div>
+    </div>
+    <div class="alert warning">
+      <span class="alert-icon">⚠️</span>
+      <p><strong>Charmander warning:</strong> Brock's Onix spams Bind — which deals damage ticks every turn and can chip a low-HP Charmander to death before you can escape. Grab a Mankey from Route 22 before Pewter City. Low Kick is super effective against Rock types.</p>
+    </div>
+  </div>
+
+  <hr class="page-divider">
+
+  <!-- CORE TIPS -->
+  <div class="poke-section" id="core-tips">
+    <div class="section-label gold">🧠 SURVIVAL TIPS</div>
+    <h2 class="section-h2">8 CORE NUZLOCKE SURVIVAL TIPS</h2>
+    <p class="section-intro">These fundamentals separate successful Nuzlocke runs from early wipeouts. Master these before worrying about specific team composition.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-icon">💊</div>
+        <div class="step-content">
+          <h3>Never Fight at Low HP</h3>
+          <p>The single biggest mistake Nuzlockers make. Always heal at a Pokémon Center before taking on trainers, gym leaders, or wild encounters in caves. Centers are free — there's no excuse for entering a battle below 50% HP.</p>
+          <div class="step-tip"><strong>Rule of thumb:</strong> If any party member is below 40% HP, heal before the next trainer. Critical hits in Gen 3 are far more common than players expect.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-icon">🧪</div>
+        <div class="step-content">
+          <h3>Stock Antidotes and Paralyze Heals</h3>
+          <p>Status conditions are surprisingly deadly. A paralyzed Pokémon can fail to move and get KO'd before you act. Poison drains HP between battles and can kill party members while you navigate a cave. Always carry status cures.</p>
+          <div class="step-tip red-tip"><strong>Cave warning:</strong> Zubat spam Supersonic (confusion) and Leech Life in Mt. Moon and Rock Tunnel. Confusion can cause you to hit yourself for full damage — stock Full Heals before entering any cave.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-icon">🎯</div>
+        <div class="step-content">
+          <h3>Diversify Your Types Early</h3>
+          <p>Aim for at least 5 different types by Cerulean City. FireRed/LeafGreen's gym leaders heavily punish mono-type teams. If two Pokémon of the same type die in one gym battle, your entire strategy can collapse.</p>
+          <div class="step-tip green-tip"><strong>Priority types to fill:</strong> Water, Ground, Psychic or Ghost, Electric or Flying. These cover almost every gym and the entire Elite Four between them.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-icon">🔄</div>
+        <div class="step-content">
+          <h3>Use the Switch Method Against Gym Leaders</h3>
+          <p>Send out a Pokémon you're willing to sacrifice, then immediately switch to your actual counter. The gym leader's AI won't respond to the switch — so you get a free attack turn after their first move. Especially useful against Surge, Sabrina, and Koga.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-icon">🔇</div>
+        <div class="step-content">
+          <h3>Always Carry Repels Through Caves</h3>
+          <p>Once you've secured your encounter for an area, use Repels to navigate Mt. Moon, Rock Tunnel, and Victory Road. Random encounters are where Nuzlocke runs silently bleed HP and status without meaningful progress.</p>
+          <div class="step-tip"><strong>Economy tip:</strong> Repels cost 350 Pokédollars. Fighting every trainer along the way gives you more than enough money to keep 10+ in stock at all times.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-icon">⚖️</div>
+        <div class="step-content">
+          <h3>Train Evenly — Don't Hyper-Focus One Pokémon</h3>
+          <p>It's tempting to pour all EXP into your starter. But an under-leveled bench is a liability. If your starter dies and your backup is 10 levels behind the area's trainers, your run is effectively over. Rotate your party during grinding sessions.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-icon">💰</div>
+        <div class="step-content">
+          <h3>Fight Every Single Trainer</h3>
+          <p>Trainer battles give consistent EXP and prize money. Skipping trainers to "save PP" almost always ends in disaster — you arrive at a boss under-leveled with nothing in reserve. Trainers can't permanently kill your Pokémon if you go in prepared.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-icon">📈</div>
+        <div class="step-content">
+          <h3>Over-Level Before Every Major Battle</h3>
+          <p>Aim to be at least 5 levels above the highest-level Pokémon in any upcoming major battle. Before the Elite Four, grind until your team averages level 55–58. It feels slow — but it's the difference between a clean run and watching your team swept by Lance's Dragonite.</p>
+          <div class="step-tip green-tip"><strong>Elite Four target levels:</strong> Everyone at 55+ minimum, with your strongest Pokémon at 58–60. Lance's three Dragonites are all level 50+ and hit extremely hard.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="page-divider">
+
+  <!-- BEST CATCHES -->
+  <div class="poke-section" id="best-catches">
+    <div class="section-label gold">🎣 ENCOUNTER GUIDE</div>
+    <h2 class="section-h2">BEST CATCHES BY ROUTE</h2>
+    <p class="section-intro">You only get one shot per area — knowing which Pokémon appear where, and which ones are most impactful, is critical Nuzlocke planning.</p>
+    <div class="alert tip">
+      <span class="alert-icon">💡</span>
+      <p><strong>Dupes Clause reminder:</strong> With Dupes Clause active, if your first encounter is a species you already have, you may attempt the next different encounter. Early Rattata and Pidgey are common "wasted" first encounters on many routes — plan routes ahead of time.</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Location</th><th>Best Catch</th><th>Why It's Valuable</th><th>Version</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Route 1</td><td>Pidgey</td><td>Evolves into Pidgeot — reliable HM slave and Normal/Flying attacker throughout the mid-game</td><td><span class="vtag vtag-both">Both</span></td></tr>
+          <tr><td>Route 22</td><td><span class="priority-high">Mankey ★</span></td><td>Fighting-type counter to Brock's Rock types. Essential if you chose Charmander. Primeape carries through mid-game</td><td><span class="vtag vtag-both">Both</span></td></tr>
+          <tr><td>Mt. Moon</td><td><span class="priority-mid">Clefairy</span></td><td>High Sp.Def, diverse TM moveset, and Minimize can buy crucial turns against hard opponents</td><td><span class="vtag vtag-both">Both</span></td></tr>
+          <tr><td>Routes 24–25</td><td><span class="priority-high">Abra ★</span></td><td>Kadabra is one of the best mid-game Pokémon — extremely fast, hits hard with Psychic, covers Fighting/Poison</td><td><span class="vtag vtag-both">Both</span></td></tr>
+          <tr><td>Diglett's Cave</td><td><span class="priority-high">Diglett / Dugtrio ★</span></td><td>Ground-type immunity to Electric completely counters Lt. Surge. Dugtrio's Arena Trap and high Speed make it a reliable revenge killer</td><td><span class="vtag vtag-both">Both</span></td></tr>
+          <tr><td>Rock Tunnel</td><td><span class="priority-mid">Machop</span></td><td>Fighting coverage is invaluable vs. Surge, Giovanni, and Lorelei. Machoke is a solid mid-game workhorse. No trading required</td><td><span class="vtag vtag-both">Both</span></td></tr>
+          <tr><td>Safari Zone</td><td><span class="priority-mid">Nidoran / Chansey</span></td><td>Nidoking/Nidoqueen learn a huge range of TMs and cover many types. Chansey is a monster HP wall</td><td><span class="vtag vtag-both">Both</span></td></tr>
+          <tr><td>Pokémon Tower</td><td><span class="priority-mid">Gastly</span></td><td>Ghost/Poison typing with Levitate — immune to Normal, Fighting, and Ground. Haunter handles Sabrina cleanly</td><td><span class="vtag vtag-both">Both</span></td></tr>
+          <tr><td>Silph Co. 7F</td><td><span class="priority-high">Lapras (Gift) ★</span></td><td>Free guaranteed catch from an NPC. Water/Ice with natural Surf + Ice Beam is the single best Elite Four carry in the game</td><td><span class="vtag vtag-gift">Gift</span></td></tr>
+          <tr><td>Seafoam Islands</td><td>Seel</td><td>Dewgong provides Water/Ice coverage if you missed Lapras. Solid backup, not a replacement</td><td><span class="vtag vtag-both">Both</span></td></tr>
+          <tr><td>Victory Road</td><td>Machoke / Geodude</td><td>If you're missing a Rock-type, a Geodude here provides coverage for Lance's Aerodactyl</td><td><span class="vtag vtag-both">Both</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="alert danger">
+      <span class="alert-icon">☠️</span>
+      <p><strong>Safari Zone note:</strong> Nuzlocke rules get complicated here since you can't battle wild Pokémon. Most players agree you get one Safari Zone encounter — use your best bait/ball strategy and accept the outcome. The zone still counts as a single area for Dupes Clause.</p>
+    </div>
+  </div>
+
+  <hr class="page-divider">
+
+  <!-- GYMS -->
+  <div class="poke-section" id="gyms">
+    <div class="section-label red">🏅 GYM GUIDE</div>
+    <h2 class="section-h2">GYM-BY-GYM STRATEGY</h2>
+    <p class="section-intro">Each gym has at least one dangerous trap for underprepared Nuzlockers. Here's what to watch out for and how to handle each one safely.</p>
+    <div class="gym-grid">
+
+      <div class="gym-card">
+        <div class="gym-header">
+          <div><div class="gym-name">BROCK — GYM 1</div><div class="gym-loc">Pewter City</div></div>
+          <div class="gym-types"><span class="type-badge type-rock">Rock</span><span class="type-badge type-ground">Ground</span></div>
+        </div>
+        <div class="gym-threat"><strong>Threat:</strong> Onix's Bind traps and deals damage ticks every turn — can chip a low-HP Charmander to death before you can escape or heal.</div>
+        <div class="gym-counter"><strong>Counter:</strong> Squirtle and Bulbasaur have easy type advantages. Charmander players must grab Mankey from Route 22 first — Low Kick is super effective against Rock types.</div>
+      </div>
+
+      <div class="gym-card">
+        <div class="gym-header">
+          <div><div class="gym-name">MISTY — GYM 2</div><div class="gym-loc">Cerulean City</div></div>
+          <div class="gym-types"><span class="type-badge type-water">Water</span><span class="type-badge type-psychic">Psychic</span></div>
+        </div>
+        <div class="gym-threat"><strong>Threat:</strong> Starmie has high Special Attack and Speed. Swift never misses. More Nuzlocke runs end here than players expect — Misty is consistently underestimated.</div>
+        <div class="gym-counter"><strong>Counter:</strong> Electric or Grass types. Pikachu from Viridian Forest or Oddish/Bellsprout from Routes 5–7. Never send in a Fire-type Pokémon against this gym.</div>
+      </div>
+
+      <div class="gym-card">
+        <div class="gym-header">
+          <div><div class="gym-name">LT. SURGE — GYM 3</div><div class="gym-loc">Vermilion City</div></div>
+          <div class="gym-types"><span class="type-badge type-electric">Electric</span></div>
+        </div>
+        <div class="gym-threat"><strong>Threat:</strong> Raichu's Thunderbolt hits extremely hard and can one-shot or two-shot most unprepared teams. Thunder Wave causes paralysis which can end your turn and get you KO'd before acting.</div>
+        <div class="gym-counter"><strong>Counter:</strong> Diglett's Cave is right next to Vermilion — a Diglett counters Surge completely. Ground-types are immune to Electric. Dugtrio's Arena Trap means Raichu can't switch out.</div>
+      </div>
+
+      <div class="gym-card">
+        <div class="gym-header">
+          <div><div class="gym-name">ERIKA — GYM 4</div><div class="gym-loc">Celadon City</div></div>
+          <div class="gym-types"><span class="type-badge type-grass">Grass</span><span class="type-badge type-poison">Poison</span></div>
+        </div>
+        <div class="gym-threat"><strong>Threat:</strong> Sleep Powder from Vileplume. Being put to sleep in a Nuzlocke is almost as dangerous as being hit — you lose turns and can be KO'd before waking up.</div>
+        <div class="gym-counter"><strong>Counter:</strong> Fire or Ice types. Growlithe (FR, Routes 7–8) or Vulpix (LG) is perfect here. Arcanine destroys this gym. Stock Full Heals specifically to cure sleep instantly.</div>
+      </div>
+
+      <div class="gym-card">
+        <div class="gym-header">
+          <div><div class="gym-name">KOGA — GYM 5</div><div class="gym-loc">Fuchsia City</div></div>
+          <div class="gym-types"><span class="type-badge type-poison">Poison</span></div>
+        </div>
+        <div class="gym-threat"><strong>Threat:</strong> Smokescreen + Toxic stalling. Koga's team reduces your Accuracy, poisons your Pokémon, then waits for the damage to drain you to zero.</div>
+        <div class="gym-counter"><strong>Counter:</strong> Psychic-types (Kadabra, Haunter) deal super effective damage before Koga can set up. Bring Antidotes and Full Heals. Ground moves from Nidoking or Dugtrio also work cleanly.</div>
+      </div>
+
+      <div class="gym-card">
+        <div class="gym-header">
+          <div><div class="gym-name">SABRINA — GYM 6</div><div class="gym-loc">Saffron City</div></div>
+          <div class="gym-types"><span class="type-badge type-psychic">Psychic</span></div>
+        </div>
+        <div class="gym-threat"><strong>Threat:</strong> The single most dangerous gym in the game for a Nuzlocke. Alakazam outspeeds almost everything and Psychic hits for massive damage. Many runs end here.</div>
+        <div class="gym-counter"><strong>Counter:</strong> Ghost-types are immune to Psychic in Gen 3. Haunter from Pokémon Tower is the best answer. Shadow Ball (TM30) is also available by this point. Parasect's Bug moves are also super effective.</div>
+      </div>
+
+      <div class="gym-card">
+        <div class="gym-header">
+          <div><div class="gym-name">BLAINE — GYM 7</div><div class="gym-loc">Cinnabar Island</div></div>
+          <div class="gym-types"><span class="type-badge type-fire">Fire</span></div>
+        </div>
+        <div class="gym-threat"><strong>Threat:</strong> Fire Blast has a burn chance and Arcanine is surprisingly fast. Intimidate lowers your Attack stat on switch-in — watch for this if sending in a physical attacker.</div>
+        <div class="gym-counter"><strong>Counter:</strong> Water-types you've built up by now. Lapras with Surf makes this gym trivial. Send in Special Attackers to avoid Intimidate's Attack drop.</div>
+      </div>
+
+      <div class="gym-card">
+        <div class="gym-header">
+          <div><div class="gym-name">GIOVANNI — GYM 8</div><div class="gym-loc">Viridian City</div></div>
+          <div class="gym-types"><span class="type-badge type-ground">Ground</span><span class="type-badge type-rock">Rock</span></div>
+        </div>
+        <div class="gym-threat"><strong>Threat:</strong> Rhyhorn and Rhydon tank hits and Earthquake will OHKO unprepared Pokémon. Don't bring Electric, Fire, or Poison types — they're useless or weak here.</div>
+        <div class="gym-counter"><strong>Counter:</strong> Water and Grass are both super effective on Ground. Ice Beam from Lapras handles Rhydon cleanly. Bring Special Attackers — Rhydon has high Defense but lower Special Defense.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <hr class="page-divider">
+
+  <!-- ELITE FOUR -->
+  <div class="poke-section" id="elite-four">
+    <div class="section-label red">🏆 ELITE FOUR</div>
+    <h2 class="section-h2">ELITE FOUR &amp; CHAMPION SURVIVAL</h2>
+    <p class="section-intro">The Elite Four in a Nuzlocke is where most runs end. You must clear all five battles back-to-back without returning to a Pokémon Center — your item bag is your only resource between fights.</p>
+    <div class="alert warning">
+      <span class="alert-icon">⚠️</span>
+      <p><strong>Critical prep before entering:</strong> Stock at least 20 Full Restores, 15 Hyper Potions, 10 Full Heals, and 5 Revives. Running out of healing items mid-run is the single most common cause of Elite Four wipeouts. The cost is worth every Pokédollar.</p>
+    </div>
+    <div class="e4-grid">
+      <div class="e4-card">
+        <div class="e4-num">1</div>
+        <div class="e4-content">
+          <h3>Lorelei — Ice / Water</h3>
+          <p>Lead with Electric types against Dewgong and Lapras. Keep at least one strong Grass or Fighting move for Cloyster. Never let Slowbro use Amnesia more than once — it becomes nearly unkillable. Watch for Jynx's Lovely Kiss (sleep) — budget several Full Heals just for this fight.</p>
+        </div>
+      </div>
+      <div class="e4-card">
+        <div class="e4-num">2</div>
+        <div class="e4-content">
+          <h3>Bruno — Fighting / Rock</h3>
+          <p>Psychic and Flying types destroy Bruno. Lead with Kadabra, sweep the Hitmons, then Psychic through Machamp before it can land Dynamic Punch (guaranteed confusion on hit). His two Onix are weak to Water — clean them with Surf. Usually the easiest Elite Four member for a prepared team.</p>
+        </div>
+      </div>
+      <div class="e4-card">
+        <div class="e4-num">3</div>
+        <div class="e4-content">
+          <h3>Agatha — Ghost / Poison</h3>
+          <p>Confuse Ray + Hypnosis across her team means you could spend entire turns hurting yourself or sleeping. Bring Full Heals to cure status immediately. Shadow Ball handles Gengar cleanly. Budget several Full Heals specifically for Agatha — she's the run's biggest RNG threat after Lorelei's Jynx.</p>
+        </div>
+      </div>
+      <div class="e4-card">
+        <div class="e4-num">4</div>
+        <div class="e4-content">
+          <h3>Lance — Dragon / Flying</h3>
+          <p>Ice Beam is mandatory. Three Dragonites all have Hyper Beam, Blizzard, and Thunder — they can hit most types for neutral or super effective damage. Lapras with Ice Beam sweeps Lance's entire team. Do not fight Lance without Ice coverage — it's the single biggest preparation mistake Nuzlockers make.</p>
+        </div>
+      </div>
+      <div class="e4-card champion">
+        <div class="e4-num">5</div>
+        <div class="e4-content">
+          <h3>Gary — Champion</h3>
+          <p>His team is built around your starter counter. He always has Alakazam and Rhydon — bring Ground moves for Rhydon and Ghost/Dark for Alakazam. His starter's final evolution hits hard, so lead with your type counter. Exeggutor's Sleep Powder can catch unprepared teams off guard. Use the Switch Method here — sacrifice a lead and bring in your counter for a free turn.</p>
+          <div class="step-tip green-tip"><strong>Ideal Elite Four team:</strong> Lapras (Surf + Ice Beam), Kadabra or Haunter (Psychic/Shadow Ball), Nidoking (Earthquake + Thunderbolt), Arcanine or Charizard (Fire Blast), a Ground or Rock type, and a flexible sixth slot. This covers every major threat.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="page-divider">
+
+  <!-- LEAFGREEN DIFFS -->
+  <div class="poke-section" id="leafgreen">
+    <div class="section-label green">🌿 VERSION DIFFERENCES</div>
+    <h2 class="section-h2">LEAFGREEN DIFFERENCES THAT MATTER</h2>
+    <p class="section-intro">FireRed and LeafGreen are nearly identical for Nuzlocke purposes, but a few key version differences can significantly change your team-building strategy.</p>
+    <div class="diff-grid">
+      <div class="diff-card">
+        <div class="diff-label">VERSION EXCLUSIVE</div>
+        <h3>Scyther (FR) vs. Pinsir (LG)</h3>
+        <p>FireRed gets Scyther from the Game Corner (5500 coins), LeafGreen gets Pinsir (2500 coins). Scyther's higher Speed and excellent Attack generally make it the better Nuzlocke pick. LeafGreen players should compensate with another fast physical attacker like Dodrio.</p>
+      </div>
+      <div class="diff-card">
+        <div class="diff-label">VERSION EXCLUSIVE</div>
+        <h3>Staryu (LG) vs. Shellder (FR)</h3>
+        <p>LeafGreen gets Staryu at Seafoam Islands fishing. Starmie (Water/Psychic) is one of the best Pokémon in the game for a Nuzlocke — handles Erika, Koga, Lorelei, and Bruno. FireRed players get Shellder (→ Cloyster), which is defensively strong but offensively limited.</p>
+      </div>
+      <div class="diff-card">
+        <div class="diff-label">VERSION EXCLUSIVE</div>
+        <h3>Sandshrew (LG) vs. Ekans (FR)</h3>
+        <p>LeafGreen finds Sandshrew on Routes 4, 8, 9, 10. Sandslash's high Defense and Slash (high critical hit rate) make it an underrated Nuzlocke Pokémon in LeafGreen. FireRed gets Ekans in the same slots — Arbok is weaker overall. Sandslash can fill your Ground-type slot cleanly.</p>
+      </div>
+      <div class="diff-card">
+        <div class="diff-label">SHARED LIMITATION</div>
+        <h3>Trade Evolutions Are Unavailable Solo</h3>
+        <p>Both versions require trading to evolve Kadabra, Haunter, Graveler, etc. Most Nuzlockers treat Kadabra and Haunter as legal final forms — they're still powerhouses without evolution. Don't skip them just because you can't trade. Haunter is excellent for Sabrina in particular.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="page-divider">
+
+  <!-- MISTAKES -->
+  <div class="poke-section" id="mistakes">
+    <div class="section-label red">💀 COMMON MISTAKES</div>
+    <h2 class="section-h2">COMMON MISTAKES THAT KILL RUNS</h2>
+    <p class="section-intro">Every Nuzlocke veteran has a graveyard of runs that ended for avoidable reasons. These are the most common traps specific to FireRed and LeafGreen.</p>
+    <div class="mistake-grid">
+      <div class="mistake-card">
+        <div class="mistake-label">☠️ RUN KILLER</div>
+        <h3>Entering Rock Tunnel Without Flash</h3>
+        <p>Without Flash, Rock Tunnel is pitch black — your Accuracy drops from enemy Smokescreen stacking while you navigate blind. Get Flash from Prof. Oak's Aide in Pewter City (requires catching only 10 Pokémon). It's worth the small detour.</p>
+      </div>
+      <div class="mistake-card">
+        <div class="mistake-label">☠️ RUN KILLER</div>
+        <h3>Forgetting Critical Hit Rates</h3>
+        <p>Gen 3 gives high crit rates to fast moves like Slash and Karate Chop. Never assume a Pokémon is safe because it's at half HP against a fast attacker. Keep all party members above 40% HP as a minimum safety buffer.</p>
+      </div>
+      <div class="mistake-card">
+        <div class="mistake-label">☠️ RUN KILLER</div>
+        <h3>Rushing Pokémon Tower Without a Silph Scope</h3>
+        <p>Without the Silph Scope you can't properly battle Ghost-type Pokémon. Haunter's Hypnosis + Dream Eater drains HP while you sleep — with no way to fight back. Get the Silph Scope from Team Rocket HQ in Celadon City before entering Pokémon Tower.</p>
+      </div>
+      <div class="mistake-card">
+        <div class="mistake-label">☠️ RUN KILLER</div>
+        <h3>Rushing Through Silph Co.</h3>
+        <p>Many players rush to get the free Lapras but enter under-leveled. Fight every Rocket grunt in Silph Co. — the EXP is substantial and the prize money is invaluable for restocking before the remaining gyms and the Elite Four.</p>
+      </div>
+      <div class="mistake-card">
+        <div class="mistake-label">☠️ RUN KILLER</div>
+        <h3>Missing the Lapras Gift</h3>
+        <p>The free Lapras on Silph Co. 7F is arguably the most valuable single item in a FireRed/LeafGreen Nuzlocke. It's a guaranteed catch and Lapras with Ice Beam makes Lance trivial. Don't miss it — it's given by an NPC after clearing Team Rocket from the building.</p>
+      </div>
+      <div class="mistake-card">
+        <div class="mistake-label">☠️ RUN KILLER</div>
+        <h3>Entering the Elite Four Under Level 52</h3>
+        <p>Even veterans underestimate how fast Lance's Dragonites sweep an under-leveled party. Do not enter the Elite Four unless your full team average is above level 52 — ideally 55–58. Grinding is slow, but it's the most reliable way to secure a clean run ending.</p>
+      </div>
+    </div>
+    <div class="alert info">
+      <span class="alert-icon">🎮</span>
+      <p><strong>Good luck with your run!</strong> FireRed and LeafGreen are genuinely great Nuzlocke games — varied enough to keep every run interesting, familiar enough that you can plan ahead. Kanto rewards preparation and punishes carelessness. That's exactly what a good Nuzlocke should feel like.</p>
+    </div>
+  </div>
+
+  <hr class="page-divider">
+
+  <!-- RELATED GUIDES -->
+  <div class="poke-section">
+    <div class="section-label gold">🔗 RELATED GUIDES</div>
+    <div class="related-grid">
+      <a href="best-pokemon-team-fire-red.html" class="related-card">
+        <div class="related-label">TEAM BUILDING</div>
+        <h3>Best Pokémon Teams for FireRed →</h3>
+        <p>For a standard (non-Nuzlocke) playthrough, check out our guide on the strongest teams — six pre-built options with full explanations and catch locations.</p>
+      </a>
+      <a href="rare-pokemon.html" class="related-card">
+        <div class="related-label">CATCHING</div>
+        <h3>Rare Pokémon Locations →</h3>
+        <p>Know where every rare encounter spawns — essential prep for planning your Nuzlocke route catches before you start your run.</p>
+      </a>
+      <a href="legendary-birds.html" class="related-card">
+        <div class="related-label">LEGENDARIES</div>
+        <h3>Legendary Birds Guide →</h3>
+        <p>Zapdos, Articuno, and Moltres — how to find and catch them, and whether they're worth adding to a Nuzlocke team.</p>
+      </a>
+      <a href="mew-mewtwo.html" class="related-card">
+        <div class="related-label">LEGENDARIES</div>
+        <h3>Mew &amp; Mewtwo Guide →</h3>
+        <p>How to get Mewtwo from Cerulean Cave post-game, and whether bringing a level 70 legendary into a Nuzlocke fits the spirit of the challenge.</p>
+      </a>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
