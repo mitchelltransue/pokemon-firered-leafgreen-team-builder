@@ -1,0 +1,5 @@
+# GitHub Pages configuration
+# Ensures XML files including sitemap.xml are served correctly
+
+include:
+  - sitemap.xml
